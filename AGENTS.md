@@ -45,7 +45,7 @@ Backend has generated Quarkus/JUnit and REST Assured example tests, including a 
 
 ## Commit & Pull Request Guidelines
 
-Remote: `git@github.com:devbryan02/quarkus-oit.git`. Follow [Gitflow rules](knowledge/rules/01-gitflow.md): work on `feature/<functionality>` branches based on current `develop`, notify the owner before every push, and publish only the working branch. Integration is always through an MR/PR targeting `develop`, accepted by the owner. Do not commit directly to `develop`/`main`, push directly to those branches, self-approve, merge or enable auto-merge. Promotion to `main` requires a later explicit owner instruction once the product works and its validations are complete. Use concise, imperative commit messages, for example `docs: clarify telemetry acceptance semantics`.
+Remote: `git@github.com:devbryan02/quarkus-iot.git`. Follow [Gitflow rules](knowledge/rules/01-gitflow.md): work on `feature/<functionality>` branches based on current `develop`, notify the owner before every push, and publish only the working branch. Integration is always through an MR/PR targeting `develop`, accepted by the owner. Do not commit directly to `develop`/`main`, push directly to those branches, self-approve, merge or enable auto-merge. Promotion to `main` requires a later explicit owner instruction once the product works and its validations are complete. Use concise, imperative commit messages, for example `docs: clarify telemetry acceptance semantics`.
 
 Pull requests should explain the change, list affected documents, link relevant issues when available, and describe validation performed. Include rendered diagrams or screenshots when visual changes need review.
 

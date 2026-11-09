@@ -44,7 +44,7 @@ El repositorio contiene documentación de diseño y los esqueletos compilables d
 
 ## Flujo de Git
 
-Remoto: `git@github.com:devbryan02/quarkus-oit.git`. Trabajar en `feature/<funcionalidad>` y avisar antes de cada push. Integrar siempre mediante MR/PR a `develop`, aceptada por el propietario; no hacer push directo ni merge automático. Ver [reglas de Gitflow](knowledge/rules/01-gitflow.md).
+Remoto: `git@github.com:devbryan02/quarkus-iot.git`. Trabajar en `feature/<funcionalidad>` y avisar antes de cada push. Integrar siempre mediante MR/PR a `develop`, aceptada por el propietario; no hacer push directo ni merge automático. Ver [reglas de Gitflow](knowledge/rules/01-gitflow.md).
 
 La promoción a `main` queda para una etapa posterior, por instrucción explícita del propietario, cuando el producto funcione y se completen sus validaciones. La aprobación de la spec no significa que el sistema esté implementado o probado.
 
