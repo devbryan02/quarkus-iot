@@ -4,6 +4,8 @@ Esqueleto generado con el plugin Maven oficial de Quarkus 3.40.1.1 LTS. Requiere
 
 La [spec central de Kivo](docs/superpowers/specs/2026-11-08-kivo-mvp-design.md) se encuentra en `docs/` de este proyecto y cubre el MVP completo. Arquitectura, diseño, flujos y reglas compartidos están en [`knowledge/`](../../knowledge/README.md).
 
+Consultar el [índice de specs y planes](docs/superpowers/README.md) y la [guía de arquitectura hexagonal simplificada](../../knowledge/arquitecture/04-hexagonal-simplificada.md) para implementar por funcionalidad, separando reglas y adaptadores cuando aporten valor.
+
 Desde esta carpeta, en Windows:
 
 ```powershell

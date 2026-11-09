@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This repository contains the Kivo MVP documentation for one school and backend/frontend skeletons. Business features have not been implemented.
+This repository contains the Kivo MVP documentation for one school and backend/frontend/Android Flutter skeletons. Business features have not been implemented.
 
 El nombre oficial del producto es **Kivo**. Usar este nombre en la documentación, las interfaces y las respuestas sobre el proyecto; mantener `kivo.` como prefijo de los tópicos Kafka.
 
@@ -18,9 +18,12 @@ Memoria del flujo acordado: leer [knowledge/rules/](knowledge/rules/README.md), 
 - `knowledge/rules`: persistent project rules, Gitflow, push notifications and owner-approved merge requests.
 - `codebase/backend/`: Quarkus 3.40.1.1 LTS, Java 25 LTS, Maven Wrapper, generated REST example and tests.
 - `codebase/frontend/`: Next.js generated with create-next-app, TypeScript, App Router, ESLint and npm lockfile; Node 24 LTS.
+- `codebase/mobile/`: Flutter Android skeleton; setup and validation commands in its README. Each project keeps designs in `docs/superpowers/specs/` and implementation plans in `docs/superpowers/plans/`.
 - `codebase/compose.yaml`: local application containers and optional `infra` profile for PostgreSQL, Redis and Kafka. All future application projects belong under `codebase/`.
 
 Preserve the existing directory spellings so links remain valid.
+
+Apply the [simplified hexagonal architecture guide](knowledge/arquitecture/04-hexagonal-simplificada.md): organize by feature, isolate rules from external effects, and introduce ports only where they help. Do not enforce redundant interfaces or layers.
 
 ## Build, Test, and Development Commands
 

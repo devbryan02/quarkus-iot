@@ -6,9 +6,9 @@
 
 **Architecture:** Dos pantallas Flutter; controladores de dominio separados del adaptador Android de ubicación/foreground service. La autoridad de sesión es Quarkus; la app detiene captura al vencimiento conocido y sincroniza cierre remoto. Una cola protegida conserva SOS y solo la última posición pendiente de la sesión.
 
-**Tech Stack:** Flutter/Dart para Android, cliente HTTPS generado desde OpenAPI, almacenamiento protegido por Android Keystore y adaptador de ubicación/ejecución a seleccionar en M1. Versiones Flutter, SDK Android y bibliotecas aún no están fijadas por la spec.
+**Tech Stack:** Flutter/Dart para Android (versiones del esqueleto en `README.md`), cliente HTTPS generado desde OpenAPI, almacenamiento protegido por Android Keystore y adaptador de ubicación/ejecución a seleccionar en M1. Versiones Flutter, SDK Android y bibliotecas aún no están fijadas por la spec.
 
-**Spec:** [Especificación central](../../../backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md), [flujo SOS/sesiones](../../../../knowledge/flows/03-sos-session.md), [contratos](../../../../knowledge/desing/03-api-contract.md), [plan backend](../../../backend/superpowers/specs/2026-11-08-kivo-backend-implementation-plan.md).
+**Spec:** [Especificación central](../../../../backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md), [flujo SOS/sesiones](../../../../../knowledge/flows/03-sos-session.md), [contratos](../../../../../knowledge/desing/03-api-contract.md), [plan backend](../../../../backend/docs/superpowers/plans/2026-11-08-kivo-backend-implementation-plan.md).
 
 ## Global Constraints
 
@@ -35,7 +35,7 @@
 
 ## Estado y mapa de archivos
 
-`codebase/mobile` contiene únicamente este plan; no se ha generado Flutter. La ruta se propone para el tercer proyecto bajo `codebase/`, respetando la ubicación `superpowers/specs/` solicitada. No ejecutar `flutter create` en esta entrega.
+`codebase/mobile` ya contiene un esqueleto Flutter Android con pantalla de arranque y prueba de widget, por instrucción posterior del propietario. Aún no implementa ninguna funcionalidad de M1–M6. Diseños en `docs/superpowers/specs/` y planes en `docs/superpowers/plans/`, como backend. No regenerar ni sobrescribir el esqueleto al ejecutar M1; consultar versiones y setup en `README.md`.
 
 Rutas relativas a `codebase/mobile`. M1 depende de diseño de credencial/contrato B1; M2 requiere B3; M3 requiere B4; M4 requiere B5; M5 requiere B7; M6 integra con B10 y frontend. Tests pueden usar fakes de los puertos, pero aceptación final exige API real y Android físico.
 
@@ -51,12 +51,12 @@ Rutas relativas a `codebase/mobile`. M1 depende de diseño de credencial/contrat
 
 ### Task M1: Diseño Android verificable y puertos mínimos
 
-**Files:** Create `docs/superpowers/specs/2026-11-08-kivo-android-runtime-design.md`, `pubspec.yaml`, `lib/main.dart`, `lib/app.dart`, `lib/api/kivo_api.dart`, `lib/platform/location_port.dart`, `secure_store.dart`, `session_clock.dart`, `test/platform/session_clock_test.dart`, `README.md`. Archivos generados Android/Flutter se incluyen al ejecutar esta tarea, no ahora.
+**Files:** Modify `pubspec.yaml`, `lib/main.dart`, `lib/app.dart`, `README.md`; Create `docs/superpowers/specs/2026-11-08-kivo-android-runtime-design.md`, `lib/api/kivo_api.dart`, `lib/platform/location_port.dart`, `secure_store.dart`, `session_clock.dart`, `test/platform/session_clock_test.dart`. Conservar los archivos Android/Flutter ya generados; adaptar configuración durante M1 sin regenerar el proyecto.
 
 **Interfaces:** Produce `KivoApi` con `redeem`, `startSession`, `currentSession`, `stopSession`, `sendTelemetry`, `sendSos` y DTOs generados B1; `LocationPort.start(): Stream<LocationFix>`, `stop(): Future<void>`, `permittedLastKnown(): Future<LocationFix?>`; `SecureStore.read(String key): Future<String?>`, `write(String key, String value): Future<void>`, `delete(String key): Future<void>`; `SessionClock.remaining(): Duration` anclado a hora servidor y tiempo monotónico.
 
 - [ ] **Step 1:** Documentar elección de versiones Flutter/Android, permisos por API, librería mantenida de foreground service/ubicación y cifrado con Keystore (o adaptador Kotlin si ninguna cumple). Precisar ciclo de boot/reinicio, límites de batería/fabricante, alarmas de vencimiento y restricción de backups. Recuperación tras reinicio no inicia captura sin validar autorización; sin red queda detenida hasta validarla. Diseñar protección frente a cambios de reloj con ancla monotónica y revalidación del servidor. Registrar comportamiento si GPS/permiso desaparecen y si el servicio pierde su notificación.
-- [ ] **Step 2:** Generar proyecto Flutter Android y tests de puertos. `session_clock_test`: `expect(remainingAfterWallClockRollback, originalRemaining - elapsedMonotonic)`; `expect(canCaptureAfterOfflineRestart, isFalse)`; `expect(remainingAtExpiry, Duration.zero)`. Fijar versiones y lockfile en la tarea; el diseño debe permitir CA-05 sin prometer force stop.
+- [ ] **Step 2:** Conservar el proyecto Flutter Android existente y agregar tests de puertos. `session_clock_test`: `expect(remainingAfterWallClockRollback, originalRemaining - elapsedMonotonic)`; `expect(canCaptureAfterOfflineRestart, isFalse)`; `expect(remainingAtExpiry, Duration.zero)`. Fijar versiones y lockfile en la tarea; el diseño debe permitir CA-05 sin prometer force stop.
 - [ ] **Step 3:** Ejecutar `flutter test test/platform/session_clock_test.dart`; esperar FAIL por lógica ausente después de validar que runner funciona.
 - [ ] **Step 4:** Implementar puertos/inyectables y reloj definidos, cliente generado desde B1 y configuración HTTPS sin secretos compilados. En `README.md` documentar SDKs exactos elegidos y comandos Android. No habilitar cleartext global; entorno local debe proporcionar HTTPS conforme diseño.
 - [ ] **Step 5:** Ejecutar test y `flutter analyze`; esperar PASS. Probar prototipo de servicio/notificación en teléfono con pantalla bloqueada antes de comprometer una librería; si no cumple CA-05, ajustar diseño dentro del stack, no afirmar validación por emulador.
@@ -133,3 +133,7 @@ Rutas relativas a `codebase/mobile`. M1 depende de diseño de credencial/contrat
 | RF-12, P-09/10, CA-16 | M1/M4/M6; borrado de servidores B9 |
 
 RF-07/08/09 y CA-09/10/11/15 corresponden al backend/dashboard; móvil no evalúa geocercas ni reconoce alertas. Revisados puertos, dependencias y cinco riesgos con pruebas asignadas. CA-05 y comportamiento del sistema operativo requieren dispositivo real; la elección de bibliotecas/versiones permanece como entregable técnico de M1, sin presentarla como aprobada o instalada. El plan no acredita pruebas ejecutadas.
+
+## Organización del código
+
+Aplicar la [guía hexagonal simplificada](../../../../../knowledge/arquitecture/04-hexagonal-simplificada.md): funcionalidades pequeñas, reglas comprobables y puertos solo donde aíslen dependencias con valor. No añadir interfaces, capas o modelos duplicados por obligación del patrón.

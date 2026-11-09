@@ -8,7 +8,7 @@
 
 **Tech Stack:** Node 24 LTS, npm 12.2.2, Next.js 16.4.5, React 19.3.0, TypeScript, ESLint 9, PrimeReact y mapcn. Añadir Vitest/Testing Library para comportamiento y Playwright para integración.
 
-**Spec:** [Especificación central](../../../backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md), [pantallas](../../../../knowledge/desing/01-product-ui.md), [contratos](../../../../knowledge/desing/03-api-contract.md) y [plan backend](../../../backend/superpowers/specs/2026-11-08-kivo-backend-implementation-plan.md), tarea B1.
+**Spec:** [Especificación central](../../../../backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md), [pantallas](../../../../../knowledge/desing/01-product-ui.md), [contratos](../../../../../knowledge/desing/03-api-contract.md) y [plan backend](../../../../backend/docs/superpowers/plans/2026-11-08-kivo-backend-implementation-plan.md), tarea B1.
 
 ## Global Constraints
 
@@ -34,7 +34,7 @@
 
 ## Estado, estructura y dependencias
 
-El proyecto tiene solo `src/app/layout.tsx` y `page.tsx` generados. PrimeReact/mapcn y pruebas de producto aún no existen. Rutas de archivos relativas a `codebase/frontend`. Plan guardado en `superpowers/specs/` por instrucción del propietario; no es otra especificación de producto.
+El proyecto tiene solo `src/app/layout.tsx` y `page.tsx` generados. PrimeReact/mapcn y pruebas de producto aún no existen. Rutas de archivos relativas a `codebase/frontend`. Plan guardado en `docs/superpowers/plans/`; los diseños propios se guardan en `docs/superpowers/specs/`, igual que backend. No es otra especificación de producto.
 
 Ejecutar F1 después de B1; puede desarrollarse contra respuestas ficticias fieles al contrato, pero eso no demuestra backend. F3–F6 se integran contra B8 antes de cerrar aceptación. F2 valida versiones compatibles de PrimeReact/mapcn y registra dependencias exactas en lockfile; no migrar React/Next ni añadir otro kit visual por conveniencia. Si mapcn exige utilidades CSS adicionales, aislarlas en el mapa y documentar la decisión, sin sustituir PrimeReact.
 
@@ -67,7 +67,7 @@ Ejecutar F1 después de B1; puede desarrollarse contra respuestas ficticias fiel
 
 - [ ] **Step 1:** Escribir `tests/shell.test.tsx`: `expect(screen.getByRole('navigation')).toHaveAccessibleName('Navegación principal')`; `expect(screen.getByText('Kivo')).toBeVisible()`; ante error de mapa `expect(screen.getByRole('table', {name: 'Últimas ubicaciones'})).toBeVisible()`. Probar uso con teclado y viewport móvil sin ocultar la acción de salir.
 - [ ] **Step 2:** Ejecutar `npm run test -- tests/shell.test.tsx`; esperar FAIL.
-- [ ] **Step 3:** Integrar versiones compatibles PrimeReact/mapcn, provider, tema y shell. Adaptar [referencias Stitch](../../../../knowledge/desing/04-stitch-screens.md) sin copiar contratos/textos obsoletos ni editar exportaciones. Renderizar círculos y marcadores sin rutas; fallback accesible ante fallo de tiles/WebGL. Registrar origen/licencia/atribución del mapa y variables públicas sin claves privadas.
+- [ ] **Step 3:** Integrar versiones compatibles PrimeReact/mapcn, provider, tema y shell. Adaptar [referencias Stitch](../../../../../knowledge/desing/04-stitch-screens.md) sin copiar contratos/textos obsoletos ni editar exportaciones. Renderizar círculos y marcadores sin rutas; fallback accesible ante fallo de tiles/WebGL. Registrar origen/licencia/atribución del mapa y variables públicas sin claves privadas.
 - [ ] **Step 4:** Ejecutar prueba, `npm run lint`, `npx tsc --noEmit`, `npm run build`; esperar exit 0, sin error de hidratación. Revisar visualmente las cinco pantallas al completarlas; adjuntar capturas de escritorio/móvil a la PR.
 - [ ] **Step 5:** Commit `feat(frontend): add Kivo shell and map foundation`.
 
@@ -131,3 +131,7 @@ Ejecutar F1 después de B1; puede desarrollarse contra respuestas ficticias fiel
 | RF-12; CA-16 | F1/F3 limpian memoria/caché; borrado durable B9 |
 
 Revisados nombres de DTO y consumidores: son generados desde B1, incluyendo `Device` y formatos de listas finales. Los cinco riesgos tienen prueba asignada. RF-04/05/06 y CA-05/06/07/08/12 se cubren en planes backend/móvil, no se atribuyen a una prueba de interfaz web. Dependencias exactas se fijan al validar compatibilidad en F2; no se presentan como ya instaladas.
+
+## Organización del código
+
+Aplicar la [guía hexagonal simplificada](../../../../../knowledge/arquitecture/04-hexagonal-simplificada.md): funcionalidades pequeñas, reglas comprobables y puertos solo donde aíslen dependencias con valor. No añadir interfaces, capas o modelos duplicados por obligación del patrón.

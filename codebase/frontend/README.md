@@ -4,6 +4,8 @@ Esqueleto generado con `npx create-next-app@latest`: Next.js 16.4.5, TypeScript,
 
 Consultar la [spec central de Kivo](../backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md) y la [documentación compartida](../../knowledge/README.md) para alcance, pantallas, contratos y reglas.
 
+El [índice de desarrollo](docs/superpowers/README.md) separa `specs/` y `plans/`, igual que backend. La [guía hexagonal simplificada](../../knowledge/arquitecture/04-hexagonal-simplificada.md) orienta la separación entre componentes, controladores y transporte.
+
 Desde esta carpeta:
 
 ```powershell

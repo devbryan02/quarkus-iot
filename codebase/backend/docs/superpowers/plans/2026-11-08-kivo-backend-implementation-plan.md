@@ -8,7 +8,7 @@
 
 **Tech Stack:** Java 25 LTS, Quarkus 3.40.1.1 LTS, Maven Wrapper, PostgreSQL 18, Flyway, Kafka 4.1.1, Kafka Streams, Redis 8, JUnit y REST Assured.
 
-**Spec:** [Especificación central aprobada](../../docs/superpowers/specs/2026-11-08-kivo-mvp-design.md), especialmente secciones 4–10. Leer también [REST/Kafka](../../../../knowledge/desing/03-api-contract.md), [modelo](../../../../knowledge/desing/02-data-model.md) y [reglas Gitflow](../../../../knowledge/rules/01-gitflow.md).
+**Spec:** [Especificación central aprobada](../specs/2026-11-08-kivo-mvp-design.md), especialmente secciones 4–10. Leer también [REST/Kafka](../../../../../knowledge/desing/03-api-contract.md), [modelo](../../../../../knowledge/desing/02-data-model.md) y [reglas Gitflow](../../../../../knowledge/rules/01-gitflow.md).
 
 ## Global Constraints
 
@@ -36,7 +36,7 @@
 
 ## Estado, rutas y orden
 
-Solo existen `/hello`, health y sus pruebas generadas. No hay drivers, autenticación, entidades ni consumidores. Este documento es un plan, no evidencia de implementación. Se guarda en `superpowers/specs/` por preferencia del propietario, conservando intacta la spec central en `docs/superpowers/specs/`.
+Solo existen `/hello`, health y sus pruebas generadas. No hay drivers, autenticación, entidades ni consumidores. Este documento es un plan, no evidencia de implementación. Se guarda en `docs/superpowers/plans/`, separado de las especificaciones de `docs/superpowers/specs/`, con la misma organización en los tres proyectos.
 
 Rutas de las tareas relativas a `../../..`, salvo prefijo `../`. Cada paquete tiene DTOs/records públicos en archivos propios; no agrupar toda la aplicación en un recurso. Los tipos de DTO definitivos se fijan en B1, antes de generar clientes. Extensiones previstas para B2: JDBC PostgreSQL, Hibernate ORM, Flyway, Hibernate Validator, Redis Client, Messaging Kafka, Kafka Streams, Scheduler y el mecanismo de seguridad elegido en B1; respetar el BOM actual.
 
@@ -187,3 +187,7 @@ Orden: B1 → B2 → B3 → B4 → B5 → B6; B7 requiere B4/B2; B8 requiere B6/
 | RF-12, P-09/10, CA-16 | B9/B10 y limpieza de clientes |
 
 Autorrevisión: los cinco riesgos de Review Focus tienen pruebas asignadas; contratos abiertos se cierran en B1 antes de generar consumidores. No quedan requisitos funcionales sin tarea, pero CA-05 exige Android real y CA-16 exige evidencia física adicional a tests de aplicación. Los nombres de DTO son del contrato B1; su generación evita redefinir estructuras distintas en cada cliente. Los resultados aún no se han ejecutado.
+
+## Organización del código
+
+Aplicar la [guía hexagonal simplificada](../../../../../knowledge/arquitecture/04-hexagonal-simplificada.md): funcionalidades pequeñas, reglas comprobables y puertos solo donde aíslen dependencias con valor. No añadir interfaces, capas o modelos duplicados por obligación del patrón.

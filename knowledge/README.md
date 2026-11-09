@@ -12,3 +12,5 @@ Esta carpeta reúne el conocimiento compartido del producto. Los proyectos y la 
 La [especificación central aprobada](../codebase/backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md) está en la documentación del backend y conserva el alcance del MVP completo. No interpretar su ubicación como una limitación de alcance al backend.
 
 Mantener las grafías `arquitecture` y `desing` y comprobar los enlaces relativos al mover documentos. Las exportaciones de [`Stitch`](desing/stitch/README.md) son referencias visuales; su ubicación no cambia los contratos vigentes.
+
+La [arquitectura hexagonal simplificada](arquitecture/04-hexagonal-simplificada.md) define la organización del código futuro. Cada proyecto mantiene diseños en `docs/superpowers/specs/` y planes en `docs/superpowers/plans/`; la especificación central sigue siendo única.
