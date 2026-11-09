@@ -2,6 +2,8 @@
 
 Esqueleto generado con el plugin Maven oficial de Quarkus 3.40.1.1 LTS. Requiere Java 25 LTS; Maven Wrapper fija Maven 3.9.16. Incluye REST Jackson, SmallRye Health y el ejemplo técnico `/hello`, con sus pruebas generadas. No implementa los contratos de negocio ni integra todavía PostgreSQL, Kafka o Redis.
 
+La [spec central de Kivo](docs/superpowers/specs/2026-11-08-kivo-mvp-design.md) se encuentra en `docs/` de este proyecto y cubre el MVP completo. Arquitectura, diseño, flujos y reglas compartidos están en [`knowledge/`](../../knowledge/README.md).
+
 Desde esta carpeta, en Windows:
 
 ```powershell

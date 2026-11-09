@@ -2,6 +2,8 @@
 
 Esqueleto generado con `npx create-next-app@latest`: Next.js 16.4.5, TypeScript, App Router y npm. Requiere Node 24 LTS. Aún no implementa pantallas ni consume la API.
 
+Consultar la [spec central de Kivo](../backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md) y la [documentación compartida](../../knowledge/README.md) para alcance, pantallas, contratos y reglas.
+
 Desde esta carpeta:
 
 ```powershell

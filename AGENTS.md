@@ -6,12 +6,16 @@ This repository contains the Kivo MVP documentation for one school and backend/f
 
 El nombre oficial del producto es **Kivo**. Usar este nombre en la documentación, las interfaces y las respuestas sobre el proyecto; mantener `kivo.` como prefijo de los tópicos Kafka.
 
-Consultar la [especificación central](docs/superpowers/specs/2026-11-08-kivo-mvp-design.md) aprobada por el propietario para requisitos y criterios de aceptación. P-01 a P-11 se adoptan como base del diseño; distinguirlas de los refinamientos técnicos expresamente abiertos. La aprobación no acredita implementación ni validaciones de producto.
+Consultar la [especificación central](codebase/backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md) aprobada por el propietario para requisitos y criterios de aceptación. P-01 a P-11 se adoptan como base del diseño; distinguirlas de los refinamientos técnicos expresamente abiertos. La aprobación no acredita implementación ni validaciones de producto.
+
+Memoria del flujo acordado: leer [knowledge/rules/](knowledge/rules/README.md), en especial [Gitflow y MR](knowledge/rules/01-gitflow.md). Trabajar en `feature/<funcionalidad>`, avisar antes de cada push y abrir MR/PR a `develop`. Solo el propietario acepta las MR; no integrar automáticamente ni publicar directamente a `develop` o `main`, salvo una instrucción explícita y puntual posterior del propietario para la publicación afectada. Esa excepción no cambia el flujo habitual.
 
 - `README.md`: scope, navigation, and operational limitations.
-- `arquitecture/`: architecture overview, deployment topology, and architectural decisions.
-- `desing/`: product screens, data model, REST contracts, and Kafka topics.
-- `flows/`: Mermaid sequences for telemetry, geofences, SOS, and monitoring sessions.
+- `knowledge/README.md`: shared documentation index. The central MVP specification is in `codebase/backend/docs/superpowers/specs/`, but still covers the whole MVP.
+- `knowledge/arquitecture`: architecture overview, deployment topology, and architectural decisions.
+- `knowledge/desing`: product screens, data model, REST contracts, and Kafka topics.
+- `knowledge/flows`: Mermaid sequences for telemetry, geofences, SOS, and monitoring sessions.
+- `knowledge/rules`: persistent project rules, Gitflow, push notifications and owner-approved merge requests.
 - `codebase/backend/`: Quarkus 3.40.1.1 LTS, Java 25 LTS, Maven Wrapper, generated REST example and tests.
 - `codebase/frontend/`: Next.js generated with create-next-app, TypeScript, App Router, ESLint and npm lockfile; Node 24 LTS.
 - `codebase/compose.yaml`: local application containers and optional `infra` profile for PostgreSQL, Redis and Kafka. All future application projects belong under `codebase/`.
@@ -25,7 +29,7 @@ See [codebase setup](codebase/README.md) for full commands. Backend: from `codeb
 Useful inspection commands from the repository root:
 
 - `rg --files`: list documentation files.
-- `rg -n 'api/v1|telemetry|eventId' arquitecture desing flows`: compare related contracts and flows.
+- `rg -n 'api/v1|telemetry|eventId' knowledge/arquitecture knowledge/desing knowledge/flows`: compare related contracts and flows.
 
 Preview Markdown in an editor with Mermaid support. When implementation begins, document actual setup, build, test, and run commands alongside the code.
 
@@ -41,7 +45,7 @@ Backend has generated Quarkus/JUnit and REST Assured example tests, including a 
 
 ## Commit & Pull Request Guidelines
 
-Remote: `git@github.com:devbryan02/quarkus-oit.git`. Work and publish progress on `develop`. Integrate into `main` only in a later stage once the product works and its validations are complete; do not push to `main` as part of ordinary progress updates. Use concise, imperative commit messages, for example `docs: clarify telemetry acceptance semantics`.
+Remote: `git@github.com:devbryan02/quarkus-oit.git`. Follow [Gitflow rules](knowledge/rules/01-gitflow.md): work on `feature/<functionality>` branches based on current `develop`, notify the owner before every push, and publish only the working branch. Integration is always through an MR/PR targeting `develop`, accepted by the owner. Do not commit directly to `develop`/`main`, push directly to those branches, self-approve, merge or enable auto-merge. Promotion to `main` requires a later explicit owner instruction once the product works and its validations are complete. Use concise, imperative commit messages, for example `docs: clarify telemetry acceptance semantics`.
 
 Pull requests should explain the change, list affected documents, link relevant issues when available, and describe validation performed. Include rendered diagrams or screenshots when visual changes need review.
 

@@ -32,7 +32,7 @@ flowchart TB
 - Configurar `restart`, health checks, límites de memoria y monitoreo de disco.
 - HTTPS obligatorio para el dashboard y la comunicación de la app Android; nunca exponer Kafka, Redis ni PostgreSQL a Internet.
 - Rotar secretos y credenciales; usar firewall, SSH por claves y copias de seguridad cifradas **fuera** del VPS.
-- Retención acordada para demo: ubicaciones 7 días; alertas y auditoría 30 días. Las coordenadas adjuntas a alertas no pueden sobrevivir al plazo de ubicación. Configurar también snapshots, Redis, colas locales, Kafka y backups; el mecanismo de depuración y saneamiento al restaurar sigue como propuesta P-09/P-10 en la [spec](../docs/superpowers/specs/2026-11-08-kivo-mvp-design.md). La retención de un tópico por sí sola no acredita borrado físico puntual de segmentos o changelogs.
+- Retención acordada para demo: ubicaciones 7 días; alertas y auditoría 30 días. Las coordenadas adjuntas a alertas no pueden sobrevivir al plazo de ubicación. Configurar también snapshots, Redis, colas locales, Kafka y backups; el mecanismo de depuración y saneamiento al restaurar sigue como propuesta P-09/P-10 en la [spec](../../codebase/backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md). La retención de un tópico por sí sola no acredita borrado físico puntual de segmentos o changelogs.
 - Kafka y base de datos en el mismo VPS = **punto único de fallo**. No presentarlo como sistema de seguridad de alta disponibilidad.
 
 ## Migraciones de PostgreSQL

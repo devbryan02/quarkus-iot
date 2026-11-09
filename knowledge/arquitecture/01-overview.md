@@ -4,7 +4,7 @@
 
 Monitorear ubicaciones GPS de teléfonos durante sesiones autorizadas, identificar salidas de una zona segura circular y mostrar alertas SOS en un dashboard escolar.
 
-La [especificación central aprobada](../docs/superpowers/specs/2026-11-08-kivo-mvp-design.md) consolida requisitos y decisiones de diseño, con refinamientos técnicos abiertos. El MVP es una demo con datos ficticios para un colegio.
+La [especificación central aprobada](../../codebase/backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md) consolida requisitos y decisiones de diseño, con refinamientos técnicos abiertos. El MVP es una demo con datos ficticios para un colegio.
 
 ## Decisiones de alcance
 

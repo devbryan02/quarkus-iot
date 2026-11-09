@@ -1,6 +1,6 @@
 # Modelo de datos mínimo
 
-La [spec central](../docs/superpowers/specs/2026-11-08-kivo-mvp-design.md) define acuerdos y retención. Los campos nuevos, cardinalidades técnicas y estados de este modelo son propuestas P-02/P-08/P-11, no migraciones implementadas.
+La [spec central](../../codebase/backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md) define acuerdos y retención. Los campos nuevos, cardinalidades técnicas y estados de este modelo son propuestas P-02/P-08/P-11, no migraciones implementadas.
 
 ## Entidades
 

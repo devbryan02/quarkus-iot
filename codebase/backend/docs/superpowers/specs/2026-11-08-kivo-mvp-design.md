@@ -10,16 +10,16 @@ Esta especificación reúne los acuerdos del refinamiento y los requisitos verif
 
 | Tema | Fuente |
 |---|---|
-| Arquitectura y límites Android | [Arquitectura general](../../../arquitecture/01-overview.md) |
-| Infraestructura y operación | [Despliegue](../../../arquitecture/02-deployment.md) |
-| Decisiones arquitectónicas | [ADR](../../../arquitecture/03-decisions.md) |
-| Roles y pantallas | [Diseño funcional](../../../desing/01-product-ui.md) |
-| Entidades y persistencia | [Modelo de datos](../../../desing/02-data-model.md) |
-| REST, SSE y Kafka | [Contratos](../../../desing/03-api-contract.md) |
-| Telemetría | [Flujo de telemetría](../../../flows/01-telemetry.md) |
-| Geocercas | [Flujo de geocerca](../../../flows/02-geofence.md) |
-| Sesiones y SOS | [Flujo de sesiones y SOS](../../../flows/03-sos-session.md) |
-| Referencias visuales | [Pantallas de Stitch](../../../desing/04-stitch-screens.md) |
+| Arquitectura y límites Android | [Arquitectura general](../../../../../knowledge/arquitecture/01-overview.md) |
+| Infraestructura y operación | [Despliegue](../../../../../knowledge/arquitecture/02-deployment.md) |
+| Decisiones arquitectónicas | [ADR](../../../../../knowledge/arquitecture/03-decisions.md) |
+| Roles y pantallas | [Diseño funcional](../../../../../knowledge/desing/01-product-ui.md) |
+| Entidades y persistencia | [Modelo de datos](../../../../../knowledge/desing/02-data-model.md) |
+| REST, SSE y Kafka | [Contratos](../../../../../knowledge/desing/03-api-contract.md) |
+| Telemetría | [Flujo de telemetría](../../../../../knowledge/flows/01-telemetry.md) |
+| Geocercas | [Flujo de geocerca](../../../../../knowledge/flows/02-geofence.md) |
+| Sesiones y SOS | [Flujo de sesiones y SOS](../../../../../knowledge/flows/03-sos-session.md) |
+| Referencias visuales | [Pantallas de Stitch](../../../../../knowledge/desing/04-stitch-screens.md) |
 
 **Convención:** “acordado” identifica decisiones elegidas durante el refinamiento o ya documentadas en la base; “propuesta” conserva el origen de recomendaciones del redactor, adoptadas con la aprobación de este documento. Los identificadores P-01 a P-11 se conservan para trazabilidad. Si una fuente contradice estos acuerdos, debe actualizarse antes de implementar. Las exportaciones de Stitch son referencias visuales y pueden representar estados anteriores.
 
@@ -35,7 +35,7 @@ Esta especificación reúne los acuerdos del refinamiento y los requisitos verif
 
 ### Alcance acordado
 
-Un colegio, identidades y coordenadas ficticias, cinco pantallas web y dos Android. Dashboard Next.js + PrimeReact + mapcn; Android Flutter/Dart; Quarkus LTS con Java 25 LTS, Kafka y Kafka Streams; PostgreSQL con Flyway y Redis como caché. Docker Compose en un VPS, sin alta disponibilidad. Java 25 sustituye Java 21 por instrucción explícita posterior del propietario al crear los esqueletos; ver ADR-023 y [setup](../../../codebase/README.md).
+Un colegio, identidades y coordenadas ficticias, cinco pantallas web y dos Android. Dashboard Next.js + PrimeReact + mapcn; Android Flutter/Dart; Quarkus LTS con Java 25 LTS, Kafka y Kafka Streams; PostgreSQL con Flyway y Redis como caché. Docker Compose en un VPS, sin alta disponibilidad. Java 25 sustituye Java 21 por instrucción explícita posterior del propietario al crear los esqueletos; ver ADR-023 y [setup](../../../../README.md).
 
 ### Fuera del MVP
 
@@ -126,11 +126,11 @@ Texto de interfaz: **“SOS solicita ayuda; no llama a emergencias ni garantiza 
 
 ## 6. Interfaces y persistencia
 
-El [contrato REST](../../../desing/03-api-contract.md) distingue acuerdos y propuestas. Añade código de vinculación, canje sin credencial previa, consulta de sesión propia y asignación de zonas. La finalización remota reutiliza el cierre existente. El canje es la excepción a la autenticación previa del dispositivo: exige código temporal válido y controles de intentos.
+El [contrato REST](../../../../../knowledge/desing/03-api-contract.md) distingue acuerdos y propuestas. Añade código de vinculación, canje sin credencial previa, consulta de sesión propia y asignación de zonas. La finalización remota reutiliza el cierre existente. El canje es la excepción a la autenticación previa del dispositivo: exige código temporal válido y controles de intentos.
 
 La telemetría incorpora `sessionId` para impedir que una posición pendiente se atribuya a una sesión posterior. SOS admite `sessionId` y ubicación opcionales. Los cambios de esquema son diseños; no se crean migraciones ejecutables en esta entrega.
 
-El [modelo de datos](../../../desing/02-data-model.md) incorpora vinculación temporal, habilitación, vencimiento de sesión, asignaciones de zona y trazabilidad SOS. No guardar credenciales en texto plano. La retención alcanza históricos, snapshots, Redis, colas locales, Kafka y copias de datos sensibles; las propuestas operativas se indican en la sección 9.
+El [modelo de datos](../../../../../knowledge/desing/02-data-model.md) incorpora vinculación temporal, habilitación, vencimiento de sesión, asignaciones de zona y trazabilidad SOS. No guardar credenciales en texto plano. La retención alcanza históricos, snapshots, Redis, colas locales, Kafka y copias de datos sensibles; las propuestas operativas se indican en la sección 9.
 
 ## 7. Pantallas
 
@@ -194,6 +194,6 @@ La revisión independiente identificó el riesgo de comparar posiciones de sesio
 
 ### Gestión del repositorio
 
-Remoto autorizado: `git@github.com:devbryan02/quarkus-oit.git`. El avance se publica en `develop`. La integración y publicación en `main` se realizarán en una etapa posterior, cuando el producto funcione y se hayan completado las validaciones correspondientes; no forman parte de esta publicación documental.
+Remoto autorizado: `git@github.com:devbryan02/quarkus-oit.git`. Por instrucción posterior del propietario, trabajar en `feature/<funcionalidad>`, avisar antes de cada push y publicar la rama para MR/PR a `develop`. Solo el propietario acepta la MR; no hacer push directo a `develop` ni merge automático. Las [reglas de Gitflow](../../../../../knowledge/rules/01-gitflow.md) son la referencia vigente. La promoción a `main` requiere una instrucción posterior del propietario cuando el producto funcione y esté validado.
 
 La comprobación documental incluyó resolución de enlaces relativos, análisis JSON de ejemplos, identificación de RF/CA/P y renderizado de los nueve diagramas Mermaid con Mermaid CLI 12.2.0 y Edge headless. Los archivos de renderizado son temporales, fuera del repositorio. Se corrigió un separador de mensaje inválido en la secuencia de telemetría detectado al renderizar. No se ejecutaron pruebas de aplicación: aún no existe código de producto.

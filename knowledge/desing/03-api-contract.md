@@ -1,6 +1,6 @@
 # Contratos API — propuesta inicial
 
-Prefijo `/api/v1`. Contrato de diseño, sin servicios implementados. La [spec central aprobada](../docs/superpowers/specs/2026-11-08-kivo-mvp-design.md) adopta P-01 a P-11 como base de diseño, incluidos los cuerpos y códigos P-07/P-11 añadidos aquí. “Propuesta” conserva su origen; no implica una aprobación aún pendiente. Los detalles expresamente abiertos requieren refinamiento técnico.
+Prefijo `/api/v1`. Contrato de diseño, sin servicios implementados. La [spec central aprobada](../../codebase/backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md) adopta P-01 a P-11 como base de diseño, incluidos los cuerpos y códigos P-07/P-11 añadidos aquí. “Propuesta” conserva su origen; no implica una aprobación aún pendiente. Los detalles expresamente abiertos requieren refinamiento técnico.
 
 Las rutas requieren autenticación y autorización; el teléfono usa una credencial limitada. Excepciones: acceso web inicial (mecanismo pendiente) y canje de vinculación, que exige código temporal válido en lugar de credencial previa. Nunca permitir al teléfono elegir un `deviceId` ajeno.
 

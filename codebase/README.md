@@ -2,6 +2,8 @@
 
 Todo el código y la configuración de contenedores están en esta carpeta. Esta entrega crea backend y frontend; la aplicación Flutter se generará en una etapa posterior. No implementa autenticación, sesiones, telemetría, geocercas, SOS ni pantallas funcionales.
 
+La documentación compartida está en [`knowledge/`](../knowledge/README.md). La [spec central aprobada](backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md), ubicada en la documentación del backend, define el alcance del MVP completo. Consultar también las [reglas de Gitflow](../knowledge/rules/01-gitflow.md).
+
 ## Versiones y generación
 
 - Backend: Java **25 LTS**, Quarkus **3.40.1.1 LTS**, Maven Wrapper **3.9.16**. Generador oficial `io.quarkus.platform:quarkus-maven-plugin:3.40.1.1:create`, extensiones `rest-jackson,smallrye-health` y `javaVersion=25`.
@@ -64,4 +66,6 @@ Este Compose es **de desarrollo**, con un broker KRaft y sin TLS/autenticación 
 
 ## Validación de esta entrega
 
-Los resultados efectivos de compilación, auditoría y arranque se registran al completar el [plan del esqueleto](docs/plans/2026-11-08-skeleton.md). Las pruebas conservadas en backend son las generadas para `/hello`, no pruebas de requisitos del producto.
+Durante la creación del esqueleto se verificaron Maven con la prueba de integración del JAR, instalación limpia npm, lint, TypeScript, build de Next.js, construcción de ambas imágenes y arranque saludable de los cinco servicios de Compose. Las auditorías npm completa y de producción reportaron 0 vulnerabilidades en esa ejecución; no es una garantía sobre auditorías futuras ni cubre Java o imágenes. Las pruebas conservadas en backend son las generadas para `/hello`, no pruebas de requisitos del producto.
+
+El plan histórico de creación se retiró al reorganizar las carpetas. Los comandos reproducibles permanecen en este README; las decisiones funcionales y sus límites están en la spec central.

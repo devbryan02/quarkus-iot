@@ -2,7 +2,7 @@
 
 Para el MVP: una o varias zonas circulares, definidas por centro (latitud, longitud) y radio en metros.
 
-El administrador asigna zonas por dispositivo y cada zona se evalúa por separado: estar dentro de B no evita una salida de A. Requisitos RF-08/RF-09 y propuestas P-05/P-08 en la [spec central](../docs/superpowers/specs/2026-11-08-kivo-mvp-design.md).
+El administrador asigna zonas por dispositivo y cada zona se evalúa por separado: estar dentro de B no evita una salida de A. Requisitos RF-08/RF-09 y propuestas P-05/P-08 en la [spec central](../../codebase/backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md).
 
 ```mermaid
 flowchart TD

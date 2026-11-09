@@ -1,6 +1,6 @@
 # Diseño funcional y pantallas — Kivo MVP
 
-Requisitos y aceptación: [especificación central aprobada](../docs/superpowers/specs/2026-11-08-kivo-mvp-design.md). Las recomendaciones P-01 a P-11 quedan adoptadas como base de diseño; los refinamientos técnicos abiertos deben cerrarse antes de implementar el comportamiento afectado.
+Requisitos y aceptación: [especificación central aprobada](../../codebase/backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md). Las recomendaciones P-01 a P-11 quedan adoptadas como base de diseño; los refinamientos técnicos abiertos deben cerrarse antes de implementar el comportamiento afectado.
 
 ## Roles
 

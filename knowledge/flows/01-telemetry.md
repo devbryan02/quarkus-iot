@@ -1,6 +1,6 @@
 # Flujo de telemetría GPS
 
-Requisitos RF-03 a RF-07 y propuestas P-03/P-08 en la [spec central](../docs/superpowers/specs/2026-11-08-kivo-mvp-design.md). El diagrama incorpora la propuesta de `sessionId` y revalidación al procesar.
+Requisitos RF-03 a RF-07 y propuestas P-03/P-08 en la [spec central](../../codebase/backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md). El diagrama incorpora la propuesta de `sessionId` y revalidación al procesar.
 
 ```mermaid
 sequenceDiagram

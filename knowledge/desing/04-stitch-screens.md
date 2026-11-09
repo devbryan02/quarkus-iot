@@ -6,7 +6,7 @@ Siete pantallas generadas y exportadas en [la galería local](stitch/index.html)
 
 ## Conexión MCP
 
-Nota de vigencia: la [spec central](../docs/superpowers/specs/2026-11-08-kivo-mvp-design.md) define ahora código temporal de un solo uso, sesiones de máximo inicial configurable de 8 horas, asignación de zonas por dispositivo y SOS sin sesión. Los prompts siguientes se ajustan para una adaptación futura. **Las exportaciones HTML/PNG/JSON y el proyecto remoto no se modificaron** y pueden conservar estados anteriores.
+Nota de vigencia: la [spec central](../../codebase/backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md) define ahora código temporal de un solo uso, sesiones de máximo inicial configurable de 8 horas, asignación de zonas por dispositivo y SOS sin sesión. Los prompts siguientes se ajustan para una adaptación futura. **Las exportaciones HTML/PNG/JSON y el proyecto remoto no se modificaron** y pueden conservar estados anteriores.
 
 Servidor remoto: `https://stitch.googleapis.com/mcp`. La configuración local de Codex usa el encabezado `X-Goog-Api-Key` en su archivo de usuario, por elección del propietario; la clave no se guarda en este repositorio.
 
@@ -105,5 +105,5 @@ No prometer atención inmediata ni mostrar seguimiento fuera de sesión.
 
 - Guardar enlaces e identificadores reales de proyectos y pantallas cuando Stitch los genere.
 - Revisar las siete pantallas y sus variantes contra las reglas UX y los contratos existentes.
-- Exportar vistas previas y recursos a una subcarpeta de `desing/` cuando estén disponibles.
+- Exportar vistas previas y recursos a una subcarpeta de `` cuando estén disponibles.
 - El diseño de Stitch debe adaptarse a PrimeReact en web y Flutter en Android durante la implementación.

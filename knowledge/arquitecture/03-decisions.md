@@ -17,15 +17,15 @@
 | ADR-013 | Flyway para migraciones PostgreSQL | Versionar cambios de esquema | Migraciones SQL revisables y verificadas antes del despliegue |
 | ADR-014 | Google Stitch para pantallas y flujos | Revisar navegación y diseño antes de implementar | Dashboard basado en PrimeReact; Android con interfaz mínima |
 | ADR-015 | Kivo como nombre del producto | Identidad acordada | Prefijo `kivo.` para los tópicos Kafka propuestos |
-| ADR-016 | Spec central enlazada | Reunir acuerdos y aceptación sin duplicar todas las fuentes | [Spec aprobada](../docs/superpowers/specs/2026-11-08-kivo-mvp-design.md); P-01 a P-11 adoptadas como base, con refinamientos técnicos abiertos |
+| ADR-016 | Spec central enlazada | Reunir acuerdos y aceptación sin duplicar todas las fuentes | [Spec aprobada](../../codebase/backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md); P-01 a P-11 adoptadas como base, con refinamientos técnicos abiertos |
 | ADR-017 | Código temporal de un solo uso para vinculación | Habilitación por administrador sin cuentas de estudiantes | Definir expiración, límites y protección del código antes de implementar |
 | ADR-018 | Inicio/parada desde Android y cierre desde el colegio | Control local con supervisión escolar | Máximo configurable inicial de 8 horas; cierre remoto sujeto a comunicación |
 | ADR-019 | SOS sin sesión, sin activar seguimiento | Permitir solicitar ayuda con monitoreo inactivo | Ubicación puntual opcional autorizada; no esperar GPS ni prometer atención |
 | ADR-020 | Última posición pendiente y SOS durante desconexión | Evitar acumular historial local de ubicaciones | Descartar posición al cerrar sesión; límites/reintentos SOS pendientes |
 | ADR-021 | Geocercas asignadas por dispositivo | Evitar aplicar todas las zonas a todos los teléfonos | Evaluación independiente por zona y asignación explícita |
 | ADR-022 | Demo ficticia y retención acotada | Limitar datos del MVP | Ubicaciones 7 días; alertas/auditoría 30; mecanismo de borrado pendiente |
-| ADR-023 | Java 25 LTS y Quarkus 3.40.1.1 LTS para el esqueleto | Instrucción del propietario y LTS vigente al generar | Sustituye Java 21; compilar y ejecutar contenedores con Java 25; [setup](../codebase/README.md) |
-| ADR-024 | Proyectos y Compose local dentro de `codebase/` | Mantener juntos los esqueletos y su configuración | Backend y frontend arrancan sin infraestructura; PostgreSQL/Redis/Kafka disponibles mediante perfil `infra`, aún sin integrar |
+| ADR-023 | Java 25 LTS y Quarkus 3.40.1.1 LTS para el esqueleto | Instrucción del propietario y LTS vigente al generar | Sustituye Java 21; compilar y ejecutar contenedores con Java 25; [setup](../../codebase/README.md) |
+| ADR-024 | Proyectos y Compose local dentro de `../../codebase` | Mantener juntos los esqueletos y su configuración | Backend y frontend arrancan sin infraestructura; PostgreSQL/Redis/Kafka disponibles mediante perfil `infra`, aún sin integrar |
 
 ## Módulos lógicos de Quarkus
 

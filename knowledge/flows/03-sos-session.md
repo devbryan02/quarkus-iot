@@ -1,6 +1,6 @@
 # Sesión de monitoreo, SOS y desconexión
 
-Acuerdos RF-03/RF-06/RF-10/RF-11 en la [spec central aprobada](../docs/superpowers/specs/2026-11-08-kivo-mvp-design.md). La sincronización de cierre remoto y persistencia SOS corresponden a P-03/P-07/P-08, adoptadas como base de diseño con la aprobación del propietario; los detalles técnicos expresamente abiertos requieren refinamiento.
+Acuerdos RF-03/RF-06/RF-10/RF-11 en la [spec central aprobada](../../codebase/backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md). La sincronización de cierre remoto y persistencia SOS corresponden a P-03/P-07/P-08, adoptadas como base de diseño con la aprobación del propietario; los detalles técnicos expresamente abiertos requieren refinamiento.
 
 ## Sesión
 

@@ -1,6 +1,6 @@
 # Pantallas generadas de Kivo
 
-Referencia histórica de exportaciones. La [spec central](../../docs/superpowers/specs/2026-11-08-kivo-mvp-design.md) incorpora acuerdos posteriores: código temporal, sesiones con máximo configurable inicial de 8 horas, asignación de zonas y SOS sin sesión. No se regeneraron estos HTML/PNG/JSON ni el proyecto remoto; los estados anteriores de vinculación pendiente no definen el contrato actual.
+Referencia histórica de exportaciones. La [spec central](../../../codebase/backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md) incorpora acuerdos posteriores: código temporal, sesiones con máximo configurable inicial de 8 horas, asignación de zonas y SOS sin sesión. No se regeneraron estos HTML/PNG/JSON ni el proyecto remoto; los estados anteriores de vinculación pendiente no definen el contrato actual.
 
 Proyecto privado: [Kivo MVP - Dashboard y Android Flutter](https://stitch.withgoogle.com/projects/1713403711180977197).
 
