@@ -1,0 +1,17 @@
+{
+  "deviceType": "DESKTOP",
+  "height": "2048",
+  "htmlCode": {
+    "downloadUrl": "https://stitch.googleapis.com/v1/projects/1713403711180977197/files/83cfa4e55e9a4e589d985ef14bb0a251:download",
+    "mimeType": "text/html",
+    "name": "projects/1713403711180977197/files/83cfa4e55e9a4e589d985ef14bb0a251"
+  },
+  "name": "projects/1713403711180977197/screens/f5e8403da1954e8dba889c45c8ae2b44",
+  "screenshot": {
+    "downloadUrl": "https://stitch.googleapis.com/v1/projects/1713403711180977197/files/d0075cda49c14359a1e19fc73d140775:download",
+    "mimeType": "png",
+    "name": "projects/1713403711180977197/files/d0075cda49c14359a1e19fc73d140775"
+  },
+  "title": "Kivo Escolar — Geocercas Escolares",
+  "width": "2560"
+}

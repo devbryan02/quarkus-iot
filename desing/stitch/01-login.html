@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Acceso al Sistema — Kivo | Colegio Demo</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config verbatim from Design System -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed": "#85f8c4",
+            "outline-variant": "#c3c6d7",
+            "surface-container": "#e5eeff",
+            "on-error": "#ffffff",
+            "tertiary-fixed-dim": "#68dba9",
+            "surface-tint": "#0053db",
+            "tertiary": "#006243",
+            "on-tertiary-container": "#bdffdc",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#007d57",
+            "secondary": "#565e74",
+            "on-primary": "#ffffff",
+            "inverse-primary": "#b4c5ff",
+            "primary": "#004ac6",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed-variant": "#003ea8",
+            "surface-variant": "#d3e4fe",
+            "error": "#ba1a1a",
+            "surface-dim": "#cbdbf5",
+            "on-error-container": "#93000a",
+            "primary-container": "#2563eb",
+            "on-tertiary-fixed": "#002114",
+            "on-secondary": "#ffffff",
+            "outline": "#737686",
+            "on-secondary-fixed": "#131b2e",
+            "surface-container-low": "#eff4ff",
+            "on-primary-container": "#eeefff",
+            "inverse-on-surface": "#eaf1ff",
+            "on-primary-fixed": "#00174b",
+            "error-container": "#ffdad6",
+            "background": "#f8f9ff",
+            "on-surface": "#0b1c30",
+            "surface": "#f8f9ff",
+            "surface-container-highest": "#d3e4fe",
+            "surface-container-high": "#dce9ff",
+            "on-tertiary-fixed-variant": "#005137",
+            "on-secondary-fixed-variant": "#3f465c",
+            "secondary-fixed": "#dae2fd",
+            "inverse-surface": "#213145",
+            "surface-bright": "#f8f9ff",
+            "secondary-container": "#dae2fd",
+            "primary-fixed": "#dbe1ff",
+            "on-background": "#0b1c30",
+            "on-secondary-container": "#5c647a",
+            "on-surface-variant": "#434655",
+            "secondary-fixed-dim": "#bec6e0",
+            "primary-fixed-dim": "#b4c5ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.25rem",
+            "space-sm": "0.5rem",
+            "margin": "1.5rem",
+            "gutter-mobile": "0.75rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Inter"],
+            "data-mono": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "label-md": ["Inter"]
+          },
+          "fontSize": {
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "data-mono": ["13px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "headline-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "headline-lg": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-sm": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .p-inputtext-field:focus {
+      border-color: #2563eb;
+      outline: 3px solid rgba(37, 99, 235, 0.18);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col justify-between selection:bg-surface-variant selection:text-primary">
+<!-- ========================================================================= -->
+<!-- TOP WATERMARK / PERSISTENT DEMO BANNER                                     -->
+<!-- ========================================================================= -->
+
+<!-- ========================================================================= -->
+<!-- MAIN VIEWPORT CONTAINER (Centered Bento Layout 1440px desktop base)      -->
+<!-- ========================================================================= -->
+<main class="flex-1 flex items-center justify-center p-gutter md:py-space-xl">
+<div class="w-full max-w-[1140px] grid grid-cols-1 lg:grid-cols-12 gap-gutter items-stretch">
+<!-- LEFT / CENTRAL CARD: FORMULARIO DE ACCESO INSTITUCIONAL (7 COLS) -->
+<section class="lg:col-span-7 bg-surface-container-lowest border border-[#e2e8f0] rounded-xl shadow-[0_1px_3px_0_rgba(15,23,42,0.05),0_1px_2px_-1px_rgba(15,23,42,0.04)] p-space-lg md:p-space-xl flex flex-col justify-between">
+<div>
+<!-- Header institucional -->
+<div class="flex items-start justify-between pb-space-md border-b border-[#f1f5f9] mb-space-lg"><div class="flex items-center space-x-3"><div class="w-12 h-12 rounded-xl bg-surface-container-low border border-outline-variant/40 flex items-center justify-center text-primary shadow-xs"><span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">smartphone</span></div><div><span class="font-headline-lg text-headline-lg text-primary tracking-tight font-bold">Kivo</span><h1 class="text-body-sm font-body-sm text-secondary font-medium">Colegio Demo — Portal de Telemetría Escolar</h1></div></div></div>
+<!-- Título y descripción del portal -->
+<div class="mb-space-md">
+<h2 class="font-display-sm text-display-sm text-on-surface mb-1">Acceso de Personal Autorizado</h2>
+<p class="text-body-sm font-body-sm text-secondary">Ingrese con sus credenciales institucionales para acceder a la consola de monitoreo y telemetría de monitoreo escolar.</p>
+</div>
+<!-- BOTÓN DEMOSTRATIVO DE ERROR (Simulación interactiva) -->
+<div class="mb-space-md flex items-center justify-between bg-surface-container-low px-3 py-2 rounded-lg border border-outline-variant/30">
+<span class="text-label-sm font-label-sm text-secondary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">toggle_on</span>
+              Demostración interactiva de validación:
+            </span>
+<button class="text-label-sm font-label-sm text-primary hover:text-primary-container font-semibold transition-colors duration-150 underline decoration-dotted" onclick="toggleErrorAlert()" type="button">
+              Simular error de credenciales
+            </button>
+</div>
+<!-- ESTADO VISUAL INTERACTIVO: ALERTA DE CREDENCIALES INCORRECTAS -->
+<div class="hidden mb-space-md bg-[#fef2f2] border border-[#fecaca] rounded-lg p-3 transition-all duration-200" id="errorAlert">
+<div class="flex items-start space-x-2.5">
+<span class="material-symbols-outlined text-[#dc2626] text-[20px] shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">error</span>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<h3 class="text-label-md font-label-md text-[#dc2626] font-bold">Credenciales no válidas</h3>
+<button class="text-[#dc2626] hover:text-[#991b1b]" onclick="toggleErrorAlert()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="text-body-sm font-body-sm text-[#991b1b] mt-0.5">
+                  El usuario o la contraseña no coinciden con los registros del establecimiento. Verifique sus datos o contacte al administrador de transporte.
+                </p>
+</div>
+</div>
+</div>
+<!-- FORMULARIO DE ACCESO INSTITUCIONAL -->
+<form class="space-y-space-md" id="loginForm" onsubmit="event.preventDefault(); triggerSubmitValidation();">
+<!-- Campo: Identificador institucional / Correo -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1" for="institutionalEmail">
+                Identificador institucional / Correo educativo
+              </label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-secondary">
+<span class="material-symbols-outlined text-[18px]">badge</span>
+</span>
+<input class="p-inputtext-field w-full pl-9 pr-3 py-2 bg-surface-container-lowest border border-[#cbd5e1] rounded-lg text-body-md font-body-md text-on-surface placeholder:text-outline focus:border-primary-container focus:ring-0 transition-colors" id="institutionalEmail" name="institutionalEmail" placeholder="operador@example.invalid" required="" type="email" value="operador@example.invalid"/>
+</div>
+<p class="text-label-sm font-label-sm text-secondary mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">info</span> Utilice su cuenta asignada para el sistema escolar.</p>
+</div>
+<!-- Campo: Contraseña segura -->
+<div>
+<div class="flex items-center justify-between mb-1">
+<label class="block text-label-md font-label-md text-on-surface" for="passwordField">
+                  Contraseña segura
+                </label>
+<button class="text-label-sm font-label-sm text-secondary hover:text-on-surface transition-colors flex items-center gap-1" onclick="togglePasswordVisibility()" type="button">
+<span class="material-symbols-outlined text-[16px]" id="pwdToggleIcon">visibility</span>
+<span id="pwdToggleText">Mostrar</span>
+</button>
+</div>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-secondary">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+</span>
+<input class="p-inputtext-field w-full pl-9 pr-10 py-2 bg-surface-container-lowest border border-[#cbd5e1] rounded-lg text-body-md font-body-md text-on-surface placeholder:text-outline focus:border-primary-container focus:ring-0 transition-colors" id="passwordField" name="password" required="" type="password" value="••••••••••••"/>
+</div>
+</div>
+<!-- Checkbox de confianza institucional -->
+
+<!-- Botón primario: Acceder al Sistema (PrimeReact style) -->
+<div class="pt-2">
+<button class="w-full h-[42px] bg-primary-container hover:bg-[#1d4ed8] active:bg-[#1e40af] text-on-primary font-headline-md text-headline-md rounded-lg flex items-center justify-center space-x-2 border border-[#1d4ed8] shadow-sm transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-primary-container/40" type="submit">
+<span class="material-symbols-outlined text-[20px]">login</span>
+<span>Acceder al Sistema</span>
+</button>
+</div>
+<!-- Enlace secundario: Soporte TI -->
+
+</form>
+</div>
+<!-- Banner de estado operativo inferior dentro de la tarjeta -->
+
+</section>
+<!-- RIGHT CARD: PANEL INFORMATIVO Y CONTEXTO DE SEGURIDAD (5 COLS) -->
+<aside class="lg:col-span-5 flex flex-col space-y-gutter"><div class="bg-surface-container-lowest border border-[#e2e8f0] rounded-xl shadow-[0_1px_3px_0_rgba(15,23,42,0.05),0_1px_2px_-1px_rgba(15,23,42,0.04)] p-space-lg flex-1 flex flex-col justify-between"><div class="space-y-space-md"><div class="flex items-center space-x-2 text-primary"><span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">info</span><h3 class="font-headline-md text-headline-md text-on-surface">Demostración de Interfaz</h3></div><p class="text-body-sm font-body-sm text-secondary">Entorno de visualización institucional con datos ficticios para evaluación de la consola de telemetría escolar.</p><div class="pt-2 border-t border-[#f1f5f9]"><span class="text-label-sm font-label-sm uppercase font-semibold text-secondary tracking-wider block mb-2">Perfiles de Acceso Habilitados</span><div class="space-y-2"><div class="flex items-center space-x-2.5 p-2 rounded-lg bg-surface-container-low border border-outline-variant/30"><span class="material-symbols-outlined text-primary text-[18px]">admin_panel_settings</span><div><div class="text-label-md font-label-md text-on-surface font-medium">Administrador escolar</div><div class="text-label-sm font-label-sm text-secondary">Gestión integral de flota y parámetros</div></div></div><div class="flex items-center space-x-2.5 p-2 rounded-lg bg-surface-container-low border border-outline-variant/30"><span class="material-symbols-outlined text-primary text-[18px]">person</span><div><div class="text-label-md font-label-md text-on-surface font-medium">Operador</div><div class="text-label-sm font-label-sm text-secondary">Monitoreo de recorridos y telemetría activa</div></div></div></div></div></div><div class="mt-space-md pt-space-sm border-t border-[#f1f5f9] flex items-center justify-between text-label-sm font-label-sm text-secondary"><span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary"></span> Kivo Telemetría</span><span class="font-medium text-on-surface">Colegio Demo</span></div></div></aside>
+</div>
+</main>
+<!-- ========================================================================= -->
+<!-- PIE DE PÁGINA INSTITUCIONAL DISCRETO                                       -->
+<!-- ========================================================================= -->
+<footer class="w-full bg-surface-container-lowest border-t border-[#e2e8f0] py-space-sm px-margin"><div class="max-w-[1140px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-label-sm font-label-sm text-secondary"><div><span>© 2025 Kivo — Colegio Demo. Plataforma de Telemetría Escolar.</span></div><div class="flex items-center space-x-4"><a class="hover:text-on-surface transition-colors" href="#">Términos de Servicio</a><span class="text-outline-variant">•</span><a class="hover:text-on-surface transition-colors" href="#">Privacidad</a></div></div></footer>
+<!-- Micro-interacciones JavaScript para alta fidelidad -->
+<script>
+    function toggleErrorAlert() {
+      const alertBox = document.getElementById('errorAlert');
+      alertBox.classList.toggle('hidden');
+    }
+
+    function togglePasswordVisibility() {
+      const pwdField = document.getElementById('passwordField');
+      const toggleText = document.getElementById('pwdToggleText');
+      const toggleIcon = document.getElementById('pwdToggleIcon');
+
+      if (pwdField.type === 'password') {
+        pwdField.type = 'text';
+        toggleText.textContent = 'Ocultar';
+        toggleIcon.textContent = 'visibility_off';
+      } else {
+        pwdField.type = 'password';
+        toggleText.textContent = 'Mostrar';
+        toggleIcon.textContent = 'visibility';
+      }
+    }
+
+    function triggerSubmitValidation() {
+      // Muestra la alerta de error de forma ilustrativa si se presiona submit
+      const alertBox = document.getElementById('errorAlert');
+      alertBox.classList.remove('hidden');
+      alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function showSupportMessage(event) {
+      event.preventDefault();
+      alert('Mesa de Ayuda TI Colegio San Gabriel:\nCorreo: soporte.ti@sangabriel.edu.cl\nTeléfono institucional: +56 2 2840 9200 (Anexo 402)\nHorario de atención: Lunes a Viernes de 07:30 a 18:30 hrs.');
+    }
+  </script>
+</body></html>

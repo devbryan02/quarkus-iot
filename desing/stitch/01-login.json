@@ -1,0 +1,17 @@
+{
+  "deviceType": "DESKTOP",
+  "height": "2048",
+  "htmlCode": {
+    "downloadUrl": "https://stitch.googleapis.com/v1/projects/1713403711180977197/files/6081b0046ad543fd8f8dbf6d14ea8aa8:download",
+    "mimeType": "text/html",
+    "name": "projects/1713403711180977197/files/6081b0046ad543fd8f8dbf6d14ea8aa8"
+  },
+  "name": "projects/1713403711180977197/screens/8f0fe3b164c3485cab4d34f8e9e0fd70",
+  "screenshot": {
+    "downloadUrl": "https://stitch.googleapis.com/v1/projects/1713403711180977197/files/ea9058cd188f4bfbbc61cd04d42e532c:download",
+    "mimeType": "png",
+    "name": "projects/1713403711180977197/files/ea9058cd188f4bfbbc61cd04d42e532c"
+  },
+  "title": "Kivo Escolar — Inicio de Sesión",
+  "width": "2560"
+}

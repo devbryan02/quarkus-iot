@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Colegio Demo — Monitoreo | Historial de Alertas</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with forms container plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration defined verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-container": "#5c647a",
+            "surface-container-highest": "#d3e4fe",
+            "primary-fixed": "#dbe1ff",
+            "tertiary-fixed": "#85f8c4",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#68dba9",
+            "surface-container-low": "#eff4ff",
+            "secondary-container": "#dae2fd",
+            "outline": "#737686",
+            "primary-container": "#2563eb",
+            "primary": "#004ac6",
+            "on-surface-variant": "#434655",
+            "on-secondary-fixed-variant": "#3f465c",
+            "on-secondary": "#ffffff",
+            "on-error": "#ffffff",
+            "inverse-surface": "#213145",
+            "secondary": "#565e74",
+            "secondary-fixed": "#dae2fd",
+            "outline-variant": "#c3c6d7",
+            "on-primary-container": "#eeefff",
+            "surface-container-high": "#dce9ff",
+            "on-tertiary-fixed": "#002114",
+            "on-primary-fixed": "#00174b",
+            "surface-bright": "#f8f9ff",
+            "tertiary": "#006243",
+            "on-tertiary-container": "#bdffdc",
+            "on-error-container": "#93000a",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#eaf1ff",
+            "inverse-primary": "#b4c5ff",
+            "secondary-fixed-dim": "#bec6e0",
+            "on-tertiary-fixed-variant": "#005137",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#007d57",
+            "surface-dim": "#cbdbf5",
+            "on-tertiary": "#ffffff",
+            "surface": "#f8f9ff",
+            "on-background": "#0b1c30",
+            "error": "#ba1a1a",
+            "surface-container": "#e5eeff",
+            "primary-fixed-dim": "#b4c5ff",
+            "background": "#f8f9ff",
+            "on-secondary-fixed": "#131b2e",
+            "surface-tint": "#0053db",
+            "surface-variant": "#d3e4fe",
+            "on-surface": "#0b1c30",
+            "on-primary-fixed-variant": "#003ea8"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "margin": "1.5rem",
+            "space-lg": "1.5rem",
+            "gutter-mobile": "0.75rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1rem",
+            "gutter": "1.25rem"
+          },
+          "fontFamily": {
+            "display-sm": ["Inter"],
+            "data-mono": ["Inter"],
+            "label-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-md": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-sm": ["Inter"]
+          },
+          "fontSize": {
+            "display-sm": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "data-mono": ["13px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-lg": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      font-size: 20px;
+      vertical-align: middle;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.15); }
+    }
+    .animate-beacon {
+      animation: pulse-dot 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased font-body-md text-body-md min-h-screen flex flex-col selection:bg-primary selection:text-on-primary">
+<!-- BANNER PERSISTENTE DEMO MODE -->
+<aside aria-label="Aviso de Modo Demostración" class="h-8 bg-inverse-surface text-surface-container-lowest px-4 flex items-center justify-between z-50 text-label-sm font-label-sm border-b border-outline"><div class="flex items-center gap-2 max-w-7xl mx-auto w-full justify-between"><div class="flex items-center gap-2 truncate"><span class="inline-block w-2 h-2 rounded-full bg-amber-400"></span><span class="font-headline-md text-label-sm tracking-wide text-surface-bright">MODO DEMOSTRACIÓN:</span><span class="text-surface-container-highest truncate">Entorno de demostración con datos ficticios. Registro auditable de eventos de telemetría escolar.</span></div><div class="hidden md:flex items-center gap-2 pl-4 shrink-0 text-secondary-fixed"><span class="material-symbols-outlined text-sm" style="font-size: 15px;">verified_user</span><span class="font-data-mono text-label-sm">Colegio Demo — Kivo</span></div></div></aside>
+<!-- TOAST / BANNER INTERACTIVO DE SIMULACIÓN DE ERROR (OCULTO POR DEFECTO) -->
+<div class="hidden fixed top-10 right-6 z-50 bg-surface-container-lowest border-l-4 border-error shadow-lg p-4 rounded-xl max-w-md transition-all duration-200" id="simulationToast">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">error</span>
+<div class="flex-1">
+<h4 class="font-headline-md text-label-md text-error">Fallo de Comunicación con Servidor Sandbox</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">No se pudo actualizar el reconocimiento en el servidor de sandbox. Intente nuevamente.</p>
+<span class="font-data-mono text-label-sm text-outline mt-1 block">Código de error simulado: HTTP 503 SERVICE_UNAVAILABLE</span>
+</div>
+<button class="text-outline hover:text-on-surface" onclick="document.getElementById('simulationToast').classList.add('hidden')">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+</div>
+<!-- MODAL DE CONFIRMACIÓN DE RECONOCIMIENTO (INTERACTIVO) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-inverse-surface/40 backdrop-blur-[2px]" id="ackModal"><div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-2xl max-w-md w-full p-6 space-y-4"><div class="flex items-center gap-3 text-primary"><div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center"><span class="material-symbols-outlined text-primary text-xl">assignment_turned_in</span></div><div><h3 class="font-headline-lg text-headline-lg text-on-surface">Reconocer Alerta</h3><p class="font-body-sm text-body-sm text-secondary">Colegio Demo — Demostración Kivo</p></div></div><p class="font-body-md text-body-md text-on-surface-variant">¿Desea marcar formalmente la alerta <strong class="text-on-surface font-semibold">ALT-8921 (Pulsación SOS - Estudiante Ficticio A)</strong> como <strong class="text-primary font-semibold">Reconocida</strong>?</p><div class="bg-surface-container-low p-3 rounded-lg border border-surface-container-highest text-label-sm font-label-sm text-secondary flex items-start gap-2"><span class="material-symbols-outlined text-primary text-base">info</span><span>Entorno de demostración con datos ficticios.</span></div><div class="flex justify-end gap-3 pt-2"><button class="px-4 py-2 border border-outline-variant hover:bg-surface-container-low rounded-lg font-label-md text-label-md text-secondary" onclick="document.getElementById('ackModal').classList.add('hidden')">Cancelar</button><button class="px-4 py-2 bg-primary text-on-primary hover:bg-primary-container rounded-lg font-label-md text-label-md font-semibold transition-colors duration-150" onclick="confirmAlertAck()">Confirmar Reconocimiento</button></div></div></div>
+<div class="flex flex-1 overflow-hidden relative">
+<!-- COMPONENTE: SideNavBar (administrative_drawer) -->
+<aside aria-label="Navegación Institucional Lateral" class="fixed left-0 top-8 md:top-8 bottom-0 w-64 flex flex-col justify-between py-space-md px-space-sm z-40 bg-surface-container-lowest border-r border-outline-variant">
+<!-- Encabezado Sidebar -->
+<div class="space-y-4">
+<div class="px-3 pt-1 pb-3 flex items-center gap-3 border-b border-outline-variant"><div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shield</span></div><div><h1 class="font-headline-lg text-headline-lg font-bold text-primary leading-tight">Kivo</h1><p class="font-label-md text-label-md text-secondary">Colegio Demo</p></div></div>
+<!-- Navegación Primaria (4 pestañas exactas) -->
+<nav aria-label="Pestañas de Telemetría" class="space-y-1"><a class="w-full flex items-center justify-between text-secondary hover:bg-surface-container-low hover:text-on-surface pl-4 pr-3 py-2.5 rounded-lg font-label-md text-label-md transition-colors duration-150" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">map</span><span>Mapa</span></div></a><a class="w-full flex items-center justify-between text-secondary hover:bg-surface-container-low hover:text-on-surface pl-4 pr-3 py-2.5 rounded-lg font-label-md text-label-md transition-colors duration-150" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">phone_android</span><span>Dispositivos</span></div></a><a class="w-full flex items-center justify-between text-secondary hover:bg-surface-container-low hover:text-on-surface pl-4 pr-3 py-2.5 rounded-lg font-label-md text-label-md transition-colors duration-150" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">share_location</span><span>Geocercas</span></div></a><a aria-current="page" class="w-full flex items-center justify-between bg-surface-container-low text-primary font-semibold border-l-4 border-primary pl-3 pr-3 py-2.5 rounded-r-lg font-label-md text-label-md shadow-xs transition-colors duration-150" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">notifications_active</span><span>Alertas</span></div><span class="bg-error text-on-error text-label-sm font-label-sm px-2 py-0.5 rounded-full font-bold" id="activeAlertBadge">1</span></a></nav>
+</div>
+<!-- Pie del Sidebar con Protocolo SOS y Ajustes -->
+<div class="space-y-3 pt-3 border-t border-outline-variant"><div class="space-y-0.5 pt-1"><a class="w-full flex items-center gap-3 text-secondary hover:bg-surface-container-low hover:text-on-surface pl-4 pr-3 py-2 rounded-lg font-label-md text-label-md transition-colors duration-150" href="#"><span class="material-symbols-outlined text-secondary">settings</span><span>Ajustes del Sistema</span></a><a class="w-full flex items-center gap-3 text-secondary hover:bg-surface-container-low hover:text-on-surface pl-4 pr-3 py-2 rounded-lg font-label-md text-label-md transition-colors duration-150" href="#"><span class="material-symbols-outlined text-secondary">logout</span><span>Cerrar Sesión</span></a></div><div class="px-4 py-2 bg-surface-container-low rounded-lg text-label-sm font-label-sm text-on-secondary-container"><span class="font-data-mono font-semibold block text-primary">Colegio Demo</span><span>Kivo © 2025</span></div></div>
+</aside>
+<!-- ÁREA PRINCIPAL DERECHA (Con TopNavBar anclado + Contenido de Alertas) -->
+<div class="ml-64 flex-1 flex flex-col min-w-0 h-[calc(100vh-2rem)] overflow-y-auto">
+<!-- COMPONENTE: TopNavBar (web_header) -->
+<header aria-label="Encabezado Principal" class="sticky top-0 w-full h-14 px-gutter flex items-center justify-between z-30 bg-surface-container-lowest border-b border-outline-variant shadow-sm">
+<!-- Izquierda: Identidad y Breadcrumbs -->
+<div class="flex items-center gap-4 min-w-0"><div class="flex items-center gap-2"><span class="font-headline-md text-headline-md font-bold text-on-surface">Colegio Demo — Kivo</span></div><div class="hidden lg:flex items-center gap-2 text-label-md font-label-md text-secondary pl-2 border-l border-outline-variant"><a class="hover:text-primary transition-colors" href="#">Panel General</a><span class="text-outline">/</span><span class="text-primary font-semibold">Historial de Alertas</span></div></div>
+<!-- Buscador Central / Izquierda -->
+<div class="hidden md:flex items-center flex-1 max-w-xs mx-6">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">search</span>
+<input class="w-full h-[38px] pl-9 pr-3 rounded-xl border border-outline-variant bg-surface text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Buscar alerta, alumno o furgón..." type="text"/>
+</div>
+</div>
+<!-- Derecha: Acciones Rápidas y Perfil Institucional -->
+<div class="flex items-center gap-3">
+<!-- Campana de Alertas con Badge Activo -->
+<div class="relative">
+<button aria-label="Notificaciones activas" class="w-9 h-9 rounded-xl flex items-center justify-center text-secondary hover:bg-surface-container-low transition-colors duration-150">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<span class="absolute top-1 right-1 w-2.5 h-2.5 rounded-full bg-error ring-2 ring-surface-container-lowest"></span>
+</div>
+<button aria-label="Soporte y Mesa de Ayuda" class="w-9 h-9 rounded-xl flex items-center justify-center text-secondary hover:bg-surface-container-low transition-colors duration-150">
+<span class="material-symbols-outlined">support_agent</span>
+</button>
+<button aria-label="Centro de Ayuda" class="w-9 h-9 rounded-xl flex items-center justify-center text-secondary hover:bg-surface-container-low transition-colors duration-150">
+<span class="material-symbols-outlined">help</span>
+</button>
+<!-- Perfil Usuario Solicitado -->
+<div class="flex items-center gap-3 pl-3 border-l border-outline-variant">
+<div class="w-9 h-9 rounded-full bg-secondary-container text-on-secondary-fixed flex items-center justify-center font-headline-md text-label-md font-bold ring-1 ring-outline-variant">
+              MR
+            </div>
+<div class="hidden xl:block text-left leading-tight">
+<p class="font-headline-md text-label-md font-semibold text-on-surface">Prof. Marcela Ríos</p>
+<p class="font-body-sm text-label-sm text-secondary truncate max-w-[210px]">Coordinación de Transporte y Seguridad</p>
+</div>
+</div>
+</div>
+</header>
+<!-- CONTENEDOR PRINCIPAL DEL HISTORIAL DE ALERTAS -->
+<main class="flex-1 p-space-lg space-y-space-lg max-w-[1720px] w-full mx-auto">
+<!-- TÍTULO Y DESCRIPCIÓN AUDITABLE -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4"><div><div class="flex items-center gap-2"><h2 class="font-display-sm text-display-sm font-bold text-on-surface">Historial de Alertas</h2><span class="px-2.5 py-0.5 rounded-full bg-surface-container text-primary font-data-mono text-label-sm font-semibold border border-surface-container-high">DEMO</span></div><p class="font-body-md text-body-md text-secondary mt-1">Registro de eventos por pulsación SOS en app móvil o salida de geocerca escolar. Entorno de demostración con datos ficticios.</p></div><div class="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-outline-variant bg-surface-container-lowest text-label-sm text-secondary"><span class="material-symbols-outlined text-base text-primary">info</span><span>SOS emitido exclusivamente desde app móvil Android</span></div></div>
+<!-- TARJETAS DE MÉTRICAS RESUMEN (ESTILO PRIMEREACT p-card) -->
+<section aria-label="Métricas Resumen" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-gutter"><div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm hover:border-outline transition-colors"><div class="flex items-start justify-between"><span class="font-headline-md text-label-md text-secondary font-medium">Total de Alertas</span><span class="px-2 py-0.5 rounded-md text-label-sm font-label-sm bg-surface-container text-primary font-semibold">Jornada Actual</span></div><div class="flex items-baseline gap-2 mt-3"><span class="font-display-lg text-display-lg font-bold text-on-surface">4</span><span class="font-body-sm text-body-sm text-secondary">eventos registrados</span></div><div class="mt-3 flex items-center gap-1.5 text-label-sm font-label-sm text-secondary"><span class="material-symbols-outlined text-base text-primary">sync</span><span>Actualizado recientemente</span></div></div><div class="bg-surface-container-lowest border border-error-container rounded-xl p-5 shadow-sm ring-1 ring-error/20"><div class="flex items-start justify-between"><span class="font-headline-md text-label-md text-error font-medium">Alertas SOS</span><span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-label-sm font-label-sm bg-error-container text-on-error-container font-bold"><span class="w-2 h-2 rounded-full bg-error"></span>1 Pendiente</span></div><div class="flex items-baseline gap-2 mt-3"><span class="font-display-lg text-display-lg font-bold text-error">1</span><span class="font-body-sm text-body-sm text-on-surface-variant">App móvil Android</span></div><div class="mt-3 flex items-center gap-1.5 text-label-sm font-label-sm text-error font-medium"><span class="material-symbols-outlined text-base">warning</span><span>Pulsación en app móvil</span></div></div><div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm"><div class="flex items-start justify-between"><span class="font-headline-md text-label-md text-secondary font-medium">Salidas de Geocerca</span><span class="px-2 py-0.5 rounded-md text-label-sm font-label-sm bg-surface-container text-secondary font-semibold">3 Registradas</span></div><div class="flex items-baseline gap-2 mt-3"><span class="font-display-lg text-display-lg font-bold text-on-surface">3</span><span class="font-body-sm text-body-sm text-secondary">perímetros rebasados</span></div><div class="mt-3 flex items-center gap-1.5 text-label-sm font-label-sm text-tertiary"><span class="material-symbols-outlined text-base">check_circle</span><span>2 con retorno a zona segura</span></div></div><div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-5 shadow-sm"><div class="flex items-start justify-between"><span class="font-headline-md text-label-md text-secondary font-medium">Alertas Reconocidas</span><span class="px-2 py-0.5 rounded-md text-label-sm font-label-sm bg-surface-container text-tertiary font-semibold">Monitoreo</span></div><div class="flex items-baseline gap-2 mt-3"><span class="font-display-lg text-display-lg font-bold text-on-surface">3</span><span class="font-headline-md text-headline-md text-secondary font-medium">de 4</span></div><div class="mt-3 flex items-center gap-1.5 text-label-sm font-label-sm text-tertiary"><span class="material-symbols-outlined text-base">task_alt</span><span>Reconocidas por operador</span></div></div></section>
+<!-- BARRA DE CONTROL Y FILTROS TIPO PRIMEREACT (p-toolbar / inputs) -->
+<section aria-label="Filtros y Búsqueda" class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4"><div class="flex flex-wrap items-center gap-2"><span class="font-label-md text-label-md text-secondary mr-1">Filtrar por:</span><button class="px-3 py-1.5 rounded-lg text-label-sm font-label-sm font-semibold bg-primary text-on-primary shadow-xs transition-colors">Todas (4)</button><button class="px-3 py-1.5 rounded-lg text-label-sm font-label-sm font-medium border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-colors">Pulsación SOS (1)</button><button class="px-3 py-1.5 rounded-lg text-label-sm font-label-sm font-medium border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-colors">Salida de geocerca (3)</button></div><div class="flex items-center gap-3"><div class="flex items-center gap-2"><label class="font-label-md text-label-md text-secondary whitespace-nowrap" for="stateFilter">Estado:</label><select class="h-[38px] px-3 pr-8 rounded-xl border border-outline-variant bg-surface-container-lowest text-body-sm font-body-sm text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20" id="stateFilter"><option selected="">Todos los Estados</option><option>Pendiente</option><option>Reconocida</option></select></div><button aria-label="Exportar log en CSV" class="h-[38px] px-3.5 border border-outline-variant hover:bg-surface-container-low rounded-xl text-label-md font-label-md text-secondary flex items-center gap-2 transition-colors"><span class="material-symbols-outlined text-sm">download</span><span class="hidden sm:inline">Exportar Log</span></button></div></section>
+<!-- CONTENEDOR MAESTRO-DETALLE (DOS COLUMNAS) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start" id="alertsContainer">
+<!-- COLUMNA IZQUIERDA: LISTA DE ALERTAS (5 columnas en LG) -->
+<section aria-label="Lista de Alertas Recibidas" class="lg:col-span-5 space-y-3"><div class="flex items-center justify-between pb-1 px-1"><span class="font-headline-md text-label-md text-secondary font-semibold uppercase tracking-wider">Eventos Registrados</span><span class="font-data-mono text-label-sm text-outline">Mostrando 4 de 4</span></div><article class="cursor-pointer bg-surface-container-lowest border-2 border-primary rounded-xl p-4 shadow-sm hover:shadow-md transition-all relative overflow-hidden ring-2 ring-primary/10" id="cardAlert1" onclick="selectAlert(1)"><div class="absolute left-0 top-0 bottom-0 w-1.5 bg-error"></div><div class="pl-2"><div class="flex items-start justify-between gap-2"><div class="flex items-center gap-2"><span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-label-sm font-label-sm bg-error-container text-on-error-container font-bold border border-error/30"><span class="w-1.5 h-1.5 rounded-full bg-error"></span>Pulsación SOS</span><span class="font-data-mono text-label-sm font-semibold text-secondary">ALT-8921</span></div><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-label-sm font-label-sm bg-amber-50 text-amber-800 border border-amber-200 font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Pendiente</span></div><div class="mt-2.5"><h3 class="font-headline-md text-headline-md font-bold text-on-surface leading-tight">Pulsación SOS en App Móvil</h3><p class="font-body-md text-body-md text-on-surface-variant font-medium mt-0.5">Estudiante Ficticio A <span class="text-secondary font-normal">(Teléfono Android — App Kivo)</span></p></div><div class="mt-3 pt-2.5 border-t border-outline-variant/60 flex items-center justify-between text-body-sm text-secondary"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm text-error">schedule</span><span class="font-semibold text-error">15:38 hrs (Hace 4 min)</span></div><div class="flex items-center gap-1 text-primary font-semibold text-label-sm"><span>En foco</span><span class="material-symbols-outlined text-sm">arrow_forward_ios</span></div></div></div></article><article class="cursor-pointer bg-surface-container-lowest border border-outline-variant hover:border-primary/50 rounded-xl p-4 shadow-sm hover:shadow-md transition-all relative overflow-hidden" id="cardAlert2" onclick="selectAlert(2)"><div class="absolute left-0 top-0 bottom-0 w-1 bg-amber-500"></div><div class="pl-2"><div class="flex items-start justify-between gap-2"><div class="flex items-center gap-2"><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-label-sm font-label-sm bg-amber-100 text-amber-900 border border-amber-300 font-semibold">Salida de geocerca</span><span class="font-data-mono text-label-sm text-outline">ALT-8919</span></div><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-label-sm font-label-sm bg-blue-50 text-primary border border-blue-200 font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Reconocida</span></div><div class="mt-2.5"><h3 class="font-headline-md text-headline-md font-semibold text-on-surface leading-tight">Salida de Geocerca Campus Central</h3><p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Estudiante Ficticio B <span class="text-secondary">(Teléfono Android)</span></p></div><div class="mt-3 pt-2.5 border-t border-outline-variant/60 flex items-center justify-between text-body-sm text-secondary"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">schedule</span><span>14:52 hrs (Hace 50 min)</span></div><span class="font-data-mono text-label-sm text-secondary">Tolerancia: 120m</span></div></div></article><article class="cursor-pointer bg-surface-container-lowest border border-outline-variant hover:border-primary/50 rounded-xl p-4 shadow-sm hover:shadow-md transition-all relative overflow-hidden" id="cardAlert3" onclick="selectAlert(3)"><div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div><div class="pl-2"><div class="flex items-start justify-between gap-2"><div class="flex items-center gap-2"><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-label-sm font-label-sm bg-surface-container text-tertiary border border-surface-container-high font-semibold">Salida de geocerca</span><span class="font-data-mono text-label-sm text-outline">ALT-8914</span></div><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-label-sm font-label-sm bg-blue-50 text-primary border border-blue-200 font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Reconocida</span></div><div class="mt-2.5"><h3 class="font-headline-md text-headline-md font-semibold text-on-surface leading-tight">Salida de Geocerca Gimnasio</h3><p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Estudiante Ficticio C <span class="text-secondary">(Teléfono Android)</span></p></div><div class="mt-3 pt-2.5 border-t border-outline-variant/60 flex items-center justify-between text-body-sm text-secondary"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">schedule</span><span>13:15 hrs</span></div><span class="font-label-sm text-tertiary font-semibold">Retorno registrado</span></div></div></article><article class="cursor-pointer bg-surface-container-lowest border border-outline-variant hover:border-primary/50 rounded-xl p-4 shadow-sm hover:shadow-md transition-all relative overflow-hidden" id="cardAlert4" onclick="selectAlert(4)"><div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div><div class="pl-2"><div class="flex items-start justify-between gap-2"><div class="flex items-center gap-2"><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-label-sm font-label-sm bg-surface-container text-tertiary border border-surface-container-high font-semibold">Salida de geocerca</span><span class="font-data-mono text-label-sm text-outline">ALT-8902</span></div><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-label-sm font-label-sm bg-blue-50 text-primary border border-blue-200 font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Reconocida</span></div><div class="mt-2.5"><h3 class="font-headline-md text-headline-md font-semibold text-on-surface leading-tight">Salida de Geocerca Acceso Principal</h3><p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Estudiante Ficticio D <span class="text-secondary">(Teléfono Android)</span></p></div><div class="mt-3 pt-2.5 border-t border-outline-variant/60 flex items-center justify-between text-body-sm text-secondary"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">schedule</span><span>12:40 hrs</span></div><span class="font-data-mono text-label-sm text-outline">Fin de jornada</span></div></div></article></section>
+<!-- COLUMNA DERECHA: DETALLE DE LA ALERTA SELECCIONADA (7 columnas en LG) -->
+<section aria-label="Detalle de Alerta Seleccionada" class="lg:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm space-y-6"><div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-outline-variant"><div><div class="flex items-center gap-2.5"><span class="font-data-mono text-label-md font-bold px-2.5 py-1 rounded bg-surface-container-low text-primary border border-outline-variant">ID Evento: ALT-8921</span><span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-label-sm font-label-sm bg-error-container text-on-error-container font-bold border border-error/30"><span class="w-2 h-2 rounded-full bg-error"></span>Tipo: Pulsación SOS</span></div><h3 class="font-display-sm text-display-sm font-bold text-on-surface mt-2">Pulsación SOS en App Móvil</h3><p class="font-body-md text-body-md text-secondary">Evento emitido desde la aplicación móvil Kivo instalada en el dispositivo Android del estudiante.</p></div><div class="sm:text-right shrink-0"><span class="text-label-sm font-label-sm text-secondary block">Estado</span><span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-label-md font-label-md bg-amber-50 text-amber-800 border border-amber-300 font-bold mt-1" id="detailStatusTag"><span class="w-2 h-2 rounded-full bg-amber-500"></span>Pendiente</span></div></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-surface-container-low p-4 rounded-xl border border-outline-variant/70"><div class="space-y-1"><span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider block">Estudiante Ficticio</span><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-bold text-headline-md">EA</div><div><p class="font-headline-md text-headline-md font-bold text-on-surface">Estudiante Ficticio A</p><p class="font-body-sm text-body-sm text-secondary">Curso 7° Básico — ID Ficticio #2024-0419</p></div></div></div><div class="space-y-1 sm:border-l sm:border-outline-variant/80 sm:pl-4"><span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider block">Dispositivo Registrado</span><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-surface-container-lowest border border-outline-variant flex items-center justify-center text-primary"><span class="material-symbols-outlined">phone_android</span></div><div><p class="font-headline-md text-headline-md font-semibold text-on-surface">Teléfono Android</p><p class="font-body-sm text-body-sm text-secondary">App Kivo v1.0 (Sesión Activa)</p></div></div></div></div><div class="space-y-3"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary">pin_drop</span><h4 class="font-headline-md text-headline-md font-bold text-on-surface">Última Ubicación Reportada</h4></div><div class="flex items-center gap-2 text-label-sm font-label-sm text-secondary"><span class="w-2 h-2 rounded-full bg-tertiary"></span><span class="font-data-mono">Actualizado recientemente</span></div></div><div class="relative w-full h-64 rounded-xl border border-outline-variant overflow-hidden bg-slate-900 shadow-inner flex flex-col justify-between p-4"><div class="absolute inset-0 opacity-25 pointer-events-none" style="background-image: linear-gradient(#334155 1px, transparent 1px), linear-gradient(to right, #334155 1px, #0f172a 1px); background-size: 32px 32px;"></div><svg class="absolute inset-0 w-full h-full stroke-slate-700/60" xmlns="http://www.w3.org/2000/svg"><line stroke-width="8" x1="0" x2="100%" y1="40" y2="80"></line><line stroke-width="12" x1="30%" x2="45%" y1="0" y2="100%"></line><line stroke-width="6" x1="80%" x2="70%" y1="0" y2="100%"></line><polygon fill="rgba(37, 99, 235, 0.15)" points="40,20 180,30 220,120 70,110" stroke="#2563eb" stroke-dasharray="4" stroke-width="2"></polygon></svg><div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"><div class="w-32 h-32 rounded-full bg-error/15 border border-error/50 flex items-center justify-center"><div class="w-16 h-16 rounded-full bg-error/20 flex items-center justify-center"><div class="w-6 h-6 rounded-full bg-error ring-4 ring-white shadow-lg flex items-center justify-center text-white"><span class="material-symbols-outlined text-xs" style="font-size: 14px; font-variation-settings: 'FILL' 1;">emergency</span></div></div></div><div class="absolute -top-10 bg-slate-900/95 text-white text-label-sm font-label-sm font-medium px-2.5 py-1 rounded-md border border-slate-700 shadow-xl whitespace-nowrap">Pulsación SOS — Dispositivo Android</div></div><div class="relative z-10 flex items-center justify-between text-white/90"><div class="bg-slate-900/85 backdrop-blur-xs px-2.5 py-1 rounded-lg border border-slate-700 font-data-mono text-label-sm flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-error"></span><span>Ubicación estimada ficticia</span></div></div><div class="relative z-10 bg-slate-900/85 backdrop-blur-xs px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300 text-label-sm flex items-center justify-between"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-amber-400">info</span><span>Entorno de demostración con datos ficticios.</span></div></div></div></div><div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-body-sm"><div class="p-3 bg-surface rounded-xl border border-outline-variant"><span class="text-secondary text-label-sm block">Hora Evento</span><span class="font-data-mono font-bold text-on-surface">15:38 hrs</span></div><div class="p-3 bg-surface rounded-xl border border-outline-variant"><span class="text-secondary text-label-sm block">Tipo de Alerta</span><span class="font-data-mono font-bold text-error">Pulsación SOS</span></div><div class="p-3 bg-surface rounded-xl border border-outline-variant"><span class="text-secondary text-label-sm block">Medio de Emisión</span><span class="font-data-mono font-bold text-on-surface">App Móvil Android</span></div><div class="p-3 bg-surface rounded-xl border border-outline-variant"><span class="text-secondary text-label-sm block">Estado Actual</span><span class="font-data-mono font-bold text-amber-800">Pendiente</span></div></div><div class="space-y-4 pt-2 border-t border-outline-variant"><div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3"><button class="h-10 px-6 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-headline-md text-label-md font-semibold flex items-center justify-center gap-2 shadow-sm transition-all duration-150 active:scale-[0.99]" id="btnAcknowledge" onclick="openAckModal()" type="button"><span class="material-symbols-outlined text-lg">check_circle</span><span id="btnAckLabel">Reconocer alerta</span></button></div><div class="bg-surface-container-low border border-outline-variant rounded-xl p-4 space-y-1"><div class="flex items-center gap-2 text-on-surface font-headline-md text-label-md"><span class="material-symbols-outlined text-outline">verified</span><span class="font-semibold">Gestión de Alertas del Operador</span></div><p class="font-body-sm text-body-sm text-secondary leading-relaxed">El operador puede revisar la alerta y dejar constancia presionando <strong class="text-on-surface font-semibold">'Reconocer alerta'</strong>. El botón SOS se envía exclusivamente desde la app móvil Android de los estudiantes.</p></div></div></section>
+</div>
+<!-- VISTA DE BANDEJA VACÍA (SIMULACIÓN INTERACTIVA ALTERNATIVA) -->
+<div class="hidden bg-surface-container-lowest border border-outline-variant rounded-xl p-12 text-center max-w-2xl mx-auto space-y-4 my-8 shadow-sm" id="emptyContainer">
+<div class="w-20 h-20 rounded-full bg-emerald-50 text-tertiary mx-auto flex items-center justify-center border border-emerald-200">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-display-sm text-display-sm font-bold text-on-surface">Sin eventos pendientes de reconocimiento</h3>
+<p class="font-body-md text-body-md text-secondary max-w-md mx-auto">
+              Todas las alertas de la jornada han sido reconocidas o no existen incidencias de telemetría en este momento.
+            </p>
+</div>
+<div class="pt-4 flex justify-center gap-3">
+<button class="px-5 py-2.5 bg-primary text-on-primary rounded-xl font-label-md text-label-md font-semibold hover:bg-primary-container transition-colors" onclick="setViewMode('normal')">
+              Restaurar Lista de Alertas
+            </button>
+</div>
+</div>
+</main>
+<!-- PIE INSTITUCIONAL DE AUDITORÍA -->
+<footer class="mt-auto px-gutter py-4 border-t border-outline-variant bg-surface-container-lowest text-label-sm font-label-sm text-secondary flex flex-col sm:flex-row items-center justify-between gap-2"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-tertiary"></span><span>Entorno de demostración con datos ficticios — Colegio Demo | Kivo</span></div><div class="flex items-center gap-4 font-data-mono"><span>Sistema Activo</span></div></footer>
+</div>
+</div>
+<!-- LÓGICA DE MICRO-INTERACCIONES EN JAVASCRIPT VANILLA -->
+<script>
+    // Gestión de Modos de Vista (Normal vs Vacía)
+    function setViewMode(mode) {
+      const alertsContainer = document.getElementById('alertsContainer');
+      const emptyContainer = document.getElementById('emptyContainer');
+      const btnNormal = document.getElementById('btnStateNormal');
+      const btnEmpty = document.getElementById('btnStateEmpty');
+
+      if (mode === 'empty') {
+        alertsContainer.classList.add('hidden');
+        emptyContainer.classList.remove('hidden');
+        btnEmpty.classList.add('bg-primary', 'text-on-primary', 'shadow-xs');
+        btnEmpty.classList.remove('text-secondary', 'hover:bg-surface-container-low');
+        btnNormal.classList.remove('bg-primary', 'text-on-primary', 'shadow-xs');
+        btnNormal.classList.add('text-secondary', 'hover:bg-surface-container-low');
+      } else {
+        alertsContainer.classList.remove('hidden');
+        emptyContainer.classList.add('hidden');
+        btnNormal.classList.add('bg-primary', 'text-on-primary', 'shadow-xs');
+        btnNormal.classList.remove('text-secondary', 'hover:bg-surface-container-low');
+        btnEmpty.classList.remove('bg-primary', 'text-on-primary', 'shadow-xs');
+        btnEmpty.classList.add('text-secondary', 'hover:bg-surface-container-low');
+      }
+    }
+
+    // Modal de Reconocimiento
+    function openAckModal() {
+      const modal = document.getElementById('ackModal');
+      modal.classList.remove('hidden');
+    }
+
+    function confirmAlertAck() {
+      const modal = document.getElementById('ackModal');
+      const tag = document.getElementById('detailStatusTag');
+      const btn = document.getElementById('btnAcknowledge');
+      const btnLabel = document.getElementById('btnAckLabel');
+      const activeBadge = document.getElementById('activeAlertBadge');
+      
+      modal.classList.add('hidden');
+      
+      // Actualizar estado a "Reconocido / Confirmado"
+      tag.innerHTML = `
+        <span class="w-2 h-2 rounded-full bg-primary"></span>
+        Confirmado por Prof. Marcela Ríos
+      `;
+      tag.className = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-label-md font-label-md bg-blue-50 text-primary border border-primary/30 font-bold mt-1';
+      
+      btn.classList.remove('bg-primary', 'hover:bg-primary-container');
+      btn.classList.add('bg-surface-container', 'text-secondary', 'border', 'border-outline-variant', 'cursor-not-allowed');
+      btn.disabled = true;
+      btnLabel.textContent = 'Alerta Reconocida (En seguimiento)';
+      
+      if (activeBadge) {
+        activeBadge.textContent = '0';
+        activeBadge.classList.remove('bg-error');
+        activeBadge.classList.add('bg-secondary');
+      }
+    }
+
+    // Disparador del Toast de Error al Reconocer
+    function triggerErrorToast() {
+      const toast = document.getElementById('simulationToast');
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 6000);
+    }
+
+    // Selección de alerta activa en lista izquierda
+    function selectAlert(index) {
+      for (let i = 1; i <= 4; i++) {
+        const card = document.getElementById(`cardAlert${i}`);
+        if (card) {
+          if (i === index) {
+            card.classList.add('border-primary', 'ring-2', 'ring-primary/10');
+            card.classList.remove('border-outline-variant');
+          } else {
+            card.classList.remove('border-primary', 'ring-2', 'ring-primary/10');
+            card.classList.add('border-outline-variant');
+          }
+        }
+      }
+    }
+  </script>
+</body></html>

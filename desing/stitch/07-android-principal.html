@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kivo Móvil — Monitoreo y SOS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-mono-code {
+      font-family: 'JetBrains+Mono', monospace;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1, 'wght' 500;
+    }
+  </style>
+<style>body { overflow-x:hidden; } main, .mobile-frame-container { width:390px!important; max-width:100vw!important; min-width:0!important; flex-shrink:0!important; }</style></head>
+<body class="bg-slate-100 flex justify-center items-start min-h-screen p-0 sm:py-6">
+<!-- Android Phone Mockup (390px fixed frame) -->
+<main class="w-[390px] min-h-[844px] bg-[#f8f9ff] text-slate-900 shadow-2xl relative flex flex-col justify-between border border-slate-200 sm:rounded-[36px] overflow-hidden">
+<!-- Top System Bar Android -->
+<header class="w-full bg-[#1e293b] text-white pt-2 pb-1.5 px-4 flex justify-between items-center text-xs select-none">
+<span class="font-semibold tracking-wide text-xs">08:42</span>
+<div class="flex items-center gap-1.5 text-[11px] opacity-90">
+<span class="material-symbols-outlined text-[15px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[15px]">wifi</span>
+<span class="material-symbols-outlined text-[15px]">battery_5_bar</span>
+<span class="font-medium text-[11px] ml-0.5">82%</span>
+</div>
+</header>
+<!-- Banner Entorno Demostración Ficticio -->
+<div class="bg-amber-100 border-b border-amber-200 px-3 py-1 flex items-center justify-between text-[11px] text-amber-900 font-medium">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+<span>Entorno de Demostración Institucional</span>
+</div>
+<span class="bg-amber-200/70 text-amber-800 text-[10px] px-1.5 py-0.5 rounded font-mono-code">Ficticio</span>
+</div>
+<!-- App Header Kivo -->
+<div class="px-4 py-3 bg-white border-b border-slate-200 flex items-center justify-between shadow-xs">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined fill-1 text-xl">shield</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<h1 class="text-base font-bold text-slate-900 tracking-tight leading-none">Kivo</h1>
+<span class="text-[10px] font-semibold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded border border-blue-200">Terminal Escolar</span>
+</div>
+<p class="text-xs text-slate-500 mt-0.5">Colegio Demo — Dispositivo #08</p>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-2 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition" id="btn-toggle-drawer" title="Información del dispositivo">
+<span class="material-symbols-outlined text-xl">info</span>
+</button>
+</div>
+</div>
+<!-- Main Scrollable Body Content -->
+<div class="flex-1 overflow-y-auto px-4 py-3 space-y-3.5 pb-6">
+<!-- Interactive Simulation Control: Switch between App States -->
+<section class="bg-slate-50 border border-slate-200 rounded-xl p-2.5">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">tune</span> Simular Estado de Sesión:
+          </span>
+<span class="text-[10px] text-slate-400">Demostración UX</span>
+</div>
+<div class="grid grid-cols-4 gap-1 text-[11px]">
+<button class="py-1 px-1.5 rounded font-medium bg-blue-600 text-white shadow-xs text-center transition" id="tab-activa" onclick="setSessionState('activa')">Activa</button>
+<button class="py-1 px-1.5 rounded font-medium bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 text-center transition" id="tab-pausada" onclick="setSessionState('pausada')">Pausada</button>
+<button class="py-1 px-1.5 rounded font-medium bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 text-center transition" id="tab-inactiva" onclick="setSessionState('inactiva')">Inactiva</button>
+<button class="py-1 px-1.5 rounded font-medium bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 text-center transition" id="tab-fallas" onclick="setSessionState('fallas')">Contingencia</button>
+</div>
+</section>
+<!-- 1. Estado Principal de la Sesión Autorizada -->
+<section class="bg-white border-2 border-emerald-500/40 rounded-2xl p-4 shadow-sm relative overflow-hidden transition-all duration-200" id="card-session-state">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-emerald-50 rounded-full pointer-events-none opacity-60"></div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<span class="relative flex h-3 w-3" id="badge-pulse">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+</span>
+<span class="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200" id="session-tag">
+              Sesión Escolar Activa
+            </span>
+</div>
+<span class="text-xs font-mono-code font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded" id="session-timer">
+            En curso: 01h 14m
+          </span>
+</div>
+<h2 class="text-lg font-bold text-slate-900 mt-2" id="session-title">Monitoreo Autorizado en Marcha</h2>
+<p class="text-xs text-slate-600 mt-1 leading-relaxed" id="session-desc">El seguimiento y reporte de ubicación operan únicamente durante una sesión autorizada.</p>
+<!-- Android Background Notification Banner -->
+<div class="mt-3 bg-slate-50 border border-slate-200 rounded-xl p-2.5 flex items-start gap-2.5" id="android-notif-box">
+<div class="mt-0.5 p-1 bg-slate-200 rounded text-slate-700 flex-shrink-0">
+<span class="material-symbols-outlined text-base">android</span>
+</div>
+<div class="text-[11px] leading-tight text-slate-600">
+<span class="font-semibold text-slate-800 block">Aviso del Sistema Android:</span>
+            El seguimiento continúa activo con la pantalla bloqueada. Android muestra permanentemente la notificación de servicio de telemetría.
+            <span class="text-[10px] text-slate-400 block mt-0.5">No garantizado tras detención forzada de la aplicación.</span>
+</div>
+</div>
+<!-- Botón Iniciar / Detener Monitoreo -->
+<div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+<button class="w-full py-2.5 px-4 rounded-xl font-bold text-sm bg-slate-900 text-white hover:bg-slate-800 active:scale-[0.99] transition flex items-center justify-center gap-2 shadow-sm" id="btn-toggle-monitoring" onclick="toggleMonitoring()">
+<span class="material-symbols-outlined text-lg" id="btn-toggle-icon">pause_circle</span>
+<span id="btn-toggle-text">Detener monitoreo temporalmente</span>
+</button>
+</div>
+</section>
+<!-- 2. Tarjeta de Diagnóstico y Telemetría: GPS, Comunicación y Última Ubicación -->
+<section class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm space-y-3">
+<div class="flex items-center justify-between pb-2 border-b border-slate-100">
+<span class="text-xs font-bold text-slate-700 uppercase tracking-wide flex items-center gap-1.5"><span class="material-symbols-outlined text-blue-600 text-base">sensors</span> Telemetría del Dispositivo</span>
+<span class="text-[10px] font-mono-code text-slate-400">Datos Ficticios</span>
+</div>
+<!-- Grid de Estados: GPS + Conexión -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Estado GPS -->
+<div class="bg-blue-50/70 border border-blue-200 rounded-xl p-2.5 flex flex-col justify-between" id="status-gps-box">
+<div class="flex items-center justify-between">
+<span class="text-[11px] font-medium text-slate-600">Receptor GPS</span>
+<span class="material-symbols-outlined text-blue-600 text-base" id="icon-gps">location_on</span>
+</div>
+<div class="mt-1">
+<span class="text-xs font-bold text-blue-900 block" id="text-gps-status">GPS Activo</span>
+<span class="text-[10px] text-blue-700/80 font-mono-code" id="text-gps-precision">Precisión: ± 6 metros</span>
+</div>
+</div>
+<!-- Estado Comunicación / Datos -->
+<div class="bg-emerald-50/70 border border-emerald-200 rounded-xl p-2.5 flex flex-col justify-between" id="status-comm-box">
+<div class="flex items-center justify-between">
+<span class="text-[11px] font-medium text-slate-600">Servidor Escolar</span>
+<span class="material-symbols-outlined text-emerald-600 text-base" id="icon-comm">cloud_done</span>
+</div>
+<div class="mt-1">
+<span class="text-xs font-bold text-emerald-900 block" id="text-comm-status">Conectado</span>
+<span class="text-[10px] text-emerald-700/80 font-mono-code" id="text-comm-latency">Sincronizado</span>
+</div>
+</div>
+</div>
+<!-- Última Ubicación Enviada -->
+<div class="bg-slate-50 border border-slate-200 rounded-xl p-3 space-y-1.5" id="box-last-location">
+<div class="flex items-center justify-between">
+<span class="text-xs font-semibold text-slate-700 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-slate-500">near_me</span>
+              Último reporte remitido:
+            </span>
+<span class="text-xs font-mono-code font-bold text-slate-800 bg-white border border-slate-200 px-1.5 py-0.5 rounded" id="text-last-time">
+              Hace 18 segundos
+            </span>
+</div>
+<div class="flex items-center justify-between text-[11px] text-slate-600 pt-1"><button class="py-1 px-1 rounded bg-slate-100 text-slate-700 hover:bg-slate-200 font-medium text-center" id="sos-tab-pendiente" onclick="setSOSState('pendiente')">Enviando</button><button class="py-1 px-1 rounded bg-slate-100 text-slate-700 hover:bg-slate-200 font-medium text-center" id="sos-tab-enviado" onclick="setSOSState('enviado')">Enviado</button><button class="py-1 px-1 rounded bg-red-50 text-red-700 border border-red-200 font-semibold text-center" id="sos-tab-recibido" onclick="setSOSState('recibido')">Recibido</button><button class="py-1 px-1 rounded bg-slate-100 text-slate-700 hover:bg-slate-200 font-medium text-center" id="sos-tab-error" onclick="setSOSState('error')">Error</button></div>
+</div>
+<!-- Advertencias y Contingencias dinámicas (GPS desactivado, permiso revocado, sin conexión) -->
+<div class="hidden p-3 rounded-xl border text-xs flex items-start gap-2.5" id="contingency-banner">
+<!-- Injected via JavaScript based on state -->
+</div>
+</section>
+<!-- 3. ZONA SOS DESTACADA (Petición de Ayuda) -->
+<section class="bg-white border-2 border-red-500/30 rounded-2xl p-4 shadow-sm space-y-3"><div class="flex items-center gap-1.5 text-blue-900 font-semibold"><span class="material-symbols-outlined text-sm">lock</span>Custodia y Privacidad del Menor</div><p class="text-slate-600 leading-tight text-[11px]">La captura y reporte de posición operan <strong>únicamente durante una sesión escolar autorizada</strong>. Si la sesión no está activa, el reporte se encuentra suspendido.</p></section>
+<!-- 4. Resumen de Privacidad y Alcance -->
+<section class="bg-blue-50/50 border border-blue-100 rounded-xl p-3 text-[11px] text-slate-600 space-y-1">
+<div class="flex items-center gap-1.5 text-blue-900 font-semibold">
+<span class="material-symbols-outlined text-sm">lock</span>
+          Custodia y Privacidad del Menor
+        </div>
+<p class="text-slate-600 leading-tight">
+          La captura y reporte de posición operan <strong>únicamente durante sesiones escolares autorizadas</strong>. Fuera de itinerario validado el servicio se desactiva por diseño.
+        </p>
+</section>
+</div>
+<!-- Bottom Navigation Bar Android -->
+<!-- Bottom System Navigation Android (3-button navigation) -->
+<footer class="w-full bg-[#1e293b] py-2 flex justify-around items-center text-white/70 select-none">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+<span class="material-symbols-outlined text-sm">circle</span>
+<span class="material-symbols-outlined text-sm">crop_square</span>
+</footer>
+<!-- Modal Informativo: Vinculación Pendiente & Ayuda -->
+<div class="hidden absolute inset-0 bg-slate-900/60 z-50 flex items-end justify-center p-0 transition-opacity" id="modal-info">
+<div class="w-full bg-white rounded-t-3xl p-5 shadow-2xl space-y-4 max-h-[80%] overflow-y-auto">
+<div class="w-12 h-1 bg-slate-300 rounded-full mx-auto"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-blue-600">settings_suggest</span>
+<h4 class="font-bold text-base text-slate-900">Detalles Técnicos del Dispositivo</h4>
+</div>
+<button class="p-1 rounded-full text-slate-400 hover:bg-slate-100" onclick="closeModal()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="space-y-2 text-xs text-slate-600">
+<div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+<span class="font-semibold text-slate-800 block">Método de Vinculación:</span>
+<p>Paso actualmente pendiente de especificación técnica/administrativa. No requiere códigos QR ni credenciales manuales para la demostración.</p>
+</div>
+<div class="p-3 bg-blue-50 border border-blue-200 rounded-xl space-y-1 text-blue-900">
+<span class="font-semibold block">Identificador Ficticio:</span>
+<p class="font-mono-code text-[11px]">DISP-ANDROID-CSG-08 (Colegio Demo)</p>
+</div>
+</div>
+<button class="w-full py-2.5 bg-blue-600 text-white rounded-xl font-bold text-xs hover:bg-blue-700" onclick="closeModal()">
+          Entendido
+        </button>
+</div>
+</div><section aria-label="Solicitud SOS de demostracion" style="margin:16px;padding:16px;background:#fff;border:1px solid #fecaca;border-radius:16px;flex-shrink:0"><h2 style="font-weight:700;color:#991b1b;margin-bottom:12px">Solicitar ayuda</h2><button onclick="this.nextElementSibling.textContent='Demostracion: solicitud pendiente de envio'" style="width:100%;min-height:64px;border-radius:12px;background:#dc2626;color:white;font-size:24px;font-weight:800" type="button">SOS</button><p role="status" style="margin-top:12px;font-size:13px;color:#475569">SOS solicita ayuda; no llama a emergencias ni garantiza atencion inmediata.</p></section>
+</main>
+<script>
+    // State controller for interactive exploration
+    let currentSessionState = 'activa';
+    let currentSOSState = 'recibido';
+
+    function setSessionState(state) {
+      currentSessionState = state;
+      
+      // Update Tab Styles
+      ['activa', 'pausada', 'inactiva', 'fallas'].forEach(s => {
+        const btn = document.getElementById('tab-' + s);
+        if (s === state) {
+          btn.className = "py-1 px-1.5 rounded font-medium bg-blue-600 text-white shadow-xs text-center transition";
+        } else {
+          btn.className = "py-1 px-1.5 rounded font-medium bg-white text-slate-700 border border-slate-200 hover:bg-slate-100 text-center transition";
+        }
+      });
+
+      const card = document.getElementById('card-session-state');
+      const tag = document.getElementById('session-tag');
+      const title = document.getElementById('session-title');
+      const desc = document.getElementById('session-desc');
+      const timer = document.getElementById('session-timer');
+      const pulse = document.getElementById('badge-pulse');
+      const btnText = document.getElementById('btn-toggle-text');
+      const btnIcon = document.getElementById('btn-toggle-icon');
+      const contingency = document.getElementById('contingency-banner');
+      const notifBox = document.getElementById('android-notif-box');
+      const statusCommBox = document.getElementById('status-comm-box');
+      const statusGpsBox = document.getElementById('status-gps-box');
+
+      // Reset contingent classes
+      contingency.classList.add('hidden');
+      contingency.className = "p-3 rounded-xl border text-xs flex items-start gap-2.5";
+
+      if (state === 'activa') {
+        card.className = "bg-white border-2 border-emerald-500/40 rounded-2xl p-4 shadow-sm relative overflow-hidden transition-all duration-200";
+        tag.className = "text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200";
+        tag.innerText = "Sesión Escolar Activa";
+        title.innerText = "Monitoreo Autorizado en Marcha";
+        desc.innerText = "La telemetría se reporta exclusivamente durante el horario lectivo validado por el Colegio Demo.";
+        timer.innerText = "En curso: 01h 14m";
+        timer.className = "text-xs font-mono-code font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded";
+        pulse.innerHTML = '<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>';
+        btnText.innerText = "Detener monitoreo temporalmente";
+        btnIcon.innerText = "pause_circle";
+        notifBox.classList.remove('hidden');
+
+        document.getElementById('text-gps-status').innerText = "GPS Activo";
+        document.getElementById('text-gps-precision').innerText = "Precisión: ± 6 metros";
+        document.getElementById('text-comm-status').innerText = "Conectado";
+        document.getElementById('text-comm-latency').innerText = "Sincronizado";
+
+      } else if (state === 'pausada') {
+        card.className = "bg-white border-2 border-amber-500/40 rounded-2xl p-4 shadow-sm relative overflow-hidden transition-all duration-200";
+        tag.className = "text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200";
+        tag.innerText = "Sesión Escolar Pausada";
+        title.innerText = "Monitoreo en Pausa Temporal";
+        desc.innerText = "El reporte de coordenadas está suspendido voluntariamente. Puede reanudarse en cualquier instante.";
+        timer.innerText = "Pausado: 00h 08m";
+        timer.className = "text-xs font-mono-code font-semibold text-amber-800 bg-amber-50 px-2 py-0.5 rounded";
+        pulse.innerHTML = '<span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>';
+        btnText.innerText = "Reanudar monitoreo de sesión";
+        btnIcon.innerText = "play_circle";
+        notifBox.classList.remove('hidden');
+
+      } else if (state === 'inactiva') {
+        card.className = "bg-white border-2 border-slate-300 rounded-2xl p-4 shadow-sm relative overflow-hidden transition-all duration-200";
+        tag.className = "text-xs font-bold uppercase tracking-wider text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full border border-slate-200";
+        tag.innerText = "Sesión Finalizada / Inactiva";
+        title.innerText = "Fuera de Horario Escolar";
+        desc.innerText = "No se captura ni transmite ubicación fuera de una sesión validada por la administración del colegio.";
+        timer.innerText = "Cerrada: 17:30 hrs";
+        timer.className = "text-xs font-mono-code font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded";
+        pulse.innerHTML = '<span class="relative inline-flex rounded-full h-3 w-3 bg-slate-400"></span>';
+        btnText.innerText = "Iniciar monitoreo de nueva jornada";
+        btnIcon.innerText = "play_circle";
+        notifBox.classList.add('hidden');
+
+      } else if (state === 'fallas') {
+        // Demostración de contingencias: GPS desactivado / Permiso revocado / Sin conexión
+        card.className = "bg-white border-2 border-red-500/40 rounded-2xl p-4 shadow-sm relative overflow-hidden transition-all duration-200";
+        tag.className = "text-xs font-bold uppercase tracking-wider text-red-700 bg-red-50 px-2 py-0.5 rounded-full border border-red-200";
+        tag.innerText = "Contingencia de Telemetría";
+        title.innerText = "Interrupción de Seguimiento";
+        desc.innerText = "Se detectó que el receptor de GPS está deshabilitado o no cuenta con enlace al servidor escolar.";
+        timer.innerText = "Alerta activa";
+        timer.className = "text-xs font-mono-code font-semibold text-red-700 bg-red-50 px-2 py-0.5 rounded";
+        pulse.innerHTML = '<span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>';
+        btnText.innerText = "Reintentar conexión técnica";
+        btnIcon.innerText = "refresh";
+        
+        // Show contingency banner
+        contingency.classList.remove('hidden');
+        contingency.classList.add('bg-red-50', 'border-red-200', 'text-red-900');
+        contingency.innerHTML = `
+          <span class="material-symbols-outlined text-red-600 text-lg">location_off</span>
+          <div>
+            <strong class="block font-bold">GPS desactivado o permiso no disponible</strong>
+            <span>Active la precisión de ubicación del sistema Android para continuar transmitiendo la posición autorizada.</span>
+            <button class="mt-2 text-xs font-bold text-red-700 underline block" onclick="setSessionState('activa')">Habilitar en ajustes de Android</button>
+          </div>
+        `;
+
+        document.getElementById('text-gps-status').innerText = "Sin Señal GPS";
+        document.getElementById('text-gps-precision').innerText = "No disponible";
+        document.getElementById('text-comm-status').innerText = "Sin Conexión";
+        document.getElementById('text-comm-latency').innerText = "Reintentando...";
+      }
+    }
+
+    function toggleMonitoring() {
+      if (currentSessionState === 'activa') {
+        setSessionState('pausada');
+      } else {
+        setSessionState('activa');
+      }
+    }
+
+    function setSOSState(state) {
+      currentSOSState = state;
+      
+      // Update SOS tabs
+      ['recibido', 'pendiente', 'enviado', 'error'].forEach(s => {
+        const btn = document.getElementById('sos-tab-' + s);
+        if (s === state) {
+          btn.className = "py-1 px-1 rounded bg-red-600 text-white font-semibold text-center";
+        } else {
+          btn.className = "py-1 px-1 rounded bg-slate-100 text-slate-700 hover:bg-slate-200 font-medium text-center";
+        }
+      });
+
+      const box = document.getElementById('sos-feedback-box');
+      const icon = document.getElementById('sos-status-icon');
+      const title = document.getElementById('sos-status-title');
+      const subtitle = document.getElementById('sos-status-subtitle');
+      const tag = document.getElementById('sos-status-tag');
+      const retryContainer = document.getElementById('sos-retry-container');
+
+      if (state === 'recibido') {
+        box.className = "p-3 bg-red-50/80 border border-red-200 rounded-xl space-y-2";
+        icon.className = "material-symbols-outlined text-emerald-600 text-xl font-bold";
+        icon.innerText = "check_circle";
+        title.innerText = "SOS Recibido y Confirmado";
+        subtitle.innerText = "Operador de Colegio Demo confirmó recepción en consola.";
+        tag.className = "text-[10px] font-mono-code font-bold bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded border border-emerald-200";
+        tag.innerText = "RECIBIDO EN CENTRAL";
+        retryContainer.classList.add('hidden');
+
+      } else if (state === 'pendiente') {
+        box.className = "p-3 bg-amber-50 border border-amber-200 rounded-xl space-y-2";
+        icon.className = "material-symbols-outlined text-amber-600 text-xl font-bold animate-spin";
+        icon.innerText = "progress_activity";
+        title.innerText = "Envío Pendiente de SOS...";
+        subtitle.innerText = "Transmitiendo paquete telemático con coordenadas actuales.";
+        tag.className = "text-[10px] font-mono-code font-bold bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded border border-amber-200";
+        tag.innerText = "TRANSMITIENDO";
+        retryContainer.classList.add('hidden');
+
+      } else if (state === 'enviado') {
+        box.className = "p-3 bg-blue-50 border border-blue-200 rounded-xl space-y-2";
+        icon.className = "material-symbols-outlined text-blue-600 text-xl font-bold";
+        icon.innerText = "outbox";
+        title.innerText = "SOS Enviado (Esperando Respuesta)";
+        subtitle.innerText = "Paquete emitido desde el dispositivo. Pendiente acuse del servidor escolar.";
+        tag.className = "text-[10px] font-mono-code font-bold bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded border border-blue-200";
+        tag.innerText = "ENVIADO / SIN ACUSE";
+        retryContainer.classList.add('hidden');
+
+      } else if (state === 'error') {
+        box.className = "p-3 bg-rose-50 border border-rose-300 rounded-xl space-y-2";
+        icon.className = "material-symbols-outlined text-rose-600 text-xl font-bold";
+        icon.innerText = "error";
+        title.innerText = "Error al remitir alerta SOS";
+        subtitle.innerText = "Sin conexión con la consola escolar. No se puede confirmar recepción.";
+        tag.className = "text-[10px] font-mono-code font-bold bg-rose-100 text-rose-800 px-1.5 py-0.5 rounded border border-rose-200";
+        tag.innerText = "FALLO DE ENVÍO";
+        retryContainer.classList.remove('hidden');
+      }
+    }
+
+    function triggerSOS() {
+      setSOSState('pendiente');
+      setTimeout(() => {
+        setSOSState('enviado');
+        setTimeout(() => {
+          setSOSState('recibido');
+        }, 1500);
+      }, 1000);
+    }
+
+    function openLinkInfo() {
+      document.getElementById('modal-info').classList.remove('hidden');
+    }
+    function openHelpModal() {
+      document.getElementById('modal-info').classList.remove('hidden');
+    }
+    function closeModal() {
+      document.getElementById('modal-info').classList.add('hidden');
+    }
+
+    // Modal drawer listener
+    document.getElementById('btn-toggle-drawer').addEventListener('click', () => {
+      openLinkInfo();
+    });
+  </script>
+</body>
+</html>

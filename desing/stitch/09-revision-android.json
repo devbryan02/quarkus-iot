@@ -1,0 +1,691 @@
+{
+  "outputComponents": [
+    {
+      "design": {
+        "screens": [
+          {
+            "designSystem": {
+              "designSystem": {
+                "displayName": "Institutional Monitor",
+                "styleGuidelines": "## Brand & Style\n\nThis design system establishes an institutional, dependable, and high-clarity environment tailored for real-time school telemetry and campus oversight. The interface communicates administrative authority, calm precision, and immediate legibility under high-stress scenarios.\n\n### Aesthetic Foundation\nThe visual language merges modern enterprise ergonomics with the structured component predictability of PrimeReact. The aesthetic avoids decorative trends or exaggerated visual noise, relying instead on:\n- Crisp white surfaces against soft cool-slate backdrops.\n- Explicit textual status declarations alongside color coding.\n- Systematic spacing and strict tabular typography for dense administrative clarity.\n- Persistent indicators for demo/sandbox environments to reinforce operational awareness.\n\n## Layout & Spacing\n\nThe layout operates on a 12-column fluid grid system with controlled container boundaries to maintain structural order across multi-monitor control desks, laptops, and tablets.\n\n### Grid & Density Structure\n- **Desktop (1024px and up)**: 12 columns, 20px gutters (`gutter: 1.25rem`), and 24px outer margins (`margin: 1.5rem`). Layout utilizes a fixed left administrative sidebar (260px) paired with a responsive fluid viewport for monitoring panels.\n- **Tablet (768px – 1023px)**: 8 columns, 16px gutters, collapsible sidebar drawer.\n- **Mobile (< 768px)**: 4 columns, 12px gutters, 16px screen padding. Real-time metrics stack into single-column cards.\n- **Component Padding Rhythm**: Internal card paddings follow a disciplined rhythm: `space-md` (16px) for compact data modules, `space-lg` (24px) for expansive analytical charts and summary panels.\n\n## Elevation & Depth\n\nDepth is disciplined and subtle, avoiding deep dramatic shadows in favor of crisp enterprise borders and soft ambient drops inspired by PrimeReact component themes.\n\n### Depth Hierarchy\n- **Level 0 (Base Canvas)**: Flat `#f8fafc` background with no shadow.\n- **Level 1 (Cards, Tables, Panels)**: Solid `#ffffff` surface, bounded by a 1px border (`#e2e8f0`), paired with an ambient shadow: `0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.04)`.\n- **Level 2 (Dropdowns, Popovers, Filter Overlays)**: Surface `#ffffff`, border `#cbd5e1`, shadow: `0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.05)`.\n- **Level 3 (Modal Dialogs, Urgent Safety Overlays)**: Surface `#ffffff`, elevated shadow: `0 20px 25px -5px rgba(15, 23, 42, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.06)`, anchored over a slate semi-transparent backdrop (`rgba(15, 23, 42, 0.45)` with `backdrop-filter: blur(2px)`).\n\n## Components\n\n### Persistent Demo Mode Watermark / Banner\n- A slim, non-intrusive top-level horizontal bar (`32px` height) across all administrative views.\n- **Styling**: `#0f172a` slate fill, `12px` semi-bold font in `#f8fafc`, centered text: `\"MODO DEMOSTRACIÓN — DATOS FICTICIOS (INSTITUCIÓN EDUCATIVA)\"`.\n- Includes an amber status dot (`#f59e0b`, 6px) to immediately signal non-production state to school staff.\n\n### Buttons (`p-button`)\n- **Primary**: Background `#2563eb`, border 1px solid `#1d4ed8`, text `#ffffff`, height 38px, padding 8px 16px, border-radius 6px. Hover: `#1d4ed8`. Active: `#1e40af`. Focus: 0 0 0 3px rgba(37, 99, 235, 0.25).\n- **Secondary / Outline**: Background `#ffffff`, border 1px solid `#cbd5e1`, text `#334155`. Hover: `#f8fafc` with border `#94a3b8`.\n- **Critical SOS**: Background `#dc2626`, border 1px solid `#b91c1c`, text `#ffffff`. Reserved exclusively for system-wide crisis protocols.\n\n### Badges & Status Tags (`p-tag` / `p-badge`)\nAll tags must include both a color token and an explicit text string:\n- **Conectado**: Fill `#ecfdf5`, border `#a7f3d0`, text `#059669`. Prepended with an emerald solid dot (`6px`). Text: `\"Conectado\"`.\n- **Desactualizado**: Fill `#fef3c7`, border `#fde68a`, text `#d97706`. Prepended with an amber solid dot. Text: `\"Desactualizado (hace >15m)\"`.\n- **Sin Comunicación**: Fill `#f1f5f9`, border `#cbd5e1`, text `#475569`. Text: `\"Sin comunicación\"`.\n- **Emergencia SOS**: Fill `#fef2f2`, border `#fecaca`, text `#dc2626`, font-weight 700. Text: `\"ALERTA SOS\"`.\n\n### Data Tables (`p-datatable`)\n- **Container**: White `#ffffff` background with `#e2e8f0` structural perimeter border.\n- **Header Row**: `#f8fafc` background, text `#475569` in 12px uppercase semi-bold, height 40px, cell padding 8px 16px.\n- **Data Rows**: Height 48px, horizontal borders only (`#f1f5f9`), cell text `#1e293b` in 13px/14px.\n- **Row Hover**: Soft transition to `#f8fafc`. Alternating striping is avoided to keep telemetry badges distinct.\n\n### Form Inputs & Selects (`p-inputtext`)\n- Height 38px, padding 8px 12px, border 1px solid `#cbd5e1`, background `#ffffff`, radius 6px.\n- Focus state: border `#2563eb`, outline 3px solid rgba(37, 99, 235, 0.15).\n\n### Cards & Metric Panels (`p-card`)\n- Solid `#ffffff` background, 1px solid `#e2e8f0`, border-radius 8px.\n- Padding: 20px. Includes clear card header with 14px uppercase label in `#64748b`, large metric in 24px bold `#0f172a`, and an explicit status tag aligned to the top-right corner.",
+                "theme": {
+                  "bodyFont": "INTER",
+                  "bodyFontFamily": "Inter",
+                  "colorMode": "LIGHT",
+                  "colorVariant": "FIDELITY",
+                  "customColor": "#2563eb",
+                  "designMd": "---\nname: Institutional Monitor\ncolors:\n  surface: '#f8f9ff'\n  surface-dim: '#cbdbf5'\n  surface-bright: '#f8f9ff'\n  surface-container-lowest: '#ffffff'\n  surface-container-low: '#eff4ff'\n  surface-container: '#e5eeff'\n  surface-container-high: '#dce9ff'\n  surface-container-highest: '#d3e4fe'\n  on-surface: '#0b1c30'\n  on-surface-variant: '#434655'\n  inverse-surface: '#213145'\n  inverse-on-surface: '#eaf1ff'\n  outline: '#737686'\n  outline-variant: '#c3c6d7'\n  surface-tint: '#0053db'\n  primary: '#004ac6'\n  on-primary: '#ffffff'\n  primary-container: '#2563eb'\n  on-primary-container: '#eeefff'\n  inverse-primary: '#b4c5ff'\n  secondary: '#565e74'\n  on-secondary: '#ffffff'\n  secondary-container: '#dae2fd'\n  on-secondary-container: '#5c647a'\n  tertiary: '#006243'\n  on-tertiary: '#ffffff'\n  tertiary-container: '#007d57'\n  on-tertiary-container: '#bdffdc'\n  error: '#ba1a1a'\n  on-error: '#ffffff'\n  error-container: '#ffdad6'\n  on-error-container: '#93000a'\n  primary-fixed: '#dbe1ff'\n  primary-fixed-dim: '#b4c5ff'\n  on-primary-fixed: '#00174b'\n  on-primary-fixed-variant: '#003ea8'\n  secondary-fixed: '#dae2fd'\n  secondary-fixed-dim: '#bec6e0'\n  on-secondary-fixed: '#131b2e'\n  on-secondary-fixed-variant: '#3f465c'\n  tertiary-fixed: '#85f8c4'\n  tertiary-fixed-dim: '#68dba9'\n  on-tertiary-fixed: '#002114'\n  on-tertiary-fixed-variant: '#005137'\n  background: '#f8f9ff'\n  on-background: '#0b1c30'\n  surface-variant: '#d3e4fe'\ntypography:\n  display-lg:\n    fontFamily: Inter\n    fontSize: 32px\n    fontWeight: '700'\n    lineHeight: 40px\n    letterSpacing: -0.02em\n  display-sm:\n    fontFamily: Inter\n    fontSize: 24px\n    fontWeight: '600'\n    lineHeight: 32px\n    letterSpacing: -0.01em\n  headline-lg:\n    fontFamily: Inter\n    fontSize: 20px\n    fontWeight: '600'\n    lineHeight: 28px\n    letterSpacing: -0.01em\n  headline-md:\n    fontFamily: Inter\n    fontSize: 16px\n    fontWeight: '600'\n    lineHeight: 24px\n    letterSpacing: 0em\n  body-lg:\n    fontFamily: Inter\n    fontSize: 16px\n    fontWeight: '400'\n    lineHeight: 24px\n    letterSpacing: 0em\n  body-md:\n    fontFamily: Inter\n    fontSize: 14px\n    fontWeight: '400'\n    lineHeight: 20px\n    letterSpacing: 0em\n  body-sm:\n    fontFamily: Inter\n    fontSize: 13px\n    fontWeight: '400'\n    lineHeight: 18px\n    letterSpacing: 0em\n  label-md:\n    fontFamily: Inter\n    fontSize: 13px\n    fontWeight: '600'\n    lineHeight: 18px\n    letterSpacing: 0.01em\n  label-sm:\n    fontFamily: Inter\n    fontSize: 11px\n    fontWeight: '600'\n    lineHeight: 16px\n    letterSpacing: 0.04em\n  data-mono:\n    fontFamily: Inter\n    fontSize: 13px\n    fontWeight: '500'\n    lineHeight: 18px\n    letterSpacing: -0.01em\nrounded:\n  sm: 0.125rem\n  DEFAULT: 0.25rem\n  md: 0.375rem\n  lg: 0.5rem\n  xl: 0.75rem\n  full: 9999px\nspacing:\n  gutter: 1.25rem\n  gutter-mobile: 0.75rem\n  margin: 1.5rem\n  margin-mobile: 1rem\n  space-xs: 0.25rem\n  space-sm: 0.5rem\n  space-md: 1rem\n  space-lg: 1.5rem\n  space-xl: 2rem\n---\n\n## Brand & Style\n\nThis design system establishes an institutional, dependable, and high-clarity environment tailored for real-time school telemetry and campus oversight. The interface communicates administrative authority, calm precision, and immediate legibility under high-stress scenarios.\n\n### Aesthetic Foundation\nThe visual language merges modern enterprise ergonomics with the structured component predictability of PrimeReact. The aesthetic avoids decorative trends or exaggerated visual noise, relying instead on:\n- Crisp white surfaces against soft cool-slate backdrops.\n- Explicit textual status declarations alongside color coding.\n- Systematic spacing and strict tabular typography for dense administrative clarity.\n- Persistent indicators for demo/sandbox environments to reinforce operational awareness.\n\n## Colors\n\nThe palette is engineered around administrative reliability, low cognitive load, and unambiguous status telemetry.\n\n### Palette Architecture\n- **Primary Canvas & Backgrounds**: The base application canvas rests on `#f8fafc` (slate-50) and `#f1f5f9` (slate-100) to minimize eye fatigue during extended desk monitoring. Elevated containers, panels, and data surfaces are solid white (`#ffffff`).\n- **Brand Primary (`#2563eb` / `#1d4ed8`)**: Anchors critical navigation, primary button states, selection outlines, and active tab indicators.\n- **Deep Slate Base (`#0f172a` / `#334155`)**: Drives primary headers, critical table metrics, and top-tier administrative labels. Muted slate (`#64748b`) handles supporting metadata and structural borders (`#e2e8f0`).\n\n### Telemetry & Operational Status Tokens\nStatus indicators must pair color with explicit contextual copy:\n- **Conectado / Optimal**: Emerald `#059669` text on `#ecfdf5` background with `#a7f3d0` border.\n- **Desactualizado / Latency**: Amber `#d97706` text on `#fef3c7` background with `#fde68a` border.\n- **Sin Comunicación / Offline**: Neutral Slate `#475569` text on `#f1f5f9` background with `#cbd5e1` border.\n- **Emergencia / SOS**: Vivid Crimson `#dc2626` text on `#fef2f2` background with `#fecaca` border. Crimson is strictly forbidden for ordinary error validation or routine dismissals; it is reserved exclusively for student safety hazards, perimeter breaches, or urgent SOS alerts.\n- **Environment Banner**: Global demo mode uses a top bar with `#1e293b` fill, `#f8fafc` label, and an amber indicator dot to remind operators of synthetic data mode.\n\n## Typography\n\nThe type system is built on **Inter**, optimized for screen scanning, numerical alignment, and high-density tabular presentation.\n\n### Rules of Hierarchy\n- **Numerical Alignment**: Use tabular figures (`font-variant-numeric: tabular-nums`) across student counts, timestamps, attendance percentages, and device identifiers.\n- **Labels & Badges**: Data labels and operational status tags employ `label-sm` with slight uppercase treatment or clear sentence casing to preserve immediate legibility.\n- **Content Contrast**: Heading tiers use `#0f172a`, running body text uses `#334155`, and supporting descriptions or secondary column headers use `#64748b`.\n\n## Layout & Spacing\n\nThe layout operates on a 12-column fluid grid system with controlled container boundaries to maintain structural order across multi-monitor control desks, laptops, and tablets.\n\n### Grid & Density Structure\n- **Desktop (1024px and up)**: 12 columns, 20px gutters (`gutter: 1.25rem`), and 24px outer margins (`margin: 1.5rem`). Layout utilizes a fixed left administrative sidebar (260px) paired with a responsive fluid viewport for monitoring panels.\n- **Tablet (768px – 1023px)**: 8 columns, 16px gutters, collapsible sidebar drawer.\n- **Mobile (< 768px)**: 4 columns, 12px gutters, 16px screen padding. Real-time metrics stack into single-column cards.\n- **Component Padding Rhythm**: Internal card paddings follow a disciplined rhythm: `space-md` (16px) for compact data modules, `space-lg` (24px) for expansive analytical charts and summary panels.\n\n## Elevation & Depth\n\nDepth is disciplined and subtle, avoiding deep dramatic shadows in favor of crisp enterprise borders and soft ambient drops inspired by PrimeReact component themes.\n\n### Depth Hierarchy\n- **Level 0 (Base Canvas)**: Flat `#f8fafc` background with no shadow.\n- **Level 1 (Cards, Tables, Panels)**: Solid `#ffffff` surface, bounded by a 1px border (`#e2e8f0`), paired with an ambient shadow: `0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.04)`.\n- **Level 2 (Dropdowns, Popovers, Filter Overlays)**: Surface `#ffffff`, border `#cbd5e1`, shadow: `0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.05)`.\n- **Level 3 (Modal Dialogs, Urgent Safety Overlays)**: Surface `#ffffff`, elevated shadow: `0 20px 25px -5px rgba(15, 23, 42, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.06)`, anchored over a slate semi-transparent backdrop (`rgba(15, 23, 42, 0.45)` with `backdrop-filter: blur(2px)`).\n\n## Shapes\n\nThe design system employs a soft, restrained border-radius model (0.375rem / 6px) to emulate the refined, enterprise-ready look of PrimeReact (`p-component`).\n\n### Geometry Rules\n- **Standard Controls & Buttons (`rounded-md`, 6px)**: Inputs, buttons (`p-button`), select menus, and filter triggers utilize 6px radius.\n- **Containers & Panels (`rounded-lg`, 8px)**: Dashboard cards, data table wrappers, and institutional status containers carry an 8px radius.\n- **Tags & Status Badges**: Tag containers use 4px (`rounded-sm`) to keep indicators sharp and legible without resembling playful pill shapes.\n- **Interactive Checkboxes**: 4px radius with a 1px structural border.\n\n## Components\n\n### Persistent Demo Mode Watermark / Banner\n- A slim, non-intrusive top-level horizontal bar (`32px` height) across all administrative views.\n- **Styling**: `#0f172a` slate fill, `12px` semi-bold font in `#f8fafc`, centered text: `\"MODO DEMOSTRACIÓN — DATOS FICTICIOS (INSTITUCIÓN EDUCATIVA)\"`.\n- Includes an amber status dot (`#f59e0b`, 6px) to immediately signal non-production state to school staff.\n\n### Buttons (`p-button`)\n- **Primary**: Background `#2563eb`, border 1px solid `#1d4ed8`, text `#ffffff`, height 38px, padding 8px 16px, border-radius 6px. Hover: `#1d4ed8`. Active: `#1e40af`. Focus: 0 0 0 3px rgba(37, 99, 235, 0.25).\n- **Secondary / Outline**: Background `#ffffff`, border 1px solid `#cbd5e1`, text `#334155`. Hover: `#f8fafc` with border `#94a3b8`.\n- **Critical SOS**: Background `#dc2626`, border 1px solid `#b91c1c`, text `#ffffff`. Reserved exclusively for system-wide crisis protocols.\n\n### Badges & Status Tags (`p-tag` / `p-badge`)\nAll tags must include both a color token and an explicit text string:\n- **Conectado**: Fill `#ecfdf5`, border `#a7f3d0`, text `#059669`. Prepended with an emerald solid dot (`6px`). Text: `\"Conectado\"`.\n- **Desactualizado**: Fill `#fef3c7`, border `#fde68a`, text `#d97706`. Prepended with an amber solid dot. Text: `\"Desactualizado (hace >15m)\"`.\n- **Sin Comunicación**: Fill `#f1f5f9`, border `#cbd5e1`, text `#475569`. Text: `\"Sin comunicación\"`.\n- **Emergencia SOS**: Fill `#fef2f2`, border `#fecaca`, text `#dc2626`, font-weight 700. Text: `\"ALERTA SOS\"`.\n\n### Data Tables (`p-datatable`)\n- **Container**: White `#ffffff` background with `#e2e8f0` structural perimeter border.\n- **Header Row**: `#f8fafc` background, text `#475569` in 12px uppercase semi-bold, height 40px, cell padding 8px 16px.\n- **Data Rows**: Height 48px, horizontal borders only (`#f1f5f9`), cell text `#1e293b` in 13px/14px.\n- **Row Hover**: Soft transition to `#f8fafc`. Alternating striping is avoided to keep telemetry badges distinct.\n\n### Form Inputs & Selects (`p-inputtext`)\n- Height 38px, padding 8px 12px, border 1px solid `#cbd5e1`, background `#ffffff`, radius 6px.\n- Focus state: border `#2563eb`, outline 3px solid rgba(37, 99, 235, 0.15).\n\n### Cards & Metric Panels (`p-card`)\n- Solid `#ffffff` background, 1px solid `#e2e8f0`, border-radius 8px.\n- Padding: 20px. Includes clear card header with 14px uppercase label in `#64748b`, large metric in 24px bold `#0f172a`, and an explicit status tag aligned to the top-right corner.",
+                  "font": "INTER",
+                  "headlineFont": "INTER",
+                  "headlineFontFamily": "Inter",
+                  "labelFont": "INTER",
+                  "labelFontFamily": "Inter",
+                  "namedColors": {
+                    "background": "#f8f9ff",
+                    "error": "#ba1a1a",
+                    "error_container": "#ffdad6",
+                    "inverse_on_surface": "#eaf1ff",
+                    "inverse_primary": "#b4c5ff",
+                    "inverse_surface": "#213145",
+                    "on_background": "#0b1c30",
+                    "on_error": "#ffffff",
+                    "on_error_container": "#93000a",
+                    "on_primary": "#ffffff",
+                    "on_primary_container": "#eeefff",
+                    "on_primary_fixed": "#00174b",
+                    "on_primary_fixed_variant": "#003ea8",
+                    "on_secondary": "#ffffff",
+                    "on_secondary_container": "#5c647a",
+                    "on_secondary_fixed": "#131b2e",
+                    "on_secondary_fixed_variant": "#3f465c",
+                    "on_surface": "#0b1c30",
+                    "on_surface_variant": "#434655",
+                    "on_tertiary": "#ffffff",
+                    "on_tertiary_container": "#bdffdc",
+                    "on_tertiary_fixed": "#002114",
+                    "on_tertiary_fixed_variant": "#005137",
+                    "outline": "#737686",
+                    "outline_variant": "#c3c6d7",
+                    "primary": "#004ac6",
+                    "primary_container": "#2563eb",
+                    "primary_fixed": "#dbe1ff",
+                    "primary_fixed_dim": "#b4c5ff",
+                    "secondary": "#565e74",
+                    "secondary_container": "#dae2fd",
+                    "secondary_fixed": "#dae2fd",
+                    "secondary_fixed_dim": "#bec6e0",
+                    "surface": "#f8f9ff",
+                    "surface_bright": "#f8f9ff",
+                    "surface_container": "#e5eeff",
+                    "surface_container_high": "#dce9ff",
+                    "surface_container_highest": "#d3e4fe",
+                    "surface_container_low": "#eff4ff",
+                    "surface_container_lowest": "#ffffff",
+                    "surface_dim": "#cbdbf5",
+                    "surface_tint": "#0053db",
+                    "surface_variant": "#d3e4fe",
+                    "tertiary": "#006243",
+                    "tertiary_container": "#007d57",
+                    "tertiary_fixed": "#85f8c4",
+                    "tertiary_fixed_dim": "#68dba9"
+                  },
+                  "overrideNeutralColor": "#64748b",
+                  "overridePrimaryColor": "#2563eb",
+                  "overrideSecondaryColor": "#0f172a",
+                  "overrideTertiaryColor": "#059669",
+                  "roundness": "ROUND_FOUR",
+                  "spacing": {
+                    "gutter": "1.25rem",
+                    "gutter-mobile": "0.75rem",
+                    "margin": "1.5rem",
+                    "margin-mobile": "1rem",
+                    "space-lg": "1.5rem",
+                    "space-md": "1rem",
+                    "space-sm": "0.5rem",
+                    "space-xl": "2rem",
+                    "space-xs": "0.25rem"
+                  },
+                  "spacingScale": 2,
+                  "typography": {
+                    "body-lg": {
+                      "fontFamily": "Inter",
+                      "fontSize": "16px",
+                      "fontWeight": "400",
+                      "letterSpacing": "0em",
+                      "lineHeight": "24px"
+                    },
+                    "body-md": {
+                      "fontFamily": "Inter",
+                      "fontSize": "14px",
+                      "fontWeight": "400",
+                      "letterSpacing": "0em",
+                      "lineHeight": "20px"
+                    },
+                    "body-sm": {
+                      "fontFamily": "Inter",
+                      "fontSize": "13px",
+                      "fontWeight": "400",
+                      "letterSpacing": "0em",
+                      "lineHeight": "18px"
+                    },
+                    "data-mono": {
+                      "fontFamily": "Inter",
+                      "fontSize": "13px",
+                      "fontWeight": "500",
+                      "letterSpacing": "-0.01em",
+                      "lineHeight": "18px"
+                    },
+                    "display-lg": {
+                      "fontFamily": "Inter",
+                      "fontSize": "32px",
+                      "fontWeight": "700",
+                      "letterSpacing": "-0.02em",
+                      "lineHeight": "40px"
+                    },
+                    "display-sm": {
+                      "fontFamily": "Inter",
+                      "fontSize": "24px",
+                      "fontWeight": "600",
+                      "letterSpacing": "-0.01em",
+                      "lineHeight": "32px"
+                    },
+                    "headline-lg": {
+                      "fontFamily": "Inter",
+                      "fontSize": "20px",
+                      "fontWeight": "600",
+                      "letterSpacing": "-0.01em",
+                      "lineHeight": "28px"
+                    },
+                    "headline-md": {
+                      "fontFamily": "Inter",
+                      "fontSize": "16px",
+                      "fontWeight": "600",
+                      "letterSpacing": "0em",
+                      "lineHeight": "24px"
+                    },
+                    "label-md": {
+                      "fontFamily": "Inter",
+                      "fontSize": "13px",
+                      "fontWeight": "600",
+                      "letterSpacing": "0.01em",
+                      "lineHeight": "18px"
+                    },
+                    "label-sm": {
+                      "fontFamily": "Inter",
+                      "fontSize": "11px",
+                      "fontWeight": "600",
+                      "letterSpacing": "0.04em",
+                      "lineHeight": "16px"
+                    }
+                  }
+                }
+              },
+              "name": "assets/34960c3d41874d68a7c459d668ea517e",
+              "version": "1"
+            },
+            "deviceType": "MOBILE",
+            "generatedBy": "HatterAgent",
+            "height": "2172",
+            "htmlCode": {
+              "downloadUrl": "https://stitch.googleapis.com/v1/projects/1713403711180977197/files/760f0169a01a4fa1b3859ab2e23419e9:download",
+              "mimeType": "text/html",
+              "name": "projects/1713403711180977197/files/760f0169a01a4fa1b3859ab2e23419e9"
+            },
+            "id": "4a9ed77c3c5d46dfa9b2d411997c349c",
+            "name": "projects/1713403711180977197/screens/4a9ed77c3c5d46dfa9b2d411997c349c",
+            "prompt": "Ajustar esta pantalla móvil de 'Kivo Escolar Móvil — Vinculación y Permisos' para que cumpla rigurosamente con el MVP documentado:\n1. Marca: Nombre 'Kivo' (o 'Kivo Móvil'), institución ficticia 'Colegio Demo'.\n2. Quitar cualquier referencia a transporte escolar, furgones, buses, conductores/choferes, balizas, hardware dedicado o coordinación de transporte. Es solo una app en teléfono Android.\n3. Vinculación: Reemplazar el bloque y modal por el mensaje breve exacto requerido: 'Vinculación pendiente. Solicita ayuda al administrador escolar.' No mostrar decisiones técnicas/administrativas pendientes, homologación, contratos de custodia, códigos QR ni códigos inventados.\n4. Permisos de Ubicación: Mantener selector o estados para 'Pendiente', 'Denegado' y 'Concedido'. Proveer acción clara para 'Solicitar permiso' o 'Abrir ajustes del sistema' según el estado.\n5. Privacidad y Sesión: Indicar únicamente que el seguimiento ocurre durante una sesión autorizada. NO inventar horarios específicos, turnos escolares ni prohibición de fines de semana.\n6. Quitar certificaciones, encriptación institucional no documentada, ubicaciones de servidor, versiones sandbox/builds inventadas ('v2.4-sim'), y promesas de privacidad no documentadas.\n7. Notificación Android: Mostrar de forma limpia y transparente la notificación de servicio de Android requerida en segundo plano durante una sesión activa, sin mencionar furgones ni rutas.\n8. Mantener diseño limpio, legible, con controles grandes táctiles, azul institucional y blanco, y etiqueta compacta de 'Datos ficticios de demostración'.\n9. Sin explicar tecnologías (no mencionar Flutter, Kafka, etc.). Sin menús ni pantallas adicionales.",
+            "screenMetadata": {
+              "agentType": "PRO_AGENT",
+              "status": "COMPLETE"
+            },
+            "screenType": "DESIGN",
+            "screenshot": {
+              "downloadUrl": "https://stitch.googleapis.com/v1/projects/1713403711180977197/files/4fd73b3595c64543bb0a81c18e2d2bde:download",
+              "name": "projects/1713403711180977197/files/4fd73b3595c64543bb0a81c18e2d2bde"
+            },
+            "theme": {
+              "bodyFont": "INTER",
+              "bodyFontFamily": "Inter",
+              "colorMode": "LIGHT",
+              "colorVariant": "FIDELITY",
+              "customColor": "#2563eb",
+              "font": "INTER",
+              "headlineFont": "INTER",
+              "headlineFontFamily": "Inter",
+              "labelFont": "INTER",
+              "labelFontFamily": "Inter",
+              "namedColors": {
+                "background": "#f8f9ff",
+                "error": "#ba1a1a",
+                "error_container": "#ffdad6",
+                "inverse_on_surface": "#eaf1ff",
+                "inverse_primary": "#b4c5ff",
+                "inverse_surface": "#213145",
+                "on_background": "#0b1c30",
+                "on_error": "#ffffff",
+                "on_error_container": "#93000a",
+                "on_primary": "#ffffff",
+                "on_primary_container": "#eeefff",
+                "on_primary_fixed": "#00174b",
+                "on_primary_fixed_variant": "#003ea8",
+                "on_secondary": "#ffffff",
+                "on_secondary_container": "#5c647a",
+                "on_secondary_fixed": "#131b2e",
+                "on_secondary_fixed_variant": "#3f465c",
+                "on_surface": "#0b1c30",
+                "on_surface_variant": "#434655",
+                "on_tertiary": "#ffffff",
+                "on_tertiary_container": "#bdffdc",
+                "on_tertiary_fixed": "#002114",
+                "on_tertiary_fixed_variant": "#005137",
+                "outline": "#737686",
+                "outline_variant": "#c3c6d7",
+                "primary": "#004ac6",
+                "primary_container": "#2563eb",
+                "primary_fixed": "#dbe1ff",
+                "primary_fixed_dim": "#b4c5ff",
+                "secondary": "#565e74",
+                "secondary_container": "#dae2fd",
+                "secondary_fixed": "#dae2fd",
+                "secondary_fixed_dim": "#bec6e0",
+                "surface": "#f8f9ff",
+                "surface_bright": "#f8f9ff",
+                "surface_container": "#e5eeff",
+                "surface_container_high": "#dce9ff",
+                "surface_container_highest": "#d3e4fe",
+                "surface_container_low": "#eff4ff",
+                "surface_container_lowest": "#ffffff",
+                "surface_dim": "#cbdbf5",
+                "surface_tint": "#0053db",
+                "surface_variant": "#d3e4fe",
+                "tertiary": "#006243",
+                "tertiary_container": "#007d57",
+                "tertiary_fixed": "#85f8c4",
+                "tertiary_fixed_dim": "#68dba9"
+              },
+              "overrideNeutralColor": "#64748b",
+              "overridePrimaryColor": "#2563eb",
+              "overrideSecondaryColor": "#0f172a",
+              "overrideTertiaryColor": "#059669",
+              "roundness": "ROUND_FOUR",
+              "spacing": {
+                "gutter": "1.25rem",
+                "gutter-mobile": "0.75rem",
+                "margin": "1.5rem",
+                "margin-mobile": "1rem",
+                "space-lg": "1.5rem",
+                "space-md": "1rem",
+                "space-sm": "0.5rem",
+                "space-xl": "2rem",
+                "space-xs": "0.25rem"
+              },
+              "spacingScale": 2,
+              "typography": {
+                "body-lg": {
+                  "fontFamily": "Inter",
+                  "fontSize": "16px",
+                  "fontWeight": "400",
+                  "letterSpacing": "0em",
+                  "lineHeight": "24px"
+                },
+                "body-md": {
+                  "fontFamily": "Inter",
+                  "fontSize": "14px",
+                  "fontWeight": "400",
+                  "letterSpacing": "0em",
+                  "lineHeight": "20px"
+                },
+                "body-sm": {
+                  "fontFamily": "Inter",
+                  "fontSize": "13px",
+                  "fontWeight": "400",
+                  "letterSpacing": "0em",
+                  "lineHeight": "18px"
+                },
+                "data-mono": {
+                  "fontFamily": "Inter",
+                  "fontSize": "13px",
+                  "fontWeight": "500",
+                  "letterSpacing": "-0.01em",
+                  "lineHeight": "18px"
+                },
+                "display-lg": {
+                  "fontFamily": "Inter",
+                  "fontSize": "32px",
+                  "fontWeight": "700",
+                  "letterSpacing": "-0.02em",
+                  "lineHeight": "40px"
+                },
+                "display-sm": {
+                  "fontFamily": "Inter",
+                  "fontSize": "24px",
+                  "fontWeight": "600",
+                  "letterSpacing": "-0.01em",
+                  "lineHeight": "32px"
+                },
+                "headline-lg": {
+                  "fontFamily": "Inter",
+                  "fontSize": "20px",
+                  "fontWeight": "600",
+                  "letterSpacing": "-0.01em",
+                  "lineHeight": "28px"
+                },
+                "headline-md": {
+                  "fontFamily": "Inter",
+                  "fontSize": "16px",
+                  "fontWeight": "600",
+                  "letterSpacing": "0em",
+                  "lineHeight": "24px"
+                },
+                "label-md": {
+                  "fontFamily": "Inter",
+                  "fontSize": "13px",
+                  "fontWeight": "600",
+                  "letterSpacing": "0.01em",
+                  "lineHeight": "18px"
+                },
+                "label-sm": {
+                  "fontFamily": "Inter",
+                  "fontSize": "11px",
+                  "fontWeight": "600",
+                  "letterSpacing": "0.04em",
+                  "lineHeight": "16px"
+                }
+              }
+            },
+            "title": "Kivo Móvil — Vinculación y Permisos",
+            "width": "780"
+          },
+          {
+            "designSystem": {
+              "designSystem": {
+                "displayName": "Institutional Monitor",
+                "styleGuidelines": "## Brand & Style\n\nThis design system establishes an institutional, dependable, and high-clarity environment tailored for real-time school telemetry and campus oversight. The interface communicates administrative authority, calm precision, and immediate legibility under high-stress scenarios.\n\n### Aesthetic Foundation\nThe visual language merges modern enterprise ergonomics with the structured component predictability of PrimeReact. The aesthetic avoids decorative trends or exaggerated visual noise, relying instead on:\n- Crisp white surfaces against soft cool-slate backdrops.\n- Explicit textual status declarations alongside color coding.\n- Systematic spacing and strict tabular typography for dense administrative clarity.\n- Persistent indicators for demo/sandbox environments to reinforce operational awareness.\n\n## Layout & Spacing\n\nThe layout operates on a 12-column fluid grid system with controlled container boundaries to maintain structural order across multi-monitor control desks, laptops, and tablets.\n\n### Grid & Density Structure\n- **Desktop (1024px and up)**: 12 columns, 20px gutters (`gutter: 1.25rem`), and 24px outer margins (`margin: 1.5rem`). Layout utilizes a fixed left administrative sidebar (260px) paired with a responsive fluid viewport for monitoring panels.\n- **Tablet (768px – 1023px)**: 8 columns, 16px gutters, collapsible sidebar drawer.\n- **Mobile (< 768px)**: 4 columns, 12px gutters, 16px screen padding. Real-time metrics stack into single-column cards.\n- **Component Padding Rhythm**: Internal card paddings follow a disciplined rhythm: `space-md` (16px) for compact data modules, `space-lg` (24px) for expansive analytical charts and summary panels.\n\n## Elevation & Depth\n\nDepth is disciplined and subtle, avoiding deep dramatic shadows in favor of crisp enterprise borders and soft ambient drops inspired by PrimeReact component themes.\n\n### Depth Hierarchy\n- **Level 0 (Base Canvas)**: Flat `#f8fafc` background with no shadow.\n- **Level 1 (Cards, Tables, Panels)**: Solid `#ffffff` surface, bounded by a 1px border (`#e2e8f0`), paired with an ambient shadow: `0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.04)`.\n- **Level 2 (Dropdowns, Popovers, Filter Overlays)**: Surface `#ffffff`, border `#cbd5e1`, shadow: `0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.05)`.\n- **Level 3 (Modal Dialogs, Urgent Safety Overlays)**: Surface `#ffffff`, elevated shadow: `0 20px 25px -5px rgba(15, 23, 42, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.06)`, anchored over a slate semi-transparent backdrop (`rgba(15, 23, 42, 0.45)` with `backdrop-filter: blur(2px)`).\n\n## Components\n\n### Persistent Demo Mode Watermark / Banner\n- A slim, non-intrusive top-level horizontal bar (`32px` height) across all administrative views.\n- **Styling**: `#0f172a` slate fill, `12px` semi-bold font in `#f8fafc`, centered text: `\"MODO DEMOSTRACIÓN — DATOS FICTICIOS (INSTITUCIÓN EDUCATIVA)\"`.\n- Includes an amber status dot (`#f59e0b`, 6px) to immediately signal non-production state to school staff.\n\n### Buttons (`p-button`)\n- **Primary**: Background `#2563eb`, border 1px solid `#1d4ed8`, text `#ffffff`, height 38px, padding 8px 16px, border-radius 6px. Hover: `#1d4ed8`. Active: `#1e40af`. Focus: 0 0 0 3px rgba(37, 99, 235, 0.25).\n- **Secondary / Outline**: Background `#ffffff`, border 1px solid `#cbd5e1`, text `#334155`. Hover: `#f8fafc` with border `#94a3b8`.\n- **Critical SOS**: Background `#dc2626`, border 1px solid `#b91c1c`, text `#ffffff`. Reserved exclusively for system-wide crisis protocols.\n\n### Badges & Status Tags (`p-tag` / `p-badge`)\nAll tags must include both a color token and an explicit text string:\n- **Conectado**: Fill `#ecfdf5`, border `#a7f3d0`, text `#059669`. Prepended with an emerald solid dot (`6px`). Text: `\"Conectado\"`.\n- **Desactualizado**: Fill `#fef3c7`, border `#fde68a`, text `#d97706`. Prepended with an amber solid dot. Text: `\"Desactualizado (hace >15m)\"`.\n- **Sin Comunicación**: Fill `#f1f5f9`, border `#cbd5e1`, text `#475569`. Text: `\"Sin comunicación\"`.\n- **Emergencia SOS**: Fill `#fef2f2`, border `#fecaca`, text `#dc2626`, font-weight 700. Text: `\"ALERTA SOS\"`.\n\n### Data Tables (`p-datatable`)\n- **Container**: White `#ffffff` background with `#e2e8f0` structural perimeter border.\n- **Header Row**: `#f8fafc` background, text `#475569` in 12px uppercase semi-bold, height 40px, cell padding 8px 16px.\n- **Data Rows**: Height 48px, horizontal borders only (`#f1f5f9`), cell text `#1e293b` in 13px/14px.\n- **Row Hover**: Soft transition to `#f8fafc`. Alternating striping is avoided to keep telemetry badges distinct.\n\n### Form Inputs & Selects (`p-inputtext`)\n- Height 38px, padding 8px 12px, border 1px solid `#cbd5e1`, background `#ffffff`, radius 6px.\n- Focus state: border `#2563eb`, outline 3px solid rgba(37, 99, 235, 0.15).\n\n### Cards & Metric Panels (`p-card`)\n- Solid `#ffffff` background, 1px solid `#e2e8f0`, border-radius 8px.\n- Padding: 20px. Includes clear card header with 14px uppercase label in `#64748b`, large metric in 24px bold `#0f172a`, and an explicit status tag aligned to the top-right corner.",
+                "theme": {
+                  "bodyFont": "INTER",
+                  "bodyFontFamily": "Inter",
+                  "colorMode": "LIGHT",
+                  "colorVariant": "FIDELITY",
+                  "customColor": "#2563eb",
+                  "designMd": "---\nname: Institutional Monitor\ncolors:\n  surface: '#f8f9ff'\n  surface-dim: '#cbdbf5'\n  surface-bright: '#f8f9ff'\n  surface-container-lowest: '#ffffff'\n  surface-container-low: '#eff4ff'\n  surface-container: '#e5eeff'\n  surface-container-high: '#dce9ff'\n  surface-container-highest: '#d3e4fe'\n  on-surface: '#0b1c30'\n  on-surface-variant: '#434655'\n  inverse-surface: '#213145'\n  inverse-on-surface: '#eaf1ff'\n  outline: '#737686'\n  outline-variant: '#c3c6d7'\n  surface-tint: '#0053db'\n  primary: '#004ac6'\n  on-primary: '#ffffff'\n  primary-container: '#2563eb'\n  on-primary-container: '#eeefff'\n  inverse-primary: '#b4c5ff'\n  secondary: '#565e74'\n  on-secondary: '#ffffff'\n  secondary-container: '#dae2fd'\n  on-secondary-container: '#5c647a'\n  tertiary: '#006243'\n  on-tertiary: '#ffffff'\n  tertiary-container: '#007d57'\n  on-tertiary-container: '#bdffdc'\n  error: '#ba1a1a'\n  on-error: '#ffffff'\n  error-container: '#ffdad6'\n  on-error-container: '#93000a'\n  primary-fixed: '#dbe1ff'\n  primary-fixed-dim: '#b4c5ff'\n  on-primary-fixed: '#00174b'\n  on-primary-fixed-variant: '#003ea8'\n  secondary-fixed: '#dae2fd'\n  secondary-fixed-dim: '#bec6e0'\n  on-secondary-fixed: '#131b2e'\n  on-secondary-fixed-variant: '#3f465c'\n  tertiary-fixed: '#85f8c4'\n  tertiary-fixed-dim: '#68dba9'\n  on-tertiary-fixed: '#002114'\n  on-tertiary-fixed-variant: '#005137'\n  background: '#f8f9ff'\n  on-background: '#0b1c30'\n  surface-variant: '#d3e4fe'\ntypography:\n  display-lg:\n    fontFamily: Inter\n    fontSize: 32px\n    fontWeight: '700'\n    lineHeight: 40px\n    letterSpacing: -0.02em\n  display-sm:\n    fontFamily: Inter\n    fontSize: 24px\n    fontWeight: '600'\n    lineHeight: 32px\n    letterSpacing: -0.01em\n  headline-lg:\n    fontFamily: Inter\n    fontSize: 20px\n    fontWeight: '600'\n    lineHeight: 28px\n    letterSpacing: -0.01em\n  headline-md:\n    fontFamily: Inter\n    fontSize: 16px\n    fontWeight: '600'\n    lineHeight: 24px\n    letterSpacing: 0em\n  body-lg:\n    fontFamily: Inter\n    fontSize: 16px\n    fontWeight: '400'\n    lineHeight: 24px\n    letterSpacing: 0em\n  body-md:\n    fontFamily: Inter\n    fontSize: 14px\n    fontWeight: '400'\n    lineHeight: 20px\n    letterSpacing: 0em\n  body-sm:\n    fontFamily: Inter\n    fontSize: 13px\n    fontWeight: '400'\n    lineHeight: 18px\n    letterSpacing: 0em\n  label-md:\n    fontFamily: Inter\n    fontSize: 13px\n    fontWeight: '600'\n    lineHeight: 18px\n    letterSpacing: 0.01em\n  label-sm:\n    fontFamily: Inter\n    fontSize: 11px\n    fontWeight: '600'\n    lineHeight: 16px\n    letterSpacing: 0.04em\n  data-mono:\n    fontFamily: Inter\n    fontSize: 13px\n    fontWeight: '500'\n    lineHeight: 18px\n    letterSpacing: -0.01em\nrounded:\n  sm: 0.125rem\n  DEFAULT: 0.25rem\n  md: 0.375rem\n  lg: 0.5rem\n  xl: 0.75rem\n  full: 9999px\nspacing:\n  gutter: 1.25rem\n  gutter-mobile: 0.75rem\n  margin: 1.5rem\n  margin-mobile: 1rem\n  space-xs: 0.25rem\n  space-sm: 0.5rem\n  space-md: 1rem\n  space-lg: 1.5rem\n  space-xl: 2rem\n---\n\n## Brand & Style\n\nThis design system establishes an institutional, dependable, and high-clarity environment tailored for real-time school telemetry and campus oversight. The interface communicates administrative authority, calm precision, and immediate legibility under high-stress scenarios.\n\n### Aesthetic Foundation\nThe visual language merges modern enterprise ergonomics with the structured component predictability of PrimeReact. The aesthetic avoids decorative trends or exaggerated visual noise, relying instead on:\n- Crisp white surfaces against soft cool-slate backdrops.\n- Explicit textual status declarations alongside color coding.\n- Systematic spacing and strict tabular typography for dense administrative clarity.\n- Persistent indicators for demo/sandbox environments to reinforce operational awareness.\n\n## Colors\n\nThe palette is engineered around administrative reliability, low cognitive load, and unambiguous status telemetry.\n\n### Palette Architecture\n- **Primary Canvas & Backgrounds**: The base application canvas rests on `#f8fafc` (slate-50) and `#f1f5f9` (slate-100) to minimize eye fatigue during extended desk monitoring. Elevated containers, panels, and data surfaces are solid white (`#ffffff`).\n- **Brand Primary (`#2563eb` / `#1d4ed8`)**: Anchors critical navigation, primary button states, selection outlines, and active tab indicators.\n- **Deep Slate Base (`#0f172a` / `#334155`)**: Drives primary headers, critical table metrics, and top-tier administrative labels. Muted slate (`#64748b`) handles supporting metadata and structural borders (`#e2e8f0`).\n\n### Telemetry & Operational Status Tokens\nStatus indicators must pair color with explicit contextual copy:\n- **Conectado / Optimal**: Emerald `#059669` text on `#ecfdf5` background with `#a7f3d0` border.\n- **Desactualizado / Latency**: Amber `#d97706` text on `#fef3c7` background with `#fde68a` border.\n- **Sin Comunicación / Offline**: Neutral Slate `#475569` text on `#f1f5f9` background with `#cbd5e1` border.\n- **Emergencia / SOS**: Vivid Crimson `#dc2626` text on `#fef2f2` background with `#fecaca` border. Crimson is strictly forbidden for ordinary error validation or routine dismissals; it is reserved exclusively for student safety hazards, perimeter breaches, or urgent SOS alerts.\n- **Environment Banner**: Global demo mode uses a top bar with `#1e293b` fill, `#f8fafc` label, and an amber indicator dot to remind operators of synthetic data mode.\n\n## Typography\n\nThe type system is built on **Inter**, optimized for screen scanning, numerical alignment, and high-density tabular presentation.\n\n### Rules of Hierarchy\n- **Numerical Alignment**: Use tabular figures (`font-variant-numeric: tabular-nums`) across student counts, timestamps, attendance percentages, and device identifiers.\n- **Labels & Badges**: Data labels and operational status tags employ `label-sm` with slight uppercase treatment or clear sentence casing to preserve immediate legibility.\n- **Content Contrast**: Heading tiers use `#0f172a`, running body text uses `#334155`, and supporting descriptions or secondary column headers use `#64748b`.\n\n## Layout & Spacing\n\nThe layout operates on a 12-column fluid grid system with controlled container boundaries to maintain structural order across multi-monitor control desks, laptops, and tablets.\n\n### Grid & Density Structure\n- **Desktop (1024px and up)**: 12 columns, 20px gutters (`gutter: 1.25rem`), and 24px outer margins (`margin: 1.5rem`). Layout utilizes a fixed left administrative sidebar (260px) paired with a responsive fluid viewport for monitoring panels.\n- **Tablet (768px – 1023px)**: 8 columns, 16px gutters, collapsible sidebar drawer.\n- **Mobile (< 768px)**: 4 columns, 12px gutters, 16px screen padding. Real-time metrics stack into single-column cards.\n- **Component Padding Rhythm**: Internal card paddings follow a disciplined rhythm: `space-md` (16px) for compact data modules, `space-lg` (24px) for expansive analytical charts and summary panels.\n\n## Elevation & Depth\n\nDepth is disciplined and subtle, avoiding deep dramatic shadows in favor of crisp enterprise borders and soft ambient drops inspired by PrimeReact component themes.\n\n### Depth Hierarchy\n- **Level 0 (Base Canvas)**: Flat `#f8fafc` background with no shadow.\n- **Level 1 (Cards, Tables, Panels)**: Solid `#ffffff` surface, bounded by a 1px border (`#e2e8f0`), paired with an ambient shadow: `0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.04)`.\n- **Level 2 (Dropdowns, Popovers, Filter Overlays)**: Surface `#ffffff`, border `#cbd5e1`, shadow: `0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.05)`.\n- **Level 3 (Modal Dialogs, Urgent Safety Overlays)**: Surface `#ffffff`, elevated shadow: `0 20px 25px -5px rgba(15, 23, 42, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.06)`, anchored over a slate semi-transparent backdrop (`rgba(15, 23, 42, 0.45)` with `backdrop-filter: blur(2px)`).\n\n## Shapes\n\nThe design system employs a soft, restrained border-radius model (0.375rem / 6px) to emulate the refined, enterprise-ready look of PrimeReact (`p-component`).\n\n### Geometry Rules\n- **Standard Controls & Buttons (`rounded-md`, 6px)**: Inputs, buttons (`p-button`), select menus, and filter triggers utilize 6px radius.\n- **Containers & Panels (`rounded-lg`, 8px)**: Dashboard cards, data table wrappers, and institutional status containers carry an 8px radius.\n- **Tags & Status Badges**: Tag containers use 4px (`rounded-sm`) to keep indicators sharp and legible without resembling playful pill shapes.\n- **Interactive Checkboxes**: 4px radius with a 1px structural border.\n\n## Components\n\n### Persistent Demo Mode Watermark / Banner\n- A slim, non-intrusive top-level horizontal bar (`32px` height) across all administrative views.\n- **Styling**: `#0f172a` slate fill, `12px` semi-bold font in `#f8fafc`, centered text: `\"MODO DEMOSTRACIÓN — DATOS FICTICIOS (INSTITUCIÓN EDUCATIVA)\"`.\n- Includes an amber status dot (`#f59e0b`, 6px) to immediately signal non-production state to school staff.\n\n### Buttons (`p-button`)\n- **Primary**: Background `#2563eb`, border 1px solid `#1d4ed8`, text `#ffffff`, height 38px, padding 8px 16px, border-radius 6px. Hover: `#1d4ed8`. Active: `#1e40af`. Focus: 0 0 0 3px rgba(37, 99, 235, 0.25).\n- **Secondary / Outline**: Background `#ffffff`, border 1px solid `#cbd5e1`, text `#334155`. Hover: `#f8fafc` with border `#94a3b8`.\n- **Critical SOS**: Background `#dc2626`, border 1px solid `#b91c1c`, text `#ffffff`. Reserved exclusively for system-wide crisis protocols.\n\n### Badges & Status Tags (`p-tag` / `p-badge`)\nAll tags must include both a color token and an explicit text string:\n- **Conectado**: Fill `#ecfdf5`, border `#a7f3d0`, text `#059669`. Prepended with an emerald solid dot (`6px`). Text: `\"Conectado\"`.\n- **Desactualizado**: Fill `#fef3c7`, border `#fde68a`, text `#d97706`. Prepended with an amber solid dot. Text: `\"Desactualizado (hace >15m)\"`.\n- **Sin Comunicación**: Fill `#f1f5f9`, border `#cbd5e1`, text `#475569`. Text: `\"Sin comunicación\"`.\n- **Emergencia SOS**: Fill `#fef2f2`, border `#fecaca`, text `#dc2626`, font-weight 700. Text: `\"ALERTA SOS\"`.\n\n### Data Tables (`p-datatable`)\n- **Container**: White `#ffffff` background with `#e2e8f0` structural perimeter border.\n- **Header Row**: `#f8fafc` background, text `#475569` in 12px uppercase semi-bold, height 40px, cell padding 8px 16px.\n- **Data Rows**: Height 48px, horizontal borders only (`#f1f5f9`), cell text `#1e293b` in 13px/14px.\n- **Row Hover**: Soft transition to `#f8fafc`. Alternating striping is avoided to keep telemetry badges distinct.\n\n### Form Inputs & Selects (`p-inputtext`)\n- Height 38px, padding 8px 12px, border 1px solid `#cbd5e1`, background `#ffffff`, radius 6px.\n- Focus state: border `#2563eb`, outline 3px solid rgba(37, 99, 235, 0.15).\n\n### Cards & Metric Panels (`p-card`)\n- Solid `#ffffff` background, 1px solid `#e2e8f0`, border-radius 8px.\n- Padding: 20px. Includes clear card header with 14px uppercase label in `#64748b`, large metric in 24px bold `#0f172a`, and an explicit status tag aligned to the top-right corner.",
+                  "font": "INTER",
+                  "headlineFont": "INTER",
+                  "headlineFontFamily": "Inter",
+                  "labelFont": "INTER",
+                  "labelFontFamily": "Inter",
+                  "namedColors": {
+                    "background": "#f8f9ff",
+                    "error": "#ba1a1a",
+                    "error_container": "#ffdad6",
+                    "inverse_on_surface": "#eaf1ff",
+                    "inverse_primary": "#b4c5ff",
+                    "inverse_surface": "#213145",
+                    "on_background": "#0b1c30",
+                    "on_error": "#ffffff",
+                    "on_error_container": "#93000a",
+                    "on_primary": "#ffffff",
+                    "on_primary_container": "#eeefff",
+                    "on_primary_fixed": "#00174b",
+                    "on_primary_fixed_variant": "#003ea8",
+                    "on_secondary": "#ffffff",
+                    "on_secondary_container": "#5c647a",
+                    "on_secondary_fixed": "#131b2e",
+                    "on_secondary_fixed_variant": "#3f465c",
+                    "on_surface": "#0b1c30",
+                    "on_surface_variant": "#434655",
+                    "on_tertiary": "#ffffff",
+                    "on_tertiary_container": "#bdffdc",
+                    "on_tertiary_fixed": "#002114",
+                    "on_tertiary_fixed_variant": "#005137",
+                    "outline": "#737686",
+                    "outline_variant": "#c3c6d7",
+                    "primary": "#004ac6",
+                    "primary_container": "#2563eb",
+                    "primary_fixed": "#dbe1ff",
+                    "primary_fixed_dim": "#b4c5ff",
+                    "secondary": "#565e74",
+                    "secondary_container": "#dae2fd",
+                    "secondary_fixed": "#dae2fd",
+                    "secondary_fixed_dim": "#bec6e0",
+                    "surface": "#f8f9ff",
+                    "surface_bright": "#f8f9ff",
+                    "surface_container": "#e5eeff",
+                    "surface_container_high": "#dce9ff",
+                    "surface_container_highest": "#d3e4fe",
+                    "surface_container_low": "#eff4ff",
+                    "surface_container_lowest": "#ffffff",
+                    "surface_dim": "#cbdbf5",
+                    "surface_tint": "#0053db",
+                    "surface_variant": "#d3e4fe",
+                    "tertiary": "#006243",
+                    "tertiary_container": "#007d57",
+                    "tertiary_fixed": "#85f8c4",
+                    "tertiary_fixed_dim": "#68dba9"
+                  },
+                  "overrideNeutralColor": "#64748b",
+                  "overridePrimaryColor": "#2563eb",
+                  "overrideSecondaryColor": "#0f172a",
+                  "overrideTertiaryColor": "#059669",
+                  "roundness": "ROUND_FOUR",
+                  "spacing": {
+                    "gutter": "1.25rem",
+                    "gutter-mobile": "0.75rem",
+                    "margin": "1.5rem",
+                    "margin-mobile": "1rem",
+                    "space-lg": "1.5rem",
+                    "space-md": "1rem",
+                    "space-sm": "0.5rem",
+                    "space-xl": "2rem",
+                    "space-xs": "0.25rem"
+                  },
+                  "spacingScale": 2,
+                  "typography": {
+                    "body-lg": {
+                      "fontFamily": "Inter",
+                      "fontSize": "16px",
+                      "fontWeight": "400",
+                      "letterSpacing": "0em",
+                      "lineHeight": "24px"
+                    },
+                    "body-md": {
+                      "fontFamily": "Inter",
+                      "fontSize": "14px",
+                      "fontWeight": "400",
+                      "letterSpacing": "0em",
+                      "lineHeight": "20px"
+                    },
+                    "body-sm": {
+                      "fontFamily": "Inter",
+                      "fontSize": "13px",
+                      "fontWeight": "400",
+                      "letterSpacing": "0em",
+                      "lineHeight": "18px"
+                    },
+                    "data-mono": {
+                      "fontFamily": "Inter",
+                      "fontSize": "13px",
+                      "fontWeight": "500",
+                      "letterSpacing": "-0.01em",
+                      "lineHeight": "18px"
+                    },
+                    "display-lg": {
+                      "fontFamily": "Inter",
+                      "fontSize": "32px",
+                      "fontWeight": "700",
+                      "letterSpacing": "-0.02em",
+                      "lineHeight": "40px"
+                    },
+                    "display-sm": {
+                      "fontFamily": "Inter",
+                      "fontSize": "24px",
+                      "fontWeight": "600",
+                      "letterSpacing": "-0.01em",
+                      "lineHeight": "32px"
+                    },
+                    "headline-lg": {
+                      "fontFamily": "Inter",
+                      "fontSize": "20px",
+                      "fontWeight": "600",
+                      "letterSpacing": "-0.01em",
+                      "lineHeight": "28px"
+                    },
+                    "headline-md": {
+                      "fontFamily": "Inter",
+                      "fontSize": "16px",
+                      "fontWeight": "600",
+                      "letterSpacing": "0em",
+                      "lineHeight": "24px"
+                    },
+                    "label-md": {
+                      "fontFamily": "Inter",
+                      "fontSize": "13px",
+                      "fontWeight": "600",
+                      "letterSpacing": "0.01em",
+                      "lineHeight": "18px"
+                    },
+                    "label-sm": {
+                      "fontFamily": "Inter",
+                      "fontSize": "11px",
+                      "fontWeight": "600",
+                      "letterSpacing": "0.04em",
+                      "lineHeight": "16px"
+                    }
+                  }
+                }
+              },
+              "name": "assets/34960c3d41874d68a7c459d668ea517e",
+              "version": "1"
+            },
+            "deviceType": "MOBILE",
+            "generatedBy": "HatterAgent",
+            "height": "2292",
+            "htmlCode": {
+              "downloadUrl": "https://stitch.googleapis.com/v1/projects/1713403711180977197/files/4120af4cd74845fdbe89865d8420559a:download",
+              "mimeType": "text/html",
+              "name": "projects/1713403711180977197/files/4120af4cd74845fdbe89865d8420559a"
+            },
+            "id": "c9e646582861465fba33bd62d4e22b11",
+            "name": "projects/1713403711180977197/screens/c9e646582861465fba33bd62d4e22b11",
+            "prompt": "Ajustar esta pantalla móvil de 'Kivo Móvil — Principal (Monitoreo y SOS)' para que cumpla estrictamente con el MVP documentado:\n1. Formato y dispositivo: Asegurar que sea interfaz de aplicación móvil Android (viewport vertical de smartphone).\n2. Marca e institución: 'Kivo', institución ficticia 'Colegio Demo' (dispositivo ficticio Android).\n3. Sin mapas, sin tablas, sin menús inferiores ni barras de navegación complejas.\n4. Quitar toda mención a transporte escolar, furgón, conductores, rutas, balizas o hardware dedicado.\n5. Sin 'geocerca actual' si se infiere sin servidor (quitar 'Zona perimétrica escolar').\n6. Estados de sesión: Permitir simular o visualizar estado de sesión: 'Activa', 'Inactiva', 'Pausada'.\n7. Controles principales: Botón claro y grande para 'Iniciar sesión de monitoreo' / 'Detener sesión de monitoreo' (o pausar).\n8. Telemetría y estado: Solo mostrar:\n   - Estado del GPS (p. ej., GPS activo / buscando señal y precisión en metros, p. ej. '± 6 metros').\n   - Estado de comunicación con el servidor (Conectado / Desconectado).\n   - Última ubicación enviada (p. ej., 'Hace 18 segundos', con coordenadas de demostración ficticias).\n9. Explicación de seguimiento: Decir únicamente que el seguimiento ocurre durante una sesión autorizada. NO inventar horarios, itinerarios ni prohibición de fines de semana.\n10. Botón y estados de SOS:\n    - Botón de auxilio SOS grande y prominente en color rojo ('ACTIVAR ALERTA SOS').\n    - Distinguir los 4 estados exactos requeridos de SOS:\n      a) Enviando\n      b) Enviado (sin acuse)\n      c) Recibido por servidor\n      d) Error / Reintentar\n    - NUNCA afirmar que lo recibió un operador si solo hay acuse de recibo del servidor (mostrar 'Recibido por servidor').\n    - Texto obligatorio de aviso SOS: 'SOS solicita ayuda; no llama a emergencias ni garantiza atención inmediata.'\n    - Quitar menciones a números de emergencia nacionales (como 133/911/SAMU), acuerdos de nivel de servicio o respuesta inmediata.\n11. Quitar menciones a builds, sandbox, servidor físico o certificaciones.\n12. Mantener etiqueta compacta de 'Datos ficticios de demostración', controles grandes, azul y blanco para la app general y rojo para SOS.\n13. No explicar tecnologías como Flutter o Kafka.",
+            "screenMetadata": {
+              "agentType": "PRO_AGENT",
+              "status": "COMPLETE"
+            },
+            "screenType": "DESIGN",
+            "screenshot": {
+              "downloadUrl": "https://stitch.googleapis.com/v1/projects/1713403711180977197/files/5c18fde44e59475ba2dbd55d356d0fc9:download",
+              "name": "projects/1713403711180977197/files/5c18fde44e59475ba2dbd55d356d0fc9"
+            },
+            "theme": {
+              "bodyFont": "INTER",
+              "bodyFontFamily": "Inter",
+              "colorMode": "LIGHT",
+              "colorVariant": "FIDELITY",
+              "customColor": "#2563eb",
+              "font": "INTER",
+              "headlineFont": "INTER",
+              "headlineFontFamily": "Inter",
+              "labelFont": "INTER",
+              "labelFontFamily": "Inter",
+              "namedColors": {
+                "background": "#f8f9ff",
+                "error": "#ba1a1a",
+                "error_container": "#ffdad6",
+                "inverse_on_surface": "#eaf1ff",
+                "inverse_primary": "#b4c5ff",
+                "inverse_surface": "#213145",
+                "on_background": "#0b1c30",
+                "on_error": "#ffffff",
+                "on_error_container": "#93000a",
+                "on_primary": "#ffffff",
+                "on_primary_container": "#eeefff",
+                "on_primary_fixed": "#00174b",
+                "on_primary_fixed_variant": "#003ea8",
+                "on_secondary": "#ffffff",
+                "on_secondary_container": "#5c647a",
+                "on_secondary_fixed": "#131b2e",
+                "on_secondary_fixed_variant": "#3f465c",
+                "on_surface": "#0b1c30",
+                "on_surface_variant": "#434655",
+                "on_tertiary": "#ffffff",
+                "on_tertiary_container": "#bdffdc",
+                "on_tertiary_fixed": "#002114",
+                "on_tertiary_fixed_variant": "#005137",
+                "outline": "#737686",
+                "outline_variant": "#c3c6d7",
+                "primary": "#004ac6",
+                "primary_container": "#2563eb",
+                "primary_fixed": "#dbe1ff",
+                "primary_fixed_dim": "#b4c5ff",
+                "secondary": "#565e74",
+                "secondary_container": "#dae2fd",
+                "secondary_fixed": "#dae2fd",
+                "secondary_fixed_dim": "#bec6e0",
+                "surface": "#f8f9ff",
+                "surface_bright": "#f8f9ff",
+                "surface_container": "#e5eeff",
+                "surface_container_high": "#dce9ff",
+                "surface_container_highest": "#d3e4fe",
+                "surface_container_low": "#eff4ff",
+                "surface_container_lowest": "#ffffff",
+                "surface_dim": "#cbdbf5",
+                "surface_tint": "#0053db",
+                "surface_variant": "#d3e4fe",
+                "tertiary": "#006243",
+                "tertiary_container": "#007d57",
+                "tertiary_fixed": "#85f8c4",
+                "tertiary_fixed_dim": "#68dba9"
+              },
+              "overrideNeutralColor": "#64748b",
+              "overridePrimaryColor": "#2563eb",
+              "overrideSecondaryColor": "#0f172a",
+              "overrideTertiaryColor": "#059669",
+              "roundness": "ROUND_FOUR",
+              "spacing": {
+                "gutter": "1.25rem",
+                "gutter-mobile": "0.75rem",
+                "margin": "1.5rem",
+                "margin-mobile": "1rem",
+                "space-lg": "1.5rem",
+                "space-md": "1rem",
+                "space-sm": "0.5rem",
+                "space-xl": "2rem",
+                "space-xs": "0.25rem"
+              },
+              "spacingScale": 2,
+              "typography": {
+                "body-lg": {
+                  "fontFamily": "Inter",
+                  "fontSize": "16px",
+                  "fontWeight": "400",
+                  "letterSpacing": "0em",
+                  "lineHeight": "24px"
+                },
+                "body-md": {
+                  "fontFamily": "Inter",
+                  "fontSize": "14px",
+                  "fontWeight": "400",
+                  "letterSpacing": "0em",
+                  "lineHeight": "20px"
+                },
+                "body-sm": {
+                  "fontFamily": "Inter",
+                  "fontSize": "13px",
+                  "fontWeight": "400",
+                  "letterSpacing": "0em",
+                  "lineHeight": "18px"
+                },
+                "data-mono": {
+                  "fontFamily": "Inter",
+                  "fontSize": "13px",
+                  "fontWeight": "500",
+                  "letterSpacing": "-0.01em",
+                  "lineHeight": "18px"
+                },
+                "display-lg": {
+                  "fontFamily": "Inter",
+                  "fontSize": "32px",
+                  "fontWeight": "700",
+                  "letterSpacing": "-0.02em",
+                  "lineHeight": "40px"
+                },
+                "display-sm": {
+                  "fontFamily": "Inter",
+                  "fontSize": "24px",
+                  "fontWeight": "600",
+                  "letterSpacing": "-0.01em",
+                  "lineHeight": "32px"
+                },
+                "headline-lg": {
+                  "fontFamily": "Inter",
+                  "fontSize": "20px",
+                  "fontWeight": "600",
+                  "letterSpacing": "-0.01em",
+                  "lineHeight": "28px"
+                },
+                "headline-md": {
+                  "fontFamily": "Inter",
+                  "fontSize": "16px",
+                  "fontWeight": "600",
+                  "letterSpacing": "0em",
+                  "lineHeight": "24px"
+                },
+                "label-md": {
+                  "fontFamily": "Inter",
+                  "fontSize": "13px",
+                  "fontWeight": "600",
+                  "letterSpacing": "0.01em",
+                  "lineHeight": "18px"
+                },
+                "label-sm": {
+                  "fontFamily": "Inter",
+                  "fontSize": "11px",
+                  "fontWeight": "600",
+                  "letterSpacing": "0.04em",
+                  "lineHeight": "16px"
+                }
+              }
+            },
+            "title": "Kivo Móvil — Principal (Sesión y SOS)",
+            "width": "780"
+          }
+        ],
+        "theme": {}
+      }
+    },
+    {
+      "text": "He ajustado rigurosamente ambas pantallas móviles Android de Kivo conforme a las especificaciones del MVP documentado:\n\n### 1. Kivo Móvil — Vinculación y Permisos\n- **Identidad y Contexto**: Marca `Kivo`, institución ficticia `Colegio Demo`. Se eliminó cualquier mención a transporte escolar, furgones, buses, choferes o coordinación de transporte; se trata únicamente de un teléfono Android con la aplicación instalada.\n- **Mensaje de Vinculación**: Se reemplazó el bloque complejo anterior por el texto exacto requerido: *\"Vinculación pendiente. Solicita ayuda al administrador escolar.\"* Sin decisiones técnicas pendientes, homologaciones de hardware, contratos de custodia, códigos QR ni códigos inventados.\n- **Gestión de Permisos**: Selector de demostración con estados claros (*Pendiente*, *Denegado* y *Concedido*) y llamadas a la acción directas para solicitar el permiso o abrir los ajustes del sistema según corresponda.\n- **Privacidad y Sesión**: Se indica con precisión que el seguimiento ocurre exclusivamente durante una sesión autorizada, sin inventar horarios lectivos rígidos ni prohibición de fines de semana.\n- **Sistema Android**: Notificación de servicio persistente requerida por Android para segundo plano presentada de forma limpia.\n\n### 2. Kivo Móvil — Principal (Sesión y SOS)\n- **Formato y Navegación**: Formato móvil nativo Android sin mapas, tablas ni menús/barras inferiores innecesarias.\n- **Control de Sesión**: Controles grandes para iniciar y detener el monitoreo, con estados de sesión claros (*Activa*, *Inactiva*, *Pausada*).\n- **Telemetría Esencial**:\n  - Estado del GPS y precisión estimada (en metros).\n  - Estado de comunicación con el servidor (*Conectado*).\n  - Marca temporal de la última ubicación enviada (ej. *Hace 18 segundos*) con coordenadas ficticias de prueba.\n  - Se eliminaron las zonas perimétricas y geocercas inferidas sin servidor, así como historiales de rutas.\n- **Módulo y Protocolo SOS**:\n  - Botón de auxilio SOS grande y prominente en color rojo.\n  - Selector y visualización de los 4 estados exactos requeridos: **Enviando**, **Enviado (sin acuse)**, **Recibido por servidor** y **Error / Reintentar**.\n  - No afirma recepción por un operador humano, indicando estrictamente el acuse del servidor (*Recibido por servidor*).\n  - Texto exacto de seguridad: *\"SOS solicita ayuda; no llama a emergencias ni garantiza atención inmediata.\"*, eliminando números nacionales de emergencia (133/911/SAMU).\n- **Lineamientos Generales**: Paleta institucional en azul y blanco con rojo para SOS, controles táctiles grandes, etiqueta compacta de *\"Datos ficticios de demostración\"* y sin exponer nombres de tecnologías internas en la interfaz."
+    },
+    {
+      "suggestion": "Simular el estado SOS 'Error / Reintentar' en la pantalla principal"
+    },
+    {
+      "suggestion": "Probar el estado de permiso 'Denegado' en la pantalla de vinculación"
+    },
+    {
+      "suggestion": "Revisar la coherencia de términos entre la consola web y la app móvil"
+    }
+  ],
+  "projectId": "1713403711180977197",
+  "sessionId": "5364511729363533113"
+}

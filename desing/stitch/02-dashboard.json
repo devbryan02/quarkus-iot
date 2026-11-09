@@ -1,0 +1,17 @@
+{
+  "deviceType": "DESKTOP",
+  "height": "2048",
+  "htmlCode": {
+    "downloadUrl": "https://stitch.googleapis.com/v1/projects/1713403711180977197/files/000bdcc8a4f44d5cb96fe4d6919b4f23:download",
+    "mimeType": "text/html",
+    "name": "projects/1713403711180977197/files/000bdcc8a4f44d5cb96fe4d6919b4f23"
+  },
+  "name": "projects/1713403711180977197/screens/38422650a9b04c1786d8fa895554f25b",
+  "screenshot": {
+    "downloadUrl": "https://stitch.googleapis.com/v1/projects/1713403711180977197/files/e7c3f0f3b9294d738dd0b1c5f44ab23b:download",
+    "mimeType": "png",
+    "name": "projects/1713403711180977197/files/e7c3f0f3b9294d738dd0b1c5f44ab23b"
+  },
+  "title": "Kivo Escolar — Dashboard de Monitoreo",
+  "width": "2560"
+}

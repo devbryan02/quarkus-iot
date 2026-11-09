@@ -1,0 +1,14 @@
+# Configuracion local del IDE
+.idea/
+*.iml
+
+# Secretos y configuracion local
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db

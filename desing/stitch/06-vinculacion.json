@@ -1,0 +1,17 @@
+{
+  "deviceType": "MOBILE",
+  "height": "2172",
+  "htmlCode": {
+    "downloadUrl": "https://stitch.googleapis.com/v1/projects/1713403711180977197/files/760f0169a01a4fa1b3859ab2e23419e9:download",
+    "mimeType": "text/html",
+    "name": "projects/1713403711180977197/files/760f0169a01a4fa1b3859ab2e23419e9"
+  },
+  "name": "projects/1713403711180977197/screens/4a9ed77c3c5d46dfa9b2d411997c349c",
+  "screenshot": {
+    "downloadUrl": "https://stitch.googleapis.com/v1/projects/1713403711180977197/files/4fd73b3595c64543bb0a81c18e2d2bde:download",
+    "mimeType": "png",
+    "name": "projects/1713403711180977197/files/4fd73b3595c64543bb0a81c18e2d2bde"
+  },
+  "title": "Kivo Móvil — Vinculación y Permisos",
+  "width": "780"
+}

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kivo — Monitoreo de Sesión Colegio Demo</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline-variant": "#c3c6d7",
+            "surface-container-low": "#eff4ff",
+            "secondary-fixed-dim": "#bec6e0",
+            "secondary": "#565e74",
+            "on-tertiary": "#ffffff",
+            "secondary-container": "#dae2fd",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed": "#85f8c4",
+            "tertiary-fixed-dim": "#68dba9",
+            "surface-container-high": "#dce9ff",
+            "surface-variant": "#d3e4fe",
+            "surface-bright": "#f8f9ff",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed-variant": "#005137",
+            "surface-dim": "#cbdbf5",
+            "on-secondary-fixed": "#131b2e",
+            "surface-container-highest": "#d3e4fe",
+            "primary": "#004ac6",
+            "tertiary-container": "#007d57",
+            "on-tertiary-fixed": "#002114",
+            "on-surface": "#0b1c30",
+            "on-primary-fixed": "#00174b",
+            "inverse-surface": "#213145",
+            "outline": "#737686",
+            "on-surface-variant": "#434655",
+            "surface": "#f8f9ff",
+            "surface-container-lowest": "#ffffff",
+            "error": "#ba1a1a",
+            "on-secondary-container": "#5c647a",
+            "inverse-on-surface": "#eaf1ff",
+            "surface-tint": "#0053db",
+            "primary-fixed": "#dbe1ff",
+            "on-secondary-fixed-variant": "#3f465c",
+            "surface-container": "#e5eeff",
+            "on-background": "#0b1c30",
+            "inverse-primary": "#b4c5ff",
+            "on-error-container": "#93000a",
+            "tertiary": "#006243",
+            "on-primary-container": "#eeefff",
+            "primary-container": "#2563eb",
+            "on-error": "#ffffff",
+            "on-primary": "#ffffff",
+            "on-tertiary-container": "#bdffdc",
+            "background": "#f8f9ff",
+            "on-primary-fixed-variant": "#003ea8",
+            "secondary-fixed": "#dae2fd",
+            "primary-fixed-dim": "#b4c5ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "gutter-mobile": "0.75rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2rem",
+            "gutter": "1.25rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-sm": ["Inter"],
+            "display-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "data-mono": ["Inter"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-lg": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-sm": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "data-mono": ["13px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    /* PrimeReact Inspired UI Elements */
+    .p-panel-border {
+      border: 1px solid #e2e8f0;
+    }
+    .pulse-ring {
+      animation: pulse-ring 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.35); opacity: 0.2; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+  </style>
+</head>
+<body class="h-full bg-background text-on-surface antialiased overflow-hidden flex flex-col font-body-md text-body-md">
+<!-- 1. BANNER INSTITUCIONAL DE DEMOSTRACIÓN (Persistent Demo Mode Banner) -->
+<div class="w-full bg-[#0f172a] text-[#f8fafc] px-4 py-1.5 flex items-center justify-between shrink-0 z-50 shadow-sm border-b border-[#1e293b]"><div class="flex items-center space-x-2.5 mx-auto text-center overflow-hidden text-ellipsis whitespace-nowrap"><span class="inline-block w-2 h-2 rounded-full bg-[#f59e0b]"></span><span class="font-label-sm text-label-sm tracking-wide text-gray-200"><strong class="text-white font-semibold">Entorno de demostración con datos ficticios:</strong> Simulación interactiva con fines ilustrativos. Los teléfonos Android y estudiantes son ficticios.</span></div></div>
+<div class="flex flex-1 overflow-hidden relative">
+<!-- 2. NAVEGACIÓN LATERAL (SideNavBar PrimeReact Administrative Drawer) -->
+<aside class="w-64 bg-surface-container-lowest border-r border-[#e2e8f0] flex flex-col justify-between shrink-0 z-30 select-none">
+<!-- Top header branding -->
+<div>
+<div class="p-4 border-b border-[#e2e8f0] flex items-center justify-between"><div class="flex items-center space-x-3"><div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-white shadow-sm"><span class="material-symbols-outlined text-[22px]">map</span></div><div><div class="flex items-center space-x-1.5"><span class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">Kivo</span></div><p class="font-body-sm text-[12px] text-secondary">Colegio Demo</p></div></div></div>
+<!-- Navigation Tabs -->
+<nav class="py-3 px-2 space-y-1"><a class="flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-surface-container-low text-primary font-semibold border-l-4 border-primary transition-colors" href="#"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">map</span><span class="font-label-md text-label-md">Mapa</span></a><a class="flex items-center justify-between px-3 py-2.5 rounded-lg text-secondary hover:bg-surface hover:text-on-surface transition-colors pl-4" href="#"><div class="flex items-center space-x-3"><span class="material-symbols-outlined">smartphone</span><span class="font-label-md text-label-md font-normal">Dispositivos</span></div><span class="bg-slate-100 text-slate-600 text-[11px] px-1.5 py-0.5 rounded font-mono font-medium">14</span></a><a class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-secondary hover:bg-surface hover:text-on-surface transition-colors pl-4" href="#"><span class="material-symbols-outlined">share_location</span><span class="font-label-md text-label-md font-normal">Geocercas</span></a><a class="flex items-center justify-between px-3 py-2.5 rounded-lg text-secondary hover:bg-surface hover:text-on-surface transition-colors pl-4" href="#"><div class="flex items-center space-x-3"><span class="material-symbols-outlined">notifications</span><span class="font-label-md text-label-md font-normal">Alertas</span></div><span class="bg-[#fef2f2] text-[#dc2626] border border-[#fecaca] text-[11px] font-bold px-1.5 py-0.5 rounded-full">1</span></a></nav>
+</div>
+<!-- Action Protocol & Profile Footer -->
+<div class="p-3 border-t border-[#e2e8f0] space-y-3 bg-slate-50/50"><div class="flex items-center space-x-3 p-2 bg-surface-container-lowest rounded-lg border border-[#e2e8f0]"><div class="w-8 h-8 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center text-slate-700 font-semibold text-xs">OP</div><div class="flex-1 min-w-0"><p class="font-label-md text-[12px] font-bold text-on-surface truncate">Operador (Demostración)</p><p class="font-body-sm text-[11px] text-secondary truncate">Operador / Administrador escolar</p></div><span class="w-2 h-2 rounded-full bg-[#059669] shrink-0" title="Sesión activa"></span></div></div>
+</aside>
+<!-- MAIN VIEWPORT -->
+<main class="flex-1 flex flex-col min-w-0 bg-[#f8fafc] overflow-hidden">
+<!-- 3. CABECERA SUPERIOR DEL DASHBOARD -->
+<header class="h-16 bg-surface-container-lowest border-b border-[#e2e8f0] px-6 flex items-center justify-between shrink-0 shadow-sm">
+<div><div class="flex items-center space-x-3"><h1 class="font-headline-lg text-headline-lg font-bold text-on-surface">Monitoreo de Sesión Escolar</h1><span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200"><span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>Sesión Activa</span></div><p class="font-body-sm text-body-sm text-secondary">Colegio Demo — <span class="font-medium text-on-surface">14 teléfonos Android en sesión activa</span></p></div>
+<div class="flex items-center space-x-3">
+<div class="flex items-center space-x-2 bg-slate-50 border border-[#e2e8f0] px-3 py-1.5 rounded-lg text-slate-600">
+<span class="material-symbols-outlined text-[16px] text-emerald-600 animate-spin" style="animation-duration: 8s;">sync</span>
+<span class="font-label-sm text-label-sm text-slate-600">Actualizado hace 15s • Intervalo de reporte estándar</span>
+</div>
+<button class="h-[38px] px-3 bg-surface-container-lowest border border-[#cbd5e1] hover:bg-slate-50 text-slate-700 rounded font-label-md text-label-md flex items-center space-x-1.5 transition" id="btn-refresh">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+<span>Refrescar</span>
+</button>
+<div class="flex items-center border border-[#cbd5e1] rounded bg-white overflow-hidden p-0.5">
+<button class="px-2.5 py-1 text-xs font-semibold bg-primary text-white rounded">Telemetría</button>
+<button class="px-2.5 py-1 text-xs font-semibold text-slate-600 hover:text-slate-900 rounded">Satélite</button>
+</div>
+</div>
+</header>
+<!-- 4. CONTENIDO PRINCIPAL: 2 COLUMNAS (Layout de Monitoreo) -->
+<div class="flex-1 flex min-h-0 overflow-hidden">
+<!-- COLUMNA IZQUIERDA / LISTADO DE DISPOSITIVOS (380px) -->
+<section class="w-[380px] bg-surface-container-lowest border-r border-[#e2e8f0] flex flex-col shrink-0">
+<!-- Búsqueda y Filtros PrimeReact -->
+<div class="p-3 border-b border-[#e2e8f0] space-y-2.5 bg-white">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-2.5 text-slate-400 text-[18px]">search</span>
+<input class="w-full h-[36px] pl-9 pr-3 rounded border border-[#cbd5e1] text-xs focus:border-primary focus:ring-1 focus:ring-primary outline-none text-slate-800 placeholder-slate-400" placeholder="Buscar por alumno o ID (ej. KV-08)..." type="text"/>
+</div>
+<!-- Chips / Tabs de Filtro PrimeReact (p-selectbutton style) -->
+<div class="grid grid-cols-4 gap-1 p-1 bg-slate-100 rounded-lg text-center text-xs">
+<button class="py-1 px-1.5 font-semibold rounded bg-white text-primary shadow-xs">Todos (14)</button>
+<button class="py-1 px-1.5 font-medium rounded text-slate-600 hover:text-slate-900">Conect. (10)</button>
+<button class="py-1 px-1.5 font-medium rounded text-slate-600 hover:text-slate-900">Desact. (3)</button>
+<button class="py-1 px-1.5 font-medium rounded text-slate-600 hover:text-slate-900">Sin com. (1)</button>
+</div>
+<!-- Selector de variantes de simulación (Demo toggles) -->
+<div class="pt-1 flex items-center justify-between text-[11px] text-slate-500 border-t border-slate-100">
+<span class="font-medium">Modo demostración:</span>
+<div class="flex space-x-1">
+<button class="px-2 py-0.5 rounded text-blue-700 bg-blue-50 font-semibold border border-blue-200" id="btn-mode-normal" onclick="setSimState('normal')">Normal</button>
+<button class="px-2 py-0.5 rounded hover:bg-slate-100 text-slate-600" id="btn-mode-empty" onclick="setSimState('empty')">Sin Sesión</button>
+<button class="px-2 py-0.5 rounded hover:bg-slate-100 text-slate-600" id="btn-mode-error" onclick="setSimState('error')">Error Central</button>
+</div>
+</div>
+</div>
+<!-- LISTA INTERACTIVA DE DISPOSITIVOS -->
+<div class="flex-1 overflow-y-auto divide-y divide-slate-100" id="device-list-container"><div class="device-card p-3.5 bg-blue-50/70 border-l-4 border-primary cursor-pointer transition hover:bg-blue-50 relative" onclick="selectDevice('Estudiante Ficticio A', 'Android App', 'Conectado', '15:42:18 (hace 22s)', '± 5 metros', 'Horario de Clases', 'Dentro de Campus Demo')"><div class="flex items-start justify-between"><div><div class="flex items-center space-x-2"><span class="font-label-md text-slate-900 font-bold">Estudiante Ficticio A</span><span class="font-mono text-[11px] bg-blue-100 text-blue-800 px-1.5 py-0.2 rounded font-semibold">Android</span></div><p class="text-[12px] text-slate-500 mt-0.5">Teléfono Android • App Kivo Móvil</p></div><span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-[#ecfdf5] text-[#059669] border border-[#a7f3d0]"><span class="w-1.5 h-1.5 rounded-full bg-[#059669] mr-1.5"></span>Conectado</span></div><div class="mt-2.5 flex items-center justify-between text-[11px] text-slate-500 font-mono"><span class="flex items-center text-slate-600"><span class="material-symbols-outlined text-[14px] mr-1 text-slate-400">schedule</span>Hace 20s</span><span class="flex items-center text-slate-600"><span class="material-symbols-outlined text-[14px] mr-1 text-slate-400">gps_fixed</span>±5m</span><span class="text-blue-700 font-medium">Campus Demo</span></div></div><div class="device-card p-3.5 hover:bg-slate-50 cursor-pointer transition relative" onclick="selectDevice('Estudiante Ficticio B', 'Android App', 'Conectado', '15:41:53 (hace 47s)', '± 8 metros', 'Horario de Clases', 'Perímetro Escolar')"><div class="flex items-start justify-between"><div><div class="flex items-center space-x-2"><span class="font-label-md text-slate-800 font-semibold">Estudiante Ficticio B</span><span class="font-mono text-[11px] bg-slate-100 text-slate-700 px-1.5 py-0.2 rounded">Android</span></div><p class="text-[12px] text-slate-500 mt-0.5">Teléfono Android • App Kivo Móvil</p></div><span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-[#ecfdf5] text-[#059669] border border-[#a7f3d0]"><span class="w-1.5 h-1.5 rounded-full bg-[#059669] mr-1.5"></span>Conectado</span></div><div class="mt-2.5 flex items-center justify-between text-[11px] text-slate-500 font-mono"><span class="flex items-center"><span class="material-symbols-outlined text-[14px] mr-1 text-slate-400">schedule</span>Hace 45s</span><span class="flex items-center"><span class="material-symbols-outlined text-[14px] mr-1 text-slate-400">gps_fixed</span>±8m</span><span class="text-slate-600">Perímetro</span></div></div><div class="device-card p-3.5 hover:bg-slate-50 cursor-pointer transition relative" onclick="selectDevice('Estudiante Ficticio C', 'Android App', 'Desactualizado', '15:36:10 (hace 6m)', '± 22 metros', 'Horario de Clases', 'Sector Exterior')"><div class="flex items-start justify-between"><div><div class="flex items-center space-x-2"><span class="font-label-md text-slate-800 font-semibold">Estudiante Ficticio C</span><span class="font-mono text-[11px] bg-slate-100 text-slate-700 px-1.5 py-0.2 rounded">Android</span></div><p class="text-[12px] text-slate-500 mt-0.5">Teléfono Android • App Kivo Móvil</p></div><span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-[#fef3c7] text-[#d97706] border border-[#fde68a]"><span class="w-1.5 h-1.5 rounded-full bg-[#d97706] mr-1.5"></span>Desactualizado</span></div><div class="mt-2.5 flex items-center justify-between text-[11px] text-slate-500 font-mono"><span class="flex items-center text-amber-700"><span class="material-symbols-outlined text-[14px] mr-1 text-amber-600">schedule</span>Hace 6m</span><span class="flex items-center"><span class="material-symbols-outlined text-[14px] mr-1 text-slate-400">gps_not_fixed</span>±22m</span><span class="text-amber-700">Retardo señal</span></div></div><div class="device-card p-3.5 hover:bg-slate-50 cursor-pointer transition relative" onclick="selectDevice('Estudiante Ficticio D', 'Android App', 'Sin comunicación', '15:18:04 (hace 24m)', 'Desconocida', 'Horario de Clases', 'Sin señal')"><div class="flex items-start justify-between"><div><div class="flex items-center space-x-2"><span class="font-label-md text-slate-800 font-semibold">Estudiante Ficticio D</span><span class="font-mono text-[11px] bg-slate-100 text-slate-700 px-1.5 py-0.2 rounded">Android</span></div><p class="text-[12px] text-slate-500 mt-0.5">Teléfono Android • App Kivo Móvil</p></div><span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-[#f1f5f9] text-[#475569] border border-[#cbd5e1]">Sin comunicación</span></div><div class="mt-2.5 flex items-center justify-between text-[11px] text-slate-500 font-mono"><span class="flex items-center text-slate-500"><span class="material-symbols-outlined text-[14px] mr-1 text-slate-400">signal_wifi_off</span>Hace 24m</span><span class="flex items-center text-slate-400">Señal perdida</span><span class="text-slate-500">Sin enlace</span></div></div></div>
+<!-- Contingency Views for Demo (Hidden by default) -->
+<div class="hidden flex-1 p-6 flex flex-col items-center justify-center text-center bg-slate-50" id="demo-state-empty">
+<div class="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 mb-3">
+<span class="material-symbols-outlined text-[28px]">hourglass_empty</span>
+</div>
+<h3 class="font-headline-md text-slate-800 font-semibold">Sin Sesión de Monitoreo</h3>
+<p class="text-xs text-slate-500 mt-1 max-w-[240px]">No existen rutas activas autorizadas en este bloque horario. Las transmisiones están pausadas.</p>
+<button class="mt-4 px-3 py-1.5 text-xs bg-white border border-slate-300 rounded font-semibold text-slate-700 hover:bg-slate-100" onclick="setSimState('normal')">Restablecer simulación</button>
+</div>
+<div class="hidden flex-1 p-6 flex flex-col items-center justify-center text-center bg-red-50/50" id="demo-state-error">
+<div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-600 mb-3">
+<span class="material-symbols-outlined text-[28px]">cloud_off</span>
+</div>
+<h3 class="font-headline-md text-red-900 font-semibold">Desconexión con Central</h3>
+<p class="text-xs text-red-700 mt-1 max-w-[240px]">Error transitorio de telemetría. Reintentando sincronización con concentrador escolar...</p>
+<button class="mt-4 px-3 py-1.5 text-xs bg-red-600 text-white rounded font-semibold hover:bg-red-700" onclick="setSimState('normal')">Reconectar Gateway</button>
+</div>
+</section>
+<!-- COLUMNA CENTRAL Y DERECHA / MAPA DE DEMO Y PANEL DE DETALLE -->
+<section class="flex-1 flex relative overflow-hidden bg-slate-100">
+<!-- CONTENEDOR DEL MAPA (Vectorial Limpio / Representación Telemetría) -->
+<div class="flex-1 relative h-full w-full overflow-hidden bg-[#eaf0f6] select-none">
+<!-- Map Vector Elements (Canvas de calles, zonas verdes, geocercas simuladas) -->
+<svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="grid-pattern" patternunits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e2e8f0" stroke-width="0.8"></path>
+</pattern>
+<!-- Striped pattern for safe zones -->
+<pattern height="8" id="diagonal-stripe" patterntransform="rotate(45)" patternunits="userSpaceOnUse" width="8">
+<line stroke="#3b82f6" stroke-opacity="0.15" stroke-width="1.5" x1="0" x2="0" y1="0" y2="8"></line>
+</pattern>
+</defs>
+<!-- Subtle background grid -->
+<rect fill="#f1f5f9" height="100%" width="100%"></rect>
+<rect fill="url(#grid-pattern)" height="100%" opacity="0.6" width="100%"></rect>
+<!-- Parks & Green Areas -->
+<path d="M -50 80 Q 120 160 220 70 T 480 180 L 400 480 L -50 350 Z" fill="#e2f0d9" opacity="0.7"></path>
+<path d="M 520 20 Q 640 100 780 40 T 960 160 L 920 380 L 580 320 Z" fill="#e2f0d9" opacity="0.5"></path>
+<!-- River / Natural Barrier -->
+<path d="M -100 480 Q 200 410 450 520 T 1100 460" fill="none" stroke="#d0e2ec" stroke-linecap="round" stroke-width="38"></path>
+<!-- Major Arteries / Avenidas -->
+<!-- Av. Principal San Gabriel -->
+<path d="M -50 240 L 1150 210" stroke="#ffffff" stroke-linecap="round" stroke-width="16"></path>
+<path d="M -50 240 L 1150 210" stroke="#cbd5e1" stroke-dasharray="8 6" stroke-width="1"></path>
+<!-- Av. Los Robles (Diagonal) -->
+<path d="M 180 -50 L 520 750" stroke="#ffffff" stroke-linecap="round" stroke-width="20"></path>
+<path d="M 180 -50 L 520 750" stroke="#cbd5e1" stroke-dasharray="10 8" stroke-width="1"></path>
+<!-- Calle Secundaria Campus -->
+<path d="M 320 120 L 780 140 L 820 480" stroke="#ffffff" stroke-width="10"></path>
+<!-- GEOCERCA 1: Campus Central San Gabriel (Radio 250m) -->
+<g class="geofence-group"><circle cx="360" cy="230" fill="rgba(37, 99, 235, 0.08)" r="160" stroke="#2563eb" stroke-dasharray="6 4" stroke-width="2"></circle><circle cx="360" cy="230" fill="url(#diagonal-stripe)" r="160"></circle><rect fill="#ffffff" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))" height="110" rx="8" stroke="#94a3b8" stroke-width="1.5" width="120" x="300" y="170"></rect><text fill="#1e293b" font-family="Inter" font-size="11" font-weight="700" text-anchor="middle" x="360" y="215">COLEGIO DEMO</text><text fill="#64748b" font-family="Inter" font-size="9.5" font-weight="500" text-anchor="middle" x="360" y="235">Campus Principal</text><rect fill="#2563eb" fill-opacity="0.9" height="24" rx="12" width="220" x="250" y="85"></rect><text fill="#ffffff" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" x="360" y="101">Geocerca: Zona Campus Demo</text></g>
+<!-- GEOCERCA 2: Parada Norte Transporte (Radio 150m) -->
+<g class="geofence-group">
+<circle cx="750" cy="140" fill="rgba(14, 165, 233, 0.08)" r="110" stroke="#0284c7" stroke-dasharray="5 3" stroke-width="1.8"></circle>
+<rect fill="#0284c7" fill-opacity="0.9" height="22" rx="11" width="200" x="650" y="45"></rect>
+<text fill="#ffffff" font-family="Inter" font-size="10.5" font-weight="600" text-anchor="middle" x="750" y="60">Geocerca: Zona Parada Norte (150m)</text>
+</g>
+<!-- Planned Route Trace for Bus B -->
+<path d="M 750 140 L 520 220 L 360 230" fill="none" opacity="0.6" stroke="#3b82f6" stroke-dasharray="4 6" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<!-- LEYENDA CLARA DE MAPA SIMULADO (Esquina Superior Izquierda) -->
+<div class="absolute top-4 left-4 z-20 bg-white/95 backdrop-blur-sm border border-[#e2e8f0] px-3.5 py-2 rounded-lg shadow-sm">
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-blue-600"></span>
+<span class="text-xs font-semibold text-slate-800">Representación simulada de mapa</span>
+</div>
+<p class="text-[11px] text-slate-500 mt-0.5">Coordenadas ficticias de prueba • Sesión Turno Tarde</p>
+</div>
+<!-- CONTROLES DEL MAPA ESTILO PRIMEREACT (Esquina Superior Derecha) -->
+<div class="absolute top-4 right-4 z-20 flex flex-col space-y-1.5">
+<div class="bg-white rounded-lg border border-[#e2e8f0] shadow-sm flex flex-col overflow-hidden">
+<button class="w-8 h-8 flex items-center justify-center text-slate-700 hover:bg-slate-50 border-b border-slate-100 transition" title="Aumentar zoom">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center text-slate-700 hover:bg-slate-50 transition" title="Disminuir zoom">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+</div>
+<button class="w-8 h-8 rounded-lg bg-white border border-[#e2e8f0] shadow-sm flex items-center justify-center text-slate-700 hover:bg-slate-50 hover:text-primary transition" title="Recentrar en Campus Central">
+<span class="material-symbols-outlined text-[18px]">filter_center_focus</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-white border border-[#e2e8f0] shadow-sm flex items-center justify-center text-primary bg-blue-50 transition" title="Capas de geocercas">
+<span class="material-symbols-outlined text-[18px]">layers</span>
+</button>
+</div>
+<!-- MARCADORES DE DISPOSITIVOS EN EL MAPA -->
+<!-- MARCADOR SELECCIONADO: Mateo Silva (KV-08) -->
+<div class="absolute left-[360px] top-[230px] -translate-x-1/2 -translate-y-1/2 z-30 cursor-pointer group" id="marker-mateo"><div class="absolute -inset-6 rounded-full bg-blue-500/20 border border-blue-400/40 pulse-ring pointer-events-none"></div><div class="relative flex flex-col items-center"><div class="bg-slate-900 text-white text-[11px] font-semibold px-2 py-0.5 rounded shadow-md whitespace-nowrap mb-1 flex items-center space-x-1 border border-slate-700"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span><span>Estudiante Ficticio A (Android)</span></div><div class="w-8 h-8 rounded-full bg-primary border-2 border-white shadow-lg flex items-center justify-center text-white ring-2 ring-primary/40"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">smartphone</span></div></div></div>
+<!-- MARCADOR: Valentina Gómez (KV-03) -->
+<div class="absolute left-[750px] top-[140px] -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group" onclick="selectDevice('Valentina Gómez', 'KV-03', 'Conectado', '15:41:53 (hace 47s)', '± 8m (Media-Alta)', 'Ruta Tarde - Transporte A', 'En trayecto Calle Los Alerces')">
+<div class="relative flex flex-col items-center">
+<div class="opacity-0 group-hover:opacity-100 transition-opacity bg-slate-900 text-white text-[10px] font-medium px-2 py-0.5 rounded shadow whitespace-nowrap mb-1">
+                  Valentina G. (KV-03)
+                </div>
+<div class="w-7 h-7 rounded-full bg-blue-600 border-2 border-white shadow-md flex items-center justify-center text-white hover:scale-110 transition">
+<span class="text-[10px] font-bold">03</span>
+</div>
+</div>
+</div>
+<!-- MARCADOR: Tomás Rivas (KV-02) -->
+<div class="absolute left-[330px] top-[260px] -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group" onclick="selectDevice('Tomás Rivas', 'KV-02', 'Conectado', '15:41:20 (hace 1m)', '± 6m (Alta)', 'Ruta Tarde - Transporte B', 'Dentro de Campus Central')">
+<div class="relative flex flex-col items-center">
+<div class="opacity-0 group-hover:opacity-100 transition-opacity bg-slate-900 text-white text-[10px] font-medium px-2 py-0.5 rounded shadow whitespace-nowrap mb-1">
+                  Tomás R. (KV-02)
+                </div>
+<div class="w-7 h-7 rounded-full bg-blue-600 border-2 border-white shadow-md flex items-center justify-center text-white hover:scale-110 transition">
+<span class="text-[10px] font-bold">02</span>
+</div>
+</div>
+</div>
+<!-- MARCADOR: Lucas Morales (KV-12 Desactualizado) -->
+<div class="absolute left-[540px] top-[320px] -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer group" onclick="selectDevice('Lucas Morales', 'KV-12', 'Desactualizado', '15:36:10 (hace 6m)', '± 22m (Baja)', 'Ruta Tarde - Transporte B', 'Último reporte Av. Providencia')">
+<div class="relative flex flex-col items-center">
+<div class="opacity-0 group-hover:opacity-100 transition-opacity bg-amber-900 text-white text-[10px] font-medium px-2 py-0.5 rounded shadow whitespace-nowrap mb-1">
+                  Lucas M. (KV-12) — Desactualizado
+                </div>
+<div class="w-7 h-7 rounded-full bg-amber-500 border-2 border-white shadow-md flex items-center justify-center text-white hover:scale-110 transition">
+<span class="text-[10px] font-bold">12</span>
+</div>
+</div>
+</div>
+<!-- MARCADOR: Unidad Móvil Transporte B -->
+
+</div>
+<!-- PANEL DERECHO / FLOTANTE: "ÚLTIMA UBICACIÓN REPORTADA" (360px) -->
+<div class="w-[360px] bg-white border-l border-[#e2e8f0] flex flex-col shrink-0 shadow-lg z-30"><div class="p-4 border-b border-[#e2e8f0] flex items-center justify-between bg-slate-50/50"><div><span class="text-[11px] font-semibold tracking-wider text-slate-500 uppercase">Detalle Dispositivo</span><h2 class="font-headline-md text-[16px] font-bold text-slate-900 leading-tight" id="detail-title">Estudiante Ficticio A — Teléfono Android</h2></div><button class="text-slate-400 hover:text-slate-600 rounded p-1 hover:bg-slate-100" title="Plegar / Ocultar detalle"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button></div><div class="flex-1 p-4 overflow-y-auto space-y-4 text-xs"><div class="p-3 bg-blue-50/80 rounded-lg border border-blue-200"><div class="flex items-center justify-between"><span class="font-label-md text-blue-900 font-bold tracking-tight">Última ubicación reportada</span><span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-[#ecfdf5] text-[#059669] border border-[#a7f3d0]" id="detail-status-pill"><span class="w-1.5 h-1.5 rounded-full bg-[#059669] mr-1.5"></span>Conectado</span></div><div class="mt-2 text-slate-700 font-mono text-[12px] flex items-center space-x-1.5"><span class="material-symbols-outlined text-[16px] text-blue-600">schedule</span><span class="font-semibold text-slate-900" id="detail-timestamp">15:42:18 (hace 22 segundos)</span></div></div><div class="space-y-2.5"><div class="p-2.5 rounded border border-[#e2e8f0] bg-white flex items-center justify-between"><div class="flex items-center space-x-2 text-slate-600"><span class="material-symbols-outlined text-[18px] text-slate-400">satellite_alt</span><span>Precisión estimada</span></div><span class="font-mono font-semibold text-slate-800" id="detail-gps">± 5 metros</span></div><div class="p-2.5 rounded border border-[#e2e8f0] bg-white flex items-center justify-between"><div class="flex items-center space-x-2 text-slate-600"><span class="material-symbols-outlined text-[18px] text-slate-400">share_location</span><span>Geocerca</span></div><span class="font-semibold text-blue-700" id="detail-geofence">Dentro de "Campus Demo"</span></div><div class="p-2.5 rounded border border-[#e2e8f0] bg-white flex items-center justify-between"><div class="flex items-center space-x-2 text-slate-600"><span class="material-symbols-outlined text-[18px] text-slate-400">school</span><span>Sesión escolar</span></div><span class="font-medium text-slate-800" id="detail-session">Horario de Clases</span></div><div class="p-2.5 rounded border border-[#e2e8f0] bg-slate-50/70"><div class="text-[11px] text-slate-500 font-medium mb-1">Coordenadas de prueba (Ficticias)</div><div class="flex items-center justify-between font-mono text-[11px] text-slate-700"><span>Coord. demo: -33.4372, -70.6506</span><button class="text-blue-600 hover:text-blue-800" title="Copiar coordenadas"><span class="material-symbols-outlined text-[14px]">content_copy</span></button></div></div><div class="p-2.5 rounded border border-[#e2e8f0] bg-white flex items-center justify-between"><div class="flex items-center space-x-2 text-slate-600"><span class="material-symbols-outlined text-[18px] text-emerald-600">battery_5_bar</span><span>Nivel de batería</span></div><span class="font-mono font-semibold text-slate-800">84%</span></div></div><div class="p-3 bg-amber-50/70 rounded-lg border border-amber-200/80 text-[11px] text-amber-900 leading-relaxed"><div class="flex items-start space-x-1.5"><span class="material-symbols-outlined text-amber-600 text-[16px] shrink-0 mt-0.5">info</span><div><strong class="font-semibold text-amber-950">Nota institucional:</strong> El sistema refleja la última posición transmitida por la app móvil Android. No garantiza seguimiento en tiempo real continuo ni fuera de la sesión escolar autorizada.</div></div></div></div><div class="p-3 border-t border-[#e2e8f0] bg-slate-50 flex items-center justify-between text-[11px] text-slate-500"><span class="flex items-center space-x-1"><span class="material-symbols-outlined text-[14px] text-emerald-600">verified_user</span><span>Custodia escolar activa</span></span><span class="font-medium text-slate-600">Entorno de prueba</span></div></div>
+</section>
+</div>
+</main>
+</div>
+<!-- SCRIPT MICRO-INTERACCIONES Y CONTROL DEMO -->
+<script>
+    function selectDevice(name, id, status, timestamp, gps, session, geofence) {
+      document.getElementById('detail-title').textContent = `${id} — ${name}`;
+      document.getElementById('detail-timestamp').textContent = timestamp;
+      document.getElementById('detail-gps').textContent = gps;
+      document.getElementById('detail-session').textContent = session;
+      document.getElementById('detail-geofence').textContent = geofence;
+
+      // Status pill update
+      const pill = document.getElementById('detail-status-pill');
+      if (status === 'Conectado') {
+        pill.className = "inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-[#ecfdf5] text-[#059669] border border-[#a7f3d0]";
+        pill.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-[#059669] mr-1.5"></span>Conectado';
+      } else if (status === 'Desactualizado') {
+        pill.className = "inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-[#fef3c7] text-[#d97706] border border-[#fde68a]";
+        pill.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-[#d97706] mr-1.5"></span>Desactualizado';
+      } else {
+        pill.className = "inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-[#f1f5f9] text-[#475569] border border-[#cbd5e1]";
+        pill.innerHTML = 'Sin comunicación';
+      }
+
+      // Visual feedback on card selection
+      const cards = document.querySelectorAll('.device-card');
+      cards.forEach(card => {
+        card.classList.remove('bg-blue-50/70', 'border-l-4', 'border-primary');
+      });
+      event.currentTarget.classList.add('bg-blue-50/70', 'border-l-4', 'border-primary');
+    }
+
+    function setSimState(state) {
+      const list = document.getElementById('device-list-container');
+      const empty = document.getElementById('demo-state-empty');
+      const err = document.getElementById('demo-state-error');
+
+      const btnNorm = document.getElementById('btn-mode-normal');
+      const btnEmp = document.getElementById('btn-mode-empty');
+      const btnErr = document.getElementById('btn-mode-error');
+
+      // Reset button styles
+      [btnNorm, btnEmp, btnErr].forEach(b => {
+        b.className = "px-2 py-0.5 rounded hover:bg-slate-100 text-slate-600";
+      });
+
+      if (state === 'normal') {
+        list.classList.remove('hidden');
+        empty.classList.add('hidden');
+        err.classList.add('hidden');
+        btnNorm.className = "px-2 py-0.5 rounded text-blue-700 bg-blue-50 font-semibold border border-blue-200";
+      } else if (state === 'empty') {
+        list.classList.add('hidden');
+        empty.classList.remove('hidden');
+        err.classList.add('hidden');
+        btnEmp.className = "px-2 py-0.5 rounded text-blue-700 bg-blue-50 font-semibold border border-blue-200";
+      } else if (state === 'error') {
+        list.classList.add('hidden');
+        empty.classList.add('hidden');
+        err.classList.remove('hidden');
+        btnErr.className = "px-2 py-0.5 rounded text-red-700 bg-red-50 font-semibold border border-red-200";
+      }
+    }
+
+    // Refresh simulation interaction
+    document.getElementById('btn-refresh').addEventListener('click', function() {
+      const icon = this.querySelector('.material-symbols-outlined');
+      icon.classList.add('animate-spin');
+      setTimeout(() => {
+        icon.classList.remove('animate-spin');
+      }, 700);
+    });
+  </script>
+</body></html>

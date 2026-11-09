@@ -1,0 +1,416 @@
+[
+  {
+    "screen": "01-login",
+    "selector": "header",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "01-login",
+    "selector": "title",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "01-login",
+    "selector": "section > div > div.flex.items-start.justify-between.pb-space-md",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "01-login",
+    "selector": "section > div > div.mb-space-md > p",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "01-login",
+    "selector": "#institutionalEmail",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "01-login",
+    "selector": "#institutionalEmail",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "01-login",
+    "selector": "form > div:nth-child(1) > p",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "01-login",
+    "selector": "#loginForm > div.flex.items-center.justify-between.pt-1",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "01-login",
+    "selector": "#loginForm > div.text-center.pt-2",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "01-login",
+    "selector": "section > div.mt-space-lg.pt-space-md",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "01-login",
+    "selector": "aside.lg\\:col-span-5",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "01-login",
+    "selector": "footer",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "02-dashboard",
+    "selector": "body > div.bg-\\[\\#0f172a\\]",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "02-dashboard",
+    "selector": "aside > div:first-child > div.p-4",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "02-dashboard",
+    "selector": "aside nav",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "02-dashboard",
+    "selector": "aside > div.border-t",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "02-dashboard",
+    "selector": "header > div:first-child",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "02-dashboard",
+    "selector": "#device-list-container",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "02-dashboard",
+    "selector": "svg > g.geofence-group:nth-of-type(1)",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "02-dashboard",
+    "selector": "div.left-\\[450px\\]",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "02-dashboard",
+    "selector": "#marker-mateo",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "02-dashboard",
+    "selector": "section > div.w-\\[360px\\]",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "title",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "body > aside.bg-\\[\\#0f172a\\]",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "header > div:nth-child(1) > div.flex.items-center.gap-3",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "header div.text-left div:nth-child(2)",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "aside[aria-label=\"Navegación Lateral\"] > div > div.px-3.pb-3",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "aside[aria-label=\"Navegación Lateral\"] nav[aria-label=\"Menú Principal\"]",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "aside[aria-label=\"Navegación Lateral\"] button.bg-\\[\\#dc2626\\]",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "main > section:nth-child(1)",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "main div.grid > div:nth-child(1) > div:nth-child(1)",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "main div.grid > div:nth-child(1) > div:nth-child(2) form",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "main div.grid > div:nth-child(1) > div:nth-child(2) > div.italic",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "main div.grid > div:nth-child(2) > div > div:nth-child(1)",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "div#mapCanvas div.top-\\[310px\\] > div:nth-child(2)",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "div#mapCanvas > div.top-\\[80px\\]",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "div#mapCanvas > div.top-\\[130px\\]",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "div#mapCanvas > div.top-\\[165px\\]",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "div#mapCanvas > div.bottom-4.right-4",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "main div.grid > div:nth-child(2) > div > div.border-t",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "04-geocercas",
+    "selector": "main > footer",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "03-dispositivos",
+    "selector": "body > header",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "03-dispositivos",
+    "selector": "aside > div:first-child > div:first-child > div > div:last-child",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "03-dispositivos",
+    "selector": "aside nav",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "03-dispositivos",
+    "selector": "aside button.bg-\\[\\#dc2626\\]",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "03-dispositivos",
+    "selector": "aside .truncate:last-child",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "03-dispositivos",
+    "selector": "header.h-14 > div:first-child",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "03-dispositivos",
+    "selector": "main > div:first-child",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "03-dispositivos",
+    "selector": "main > div:nth-child(2)",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "03-dispositivos",
+    "selector": "main input[type=\"text\"]",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "03-dispositivos",
+    "selector": "main table thead tr",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "03-dispositivos",
+    "selector": "main table tbody",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "03-dispositivos",
+    "selector": "main > div:nth-child(4)",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "03-dispositivos",
+    "selector": "body footer",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "03-dispositivos",
+    "selector": "#linkModal .p-space-lg.flex.flex-col",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "03-dispositivos",
+    "selector": "#linkModal > div > div:first-child > div",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "03-dispositivos",
+    "selector": "#linkModal button.bg-\\[\\#2563eb\\]",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "05-alertas",
+    "selector": "aside[aria-label=\"Aviso de Modo Demostración\"]",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "05-alertas",
+    "selector": "aside[aria-label=\"Navegación Institucional Lateral\"] .space-y-4 > div:first-child",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "05-alertas",
+    "selector": "nav[aria-label=\"Pestañas de Telemetría\"]",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "05-alertas",
+    "selector": "aside[aria-label=\"Navegación Institucional Lateral\"] > div.space-y-3",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "05-alertas",
+    "selector": "header[aria-label=\"Encabezado Principal\"] > div:first-child",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "05-alertas",
+    "selector": "main > div:first-child",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "05-alertas",
+    "selector": "section[aria-label=\"Métricas Resumen\"]",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "05-alertas",
+    "selector": "section[aria-label=\"Filtros y Búsqueda\"]",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "05-alertas",
+    "selector": "section[aria-label=\"Lista de Alertas Recibidas\"]",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "05-alertas",
+    "selector": "section[aria-label=\"Detalle de Alerta Seleccionada\"]",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "05-alertas",
+    "selector": "footer",
+    "status": "applied",
+    "count": 1
+  },
+  {
+    "screen": "05-alertas",
+    "selector": "#ackModal",
+    "status": "applied",
+    "count": 1
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "deviceType": "MOBILE",
+  "height": "2292",
+  "htmlCode": {
+    "downloadUrl": "https://stitch.googleapis.com/v1/projects/1713403711180977197/files/4120af4cd74845fdbe89865d8420559a:download",
+    "mimeType": "text/html",
+    "name": "projects/1713403711180977197/files/4120af4cd74845fdbe89865d8420559a"
+  },
+  "name": "projects/1713403711180977197/screens/c9e646582861465fba33bd62d4e22b11",
+  "screenshot": {
+    "downloadUrl": "https://stitch.googleapis.com/v1/projects/1713403711180977197/files/5c18fde44e59475ba2dbd55d356d0fc9:download",
+    "mimeType": "png",
+    "name": "projects/1713403711180977197/files/5c18fde44e59475ba2dbd55d356d0fc9"
+  },
+  "title": "Kivo Móvil — Principal (Sesión y SOS)",
+  "width": "780"
+}

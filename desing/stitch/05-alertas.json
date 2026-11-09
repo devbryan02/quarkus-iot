@@ -1,0 +1,17 @@
+{
+  "deviceType": "DESKTOP",
+  "height": "2048",
+  "htmlCode": {
+    "downloadUrl": "https://stitch.googleapis.com/v1/projects/1713403711180977197/files/627fab53a213407bbfe7e0fff69c3958:download",
+    "mimeType": "text/html",
+    "name": "projects/1713403711180977197/files/627fab53a213407bbfe7e0fff69c3958"
+  },
+  "name": "projects/1713403711180977197/screens/81281a7a159546c19b26d050571af98a",
+  "screenshot": {
+    "downloadUrl": "https://stitch.googleapis.com/v1/projects/1713403711180977197/files/d0355ea61aea4938885cfecc760aeaf8:download",
+    "mimeType": "png",
+    "name": "projects/1713403711180977197/files/d0355ea61aea4938885cfecc760aeaf8"
+  },
+  "title": "Kivo Escolar — Historial de Alertas",
+  "width": "2560"
+}

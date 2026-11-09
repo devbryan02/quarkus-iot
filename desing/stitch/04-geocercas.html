@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Geocercas — Kivo | Colegio Demo</title>
+<!-- Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CDN & Configuration -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed": "#dbe1ff",
+            "surface-container-high": "#dce9ff",
+            "tertiary-container": "#007d57",
+            "secondary-container": "#dae2fd",
+            "surface-container-highest": "#d3e4fe",
+            "secondary-fixed-dim": "#bec6e0",
+            "surface": "#f8f9ff",
+            "secondary-fixed": "#dae2fd",
+            "inverse-primary": "#b4c5ff",
+            "surface-variant": "#d3e4fe",
+            "on-primary-container": "#eeefff",
+            "on-primary-fixed": "#00174b",
+            "primary-fixed-dim": "#b4c5ff",
+            "on-secondary-fixed": "#131b2e",
+            "on-tertiary-fixed-variant": "#005137",
+            "on-error": "#ffffff",
+            "primary": "#004ac6",
+            "inverse-surface": "#213145",
+            "error-container": "#ffdad6",
+            "tertiary": "#006243",
+            "on-surface-variant": "#434655",
+            "error": "#ba1a1a",
+            "on-secondary-fixed-variant": "#3f465c",
+            "surface-dim": "#cbdbf5",
+            "on-primary": "#ffffff",
+            "on-secondary-container": "#5c647a",
+            "outline-variant": "#c3c6d7",
+            "on-secondary": "#ffffff",
+            "outline": "#737686",
+            "surface-container-lowest": "#ffffff",
+            "secondary": "#565e74",
+            "surface-container": "#e5eeff",
+            "background": "#f8f9ff",
+            "tertiary-fixed-dim": "#68dba9",
+            "on-background": "#0b1c30",
+            "inverse-on-surface": "#eaf1ff",
+            "on-tertiary-container": "#bdffdc",
+            "surface-tint": "#0053db",
+            "on-error-container": "#93000a",
+            "on-primary-fixed-variant": "#003ea8",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#0b1c30",
+            "surface-bright": "#f8f9ff",
+            "tertiary-fixed": "#85f8c4",
+            "surface-container-low": "#eff4ff",
+            "primary-container": "#2563eb",
+            "on-tertiary-fixed": "#002114"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin-mobile": "1rem",
+            "gutter-mobile": "0.75rem",
+            "gutter": "1.25rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "margin": "1.5rem",
+            "space-xl": "2rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "data-mono": ["Inter"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "display-sm": ["Inter"],
+            "body-sm": ["Inter"]
+          },
+          "fontSize": {
+            "headline-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600"}],
+            "headline-lg": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "data-mono": ["13px", {"lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+            "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "display-sm": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "body-sm": ["13px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* PrimeReact Inspired UI Elements */
+    .p-inputtext {
+      height: 38px;
+      padding: 8px 12px;
+      border: 1px solid #cbd5e1;
+      background-color: #ffffff;
+      border-radius: 6px;
+      transition: all 0.15s ease-in-out;
+    }
+    .p-inputtext:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+    .p-slider-track {
+      background: #e2e8f0;
+      height: 6px;
+      border-radius: 9999px;
+      position: relative;
+    }
+    .p-slider-fill {
+      background: #2563eb;
+      height: 100%;
+      border-radius: 9999px;
+    }
+    .p-slider-thumb {
+      width: 18px;
+      height: 18px;
+      background: #ffffff;
+      border: 2px solid #2563eb;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+    /* Grid map pattern */
+    .carto-pattern {
+      background-color: #f1f5f9;
+      background-image: 
+        linear-gradient(to right, rgba(203, 213, 225, 0.45) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(203, 213, 225, 0.45) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+  </style>
+</head>
+<body class="h-full text-on-surface antialiased flex flex-col font-body-md overflow-x-hidden">
+<!-- 1. PERSISTENT DEMO MODE BANNER -->
+<aside class="w-full bg-[#0f172a] text-[#f8fafc] h-8 flex items-center justify-between px-space-md text-[11px] font-medium tracking-wide z-50 shrink-0 border-b border-slate-800"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[#f59e0b] animate-pulse"></span><span class="font-semibold text-amber-400">DEMOSTRACIÓN:</span><span class="text-slate-300">Propuesta visual interactiva con datos y perímetros escolares ficticios.</span></div><div class="hidden lg:flex items-center gap-3 text-slate-400 text-[10px]"><span>COLEGIO DEMO</span><span class="text-slate-600">|</span><span>KIVO MVP</span></div></aside>
+<!-- 2. TOP NAVIGATION BAR (Shared Component Source of Truth) -->
+<header class="w-full h-14 px-gutter flex items-center justify-between z-40 bg-surface-container-lowest border-b border-outline-variant shadow-sm sticky top-0 shrink-0">
+<div class="flex items-center gap-space-lg">
+<div class="flex items-center gap-3"><div class="w-8 h-8 rounded bg-primary-container text-white flex items-center justify-center font-bold text-headline-md shadow-sm">KD</div><h1 class="text-headline-md font-headline-md font-bold text-on-surface tracking-tight">Colegio Demo — Monitoreo</h1></div>
+<!-- Navigation Links on Web -->
+<nav aria-label="Navegación Superior" class="hidden md:flex items-center gap-6 ml-4">
+<a class="text-secondary hover:text-on-surface text-label-md font-label-md pb-1 transition-colors" href="#">
+          Vista General
+        </a>
+<a class="text-secondary hover:text-on-surface text-label-md font-label-md pb-1 transition-colors" href="#">
+          Mapa Global
+        </a>
+<a class="text-secondary hover:text-on-surface text-label-md font-label-md pb-1 transition-colors" href="#">
+          Unidades Activas
+        </a>
+</nav>
+</div>
+<!-- Trailing Actions & User Profile -->
+<div class="flex items-center gap-3">
+<!-- Search Input Minimal -->
+<div class="relative hidden xl:block w-64">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-slate-400 text-lg">search</span>
+<input class="w-full pl-8 pr-3 py-1.5 text-body-sm bg-surface rounded border border-outline-variant focus:outline-none focus:border-primary-container" placeholder="Buscar baliza, alumno o zona..." type="text"/>
+</div>
+<button class="p-2 text-secondary hover:bg-surface-container-low rounded transition-colors text-slate-600 relative" title="Notificaciones">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button class="p-2 text-secondary hover:bg-surface-container-low rounded transition-colors text-slate-600" title="Soporte Institucional">
+<span class="material-symbols-outlined text-xl">support_agent</span>
+</button>
+<button class="p-2 text-secondary hover:bg-surface-container-low rounded transition-colors text-slate-600" title="Guía y Ayuda">
+<span class="material-symbols-outlined text-xl">help</span>
+</button>
+<div class="h-6 w-px bg-outline-variant mx-1"></div>
+<!-- Profile Section -->
+<div class="flex items-center gap-2.5 pl-1">
+<div class="w-8 h-8 rounded-full bg-slate-200 border border-outline-variant flex items-center justify-center text-primary font-semibold text-xs overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Fotografía institucional formal de la Profesora Marcela Ríos sonriendo con vestimenta ejecutiva azul marina sobre un fondo neutro de oficina escolar iluminada de forma clara y nítida." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyGmDslZFb7VG2Bjd_vL9J2t31NNG66qmCFbpZGpYAWL50ZADA_VHTkx8Sdq0U5OqCQ17vWZEZEFXdRkuykt-5I66CnXPgFiNuxTafbaYnYUrOKJRBQSqMlRaNiS_bnlzMQ-fakNb5At_x3yXV-M2J1bYp7Tcy3vSLbFxg9Fu7HjKjratPAIWhMk5ZIWFFSjv2wBbqUEqpHfsCzg-d635d-MO_1FYyABPG4LzdPmciJhEAuSdu4mgNnEWwGzTn4k1_9bgSfz61lbc"/>
+</div>
+<div class="text-left hidden lg:block">
+<div class="text-body-sm font-semibold text-on-surface leading-tight">Prof. Marcela Ríos</div>
+<div class="text-[11px] text-secondary leading-tight truncate max-w-[190px]" title="Coordinación de Transporte y Seguridad">Administración Escolar</div>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN APP CONTAINER (SIDEBAR + CONTENT CANVAS) -->
+<div class="flex-1 flex overflow-hidden">
+<!-- 3. ADMINISTRATIVE SIDE NAVIGATION DRAWER (Shared Component Source of Truth) -->
+<aside aria-label="Navegación Lateral" class="fixed left-0 top-[88px] h-[calc(100vh-88px)] w-64 bg-surface-container-lowest border-r border-outline-variant flex flex-col justify-between py-space-md px-space-sm z-30 shadow-none shrink-0">
+<div class="flex flex-col gap-4">
+<!-- Institution Header in Drawer -->
+<div class="px-3 pb-3 border-b border-outline-variant flex items-center gap-3"><div class="w-10 h-10 rounded-lg bg-surface-container-high text-primary flex items-center justify-center font-bold"><span class="material-symbols-outlined text-2xl">school</span></div><div><div class="text-headline-md font-headline-md font-bold text-primary">Kivo</div><div class="text-body-sm text-secondary">Colegio Demo</div></div></div>
+<!-- Tab Items -->
+<nav aria-label="Menú Principal" class="flex flex-col gap-1"><a class="flex items-center justify-between text-secondary hover:bg-surface-container-low hover:text-on-surface pl-4 pr-3 py-2.5 rounded transition-colors text-label-md font-label-md" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">map</span><span>Mapa</span></div></a><a class="flex items-center justify-between text-secondary hover:bg-surface-container-low hover:text-on-surface pl-4 pr-3 py-2.5 rounded transition-colors text-label-md font-label-md" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">devices</span><span>Dispositivos</span></div></a><a aria-current="page" class="flex items-center justify-between bg-surface-container-low text-primary font-semibold border-l-4 border-primary pl-3 pr-3 py-2.5 rounded transition-colors text-label-md font-label-md" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">share_location</span><span>Geocercas</span></div><span class="text-[10px] bg-blue-100 text-primary font-bold px-2 py-0.5 rounded">2</span></a><a class="flex items-center justify-between text-secondary hover:bg-surface-container-low hover:text-on-surface pl-4 pr-3 py-2.5 rounded transition-colors text-label-md font-label-md" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">notifications</span><span>Alertas</span></div></a></nav>
+</div>
+<!-- Sidebar Footer Actions & SOS Protocol CTA -->
+<div class="flex flex-col gap-3 pt-3 border-t border-outline-variant">
+<!-- Settings & Logout -->
+<div class="flex flex-col gap-0.5">
+<a class="flex items-center gap-3 text-secondary hover:bg-surface-container-low hover:text-on-surface px-4 py-2 rounded text-body-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span>Ajustes del Sistema</span>
+</a>
+<a class="flex items-center gap-3 text-secondary hover:bg-surface-container-low hover:text-on-surface px-4 py-2 rounded text-body-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">logout</span>
+<span>Cerrar Sesión</span>
+</a>
+</div>
+<!-- Protocolo SOS CTA Button -->
+
+</div>
+</aside>
+<!-- 4. MAIN CONTENT CANVAS (Geocercas Escolares Viewport) -->
+<main class="ml-64 flex-1 flex flex-col overflow-y-auto bg-surface">
+<!-- View Header -->
+<section class="bg-surface-container-lowest border-b border-outline-variant px-gutter py-space-md flex flex-wrap items-center justify-between gap-4"><div><div class="flex items-center gap-3 mb-1"><h2 class="text-display-sm font-display-sm text-on-surface tracking-tight">Geocercas</h2><span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#ecfdf5] border border-[#a7f3d0] text-[#059669]"><span class="w-1.5 h-1.5 rounded-full bg-[#059669]"></span>2 Perímetros Definidos</span><span class="text-xs text-slate-400 font-mono">Propuesta de Demostración</span></div><p class="text-body-md font-body-md text-secondary max-w-3xl">Colegio Demo — Perímetros de supervisión escolar definidos por centro de coordenadas y radio radial.</p></div><div class="flex items-center gap-3"><button class="h-[38px] px-3.5 bg-surface border border-outline-variant hover:border-slate-400 text-slate-700 text-label-md font-label-md rounded flex items-center gap-2 transition-all hover:bg-slate-50"><span class="material-symbols-outlined text-base">center_focus_strong</span><span>Centrar mapa</span></button><button class="h-[38px] px-4 bg-primary-container hover:bg-[#1d4ed8] text-white text-label-md font-label-md font-semibold rounded shadow-sm flex items-center gap-1.5 transition-all"><span class="material-symbols-outlined text-lg">add</span><span>+ Nueva Geocerca</span></button></div></section>
+<!-- 5. TWO-COLUMN HIGH-FIDELITY BENTO / WORKSPACE -->
+<div class="p-gutter grid grid-cols-12 gap-gutter flex-1 items-start">
+<!-- A. COLUMNA IZQUIERDA: PANEL DE CONTROL LATERAL (420px approx / 4.2 cols -> 4.5 cols out of 12) -->
+<div class="col-span-12 xl:col-span-4 flex flex-col gap-gutter">
+<!-- Selector de Geocercas Existentes -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-space-md shadow-sm"><div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-100"><span class="text-label-sm font-label-sm uppercase tracking-wider text-slate-500 font-bold">Geocercas Registradas</span><span class="text-xs text-slate-400">Total: 2 Perímetros</span></div><div class="flex flex-col gap-2.5"><div class="p-3 rounded-lg border-2 border-primary-container bg-blue-50/50 cursor-pointer transition-all"><div class="flex items-start justify-between"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-xl">radio_button_checked</span><div><h4 class="text-body-md font-semibold text-on-surface">Perímetro Colegio Demo</h4><p class="text-[12px] text-slate-500">Centro: -33.43720, -70.65060</p></div></div><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-[#ecfdf5] border border-[#a7f3d0] text-[#059669]">Activa</span></div><div class="mt-2.5 pt-2 border-t border-blue-100 flex items-center justify-between text-xs text-slate-600"><span class="flex items-center gap-1 font-mono"><span class="material-symbols-outlined text-sm text-slate-400">radar</span>Radio: <strong class="text-slate-800">350 m</strong></span><span class="flex items-center gap-1 text-slate-500"><span class="material-symbols-outlined text-sm">place</span>Zona Principal</span></div></div><div class="p-3 rounded-lg border border-slate-200 hover:border-slate-300 bg-white cursor-pointer transition-all"><div class="flex items-start justify-between"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-slate-400 text-xl">trip_origin</span><div><h4 class="text-body-md font-medium text-slate-800">Zona Deportiva Ficticia</h4><p class="text-[12px] text-slate-500">Centro: -33.43910, -70.65420</p></div></div><span class="px-2 py-0.5 rounded text-[11px] font-medium bg-slate-100 border border-slate-200 text-slate-600">Secundaria</span></div><div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600"><span class="flex items-center gap-1 font-mono"><span class="material-symbols-outlined text-sm text-slate-400">radar</span>Radio: <strong class="text-slate-800">180 m</strong></span><span class="flex items-center gap-1 text-slate-500"><span class="material-symbols-outlined text-sm">place</span>Área Ficticia</span></div></div></div></div>
+<!-- Formulario de Configuración PrimeReact Style -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between pb-3 border-b border-slate-200">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">tune</span>
+<h3 class="text-headline-md font-headline-md text-on-surface">Configuración de Geocerca</h3>
+</div>
+<span class="text-[11px] font-mono bg-blue-50 text-primary px-2 py-0.5 rounded">ID: GEO-01</span>
+</div>
+<!-- Form Fields -->
+<form class="mt-4 flex flex-col gap-4" onsubmit="event.preventDefault()"><div><label class="block text-label-md font-semibold text-slate-700 mb-1">Nombre de la Geocerca <span class="text-red-500">*</span></label><div class="relative"><input class="p-inputtext w-full font-body-md text-slate-900 pr-8" type="text" value="Perímetro Colegio Demo"/><span class="material-symbols-outlined absolute right-2.5 top-2.5 text-slate-400 text-lg">edit</span></div></div><div><div class="flex items-center justify-between mb-1"><label class="text-label-md font-semibold text-slate-700">Coordenadas del Centro <span class="text-red-500">*</span></label><button class="text-xs text-primary font-semibold hover:underline flex items-center gap-0.5" type="button"><span class="material-symbols-outlined text-xs">my_location</span>Fijar punto</button></div><div class="grid grid-cols-2 gap-2"><div class="relative"><span class="absolute left-2.5 top-2 text-[10px] text-slate-400 uppercase font-mono">LAT</span><input class="p-inputtext w-full font-data-mono text-xs pl-9 text-slate-800 bg-slate-50/50" type="text" value="-33.43720"/></div><div class="relative"><span class="absolute left-2.5 top-2 text-[10px] text-slate-400 uppercase font-mono">LNG</span><input class="p-inputtext w-full font-data-mono text-xs pl-9 text-slate-800 bg-slate-50/50" type="text" value="-70.65060"/></div></div></div><div class="bg-surface-container-low p-3 rounded-lg border border-blue-100"><div class="flex items-center justify-between mb-2"><label class="text-label-md font-semibold text-slate-800 flex items-center gap-1.5"><span class="material-symbols-outlined text-base text-primary">circle</span>Radio en metros</label><div class="flex items-center gap-1"><input class="w-16 h-7 text-center font-data-mono font-bold text-sm bg-white border border-slate-300 rounded focus:border-primary-container" id="radioInput" max="1000" min="50" type="number" value="350"/><span class="text-xs text-slate-500 font-medium">m</span></div></div><div class="py-2"><div class="p-slider-track"><div class="p-slider-fill" style="width: 35%;"></div><div class="p-slider-thumb" style="left: 35%;"></div></div></div><div class="flex justify-between text-[11px] font-mono text-slate-400 mt-1"><span>50 m</span><span>500 m</span><span>1000 m</span></div></div><div class="flex items-center gap-3 pt-2"><button class="flex-1 h-[38px] bg-primary-container hover:bg-[#1d4ed8] text-white font-semibold text-label-md rounded shadow-sm transition-all flex items-center justify-center gap-1.5" type="button"><span class="material-symbols-outlined text-base">save</span><span>Guardar Geocerca</span></button><button class="h-[38px] px-3.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-semibold text-label-md rounded transition-all" type="button">Cancelar</button></div></form>
+<div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-400 italic text-center">Propuesta visual de demostración con datos y coordenadas de prueba ficticias.</div>
+</div>
+</div>
+<!-- B. COLUMNA DERECHA: VISUALIZADOR CARTOGRÁFICO DE DEMO AMPLIO (8 cols out of 12) -->
+<div class="col-span-12 xl:col-span-8 flex flex-col gap-4">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Map Top Bar: Filters & Layer controls -->
+<div class="px-space-md py-2.5 bg-surface border-b border-outline-variant flex flex-wrap items-center justify-between gap-3"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span><span class="text-body-sm font-semibold text-on-surface">Visualización Cartográfica Ficticia</span><span class="text-xs text-slate-400 font-mono">Propuesta Visual MVP</span></div><div class="flex items-center gap-2"><button class="p-1.5 bg-white border border-outline-variant hover:bg-slate-50 rounded text-slate-700 text-xs flex items-center gap-1" title="Centrar Vista"><span class="material-symbols-outlined text-base">near_me</span>Centrar</button></div></div>
+<!-- Map Canvas Simulation Area -->
+<div class="relative w-full h-[640px] carto-pattern overflow-hidden select-none" id="mapCanvas">
+<!-- Floating Notice on Map (Strictly institutional simulated coords) -->
+<div class="absolute top-4 left-4 z-20 bg-slate-900/90 text-white backdrop-blur-sm px-3.5 py-1.5 rounded-md text-xs font-mono shadow-md flex items-center gap-2 border border-slate-700">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span>● Representación simulada de mapa escolar • Coordenadas ficticias de prueba</span>
+</div>
+<!-- Map Controls (Top Right) -->
+<div class="absolute top-4 right-4 z-20 flex flex-col gap-1.5 shadow-md">
+<div class="bg-white border border-slate-300 rounded-lg flex flex-col overflow-hidden">
+<button class="w-9 h-9 flex items-center justify-center text-slate-700 hover:bg-slate-100 border-b border-slate-200" title="Acercar">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+<button class="w-9 h-9 flex items-center justify-center text-slate-700 hover:bg-slate-100" title="Alejar">
+<span class="material-symbols-outlined text-xl">remove</span>
+</button>
+</div>
+<button class="w-9 h-9 bg-white border border-slate-300 rounded-lg flex items-center justify-center text-slate-700 hover:bg-slate-100 shadow-sm" title="Pantalla Completa">
+<span class="material-symbols-outlined text-lg">fullscreen</span>
+</button>
+<button class="w-9 h-9 bg-white border border-slate-300 rounded-lg flex items-center justify-center text-slate-700 hover:bg-slate-100 shadow-sm" title="Capas">
+<span class="material-symbols-outlined text-lg">layers</span>
+</button>
+</div>
+<!-- SIMULATED CAMPUS ROADS & INFRASTRUCTURE (Clean architectural vector style) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+<!-- Roads -->
+<path d="M 0,160 L 900,140" fill="none" stroke="#cbd5e1" stroke-width="28"></path>
+<path d="M 0,160 L 900,140" fill="none" stroke="#ffffff" stroke-width="24"></path>
+<path d="M 460,0 L 480,700" fill="none" stroke="#cbd5e1" stroke-width="32"></path>
+<path d="M 460,0 L 480,700" fill="none" stroke="#ffffff" stroke-width="28"></path>
+<path d="M 200,480 L 800,520" fill="none" stroke="#cbd5e1" stroke-width="20"></path>
+<path d="M 200,480 L 800,520" fill="none" stroke="#ffffff" stroke-width="16"></path>
+<!-- Road Labels -->
+<text fill="#94a3b8" font-family="Inter" font-size="11" font-weight="600" x="50" y="148">AV. EL BOSQUE SUR</text>
+<text fill="#94a3b8" font-family="Inter" font-size="11" font-weight="600" transform="rotate(88 495,60)" x="495" y="60">CALLE LOS FRAILES</text>
+<text fill="#94a3b8" font-family="Inter" font-size="10" font-weight="500" x="600" y="512">PASAJE COLEGIO</text>
+<!-- Campus Blocks / Buildings -->
+<rect fill="#e2e8f0" height="90" rx="4" stroke="#cbd5e1" stroke-width="2" width="130" x="250" y="240"></rect>
+<text fill="#475569" font-family="Inter" font-size="11" font-weight="600" x="265" y="290">EDIFICIO PRIMARIA</text>
+<rect fill="#e2e8f0" height="130" rx="4" stroke="#cbd5e1" stroke-width="2" width="110" x="420" y="220"></rect>
+<text fill="#475569" font-family="Inter" font-size="11" font-weight="600" x="430" y="285">CENTRAL &amp; AULAS</text>
+<rect fill="#e2e8f0" height="75" rx="4" stroke="#cbd5e1" stroke-width="2" width="180" x="300" y="360"></rect>
+<text fill="#475569" font-family="Inter" font-size="11" font-weight="600" x="320" y="405">GIMNASIO &amp; CANCHAS</text>
+<rect fill="#e2e8f0" height="80" rx="4" stroke="#cbd5e1" stroke-width="2" width="90" x="560" y="260"></rect>
+<text fill="#475569" font-family="Inter" font-size="10" font-weight="600" x="575" y="305">CASINO</text>
+<!-- GEOCERCA SECUNDARIA: 'Parada Norte' (120m) -->
+<circle cx="180" cy="150" fill="rgba(245, 158, 11, 0.08)" r="75" stroke="#f59e0b" stroke-dasharray="4 4" stroke-width="2"></circle>
+<!-- GEOCERCA PRINCIPAL SELECCIONADA: 'Campus Central & Accesos' (350m) -->
+<circle cx="430" cy="330" fill="rgba(37, 99, 235, 0.09)" r="230" stroke="#2563eb" stroke-dasharray="8 6" stroke-width="2.5"></circle>
+<!-- Inner subtle pulse ring -->
+<circle cx="430" cy="330" fill="none" r="225" stroke="rgba(37, 99, 235, 0.3)" stroke-width="1"></circle>
+</svg>
+<!-- SECONDARY GEOCACHE LABEL: Parada Norte -->
+<div class="absolute top-[80px] left-[110px] z-10 bg-amber-50/90 border border-amber-300 rounded px-2 py-1 shadow-sm flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-500"></span><span class="text-xs font-semibold text-amber-900">Zona Deportiva Ficticia (180 m)</span></div>
+<!-- GPS Beacon: Parada Norte (2 devices) -->
+<div class="absolute top-[130px] left-[150px] z-10 flex items-center gap-1 bg-white border border-slate-300 rounded-full px-2 py-0.5 shadow-sm text-[11px] font-medium text-slate-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Dispositivo 12</span></div>
+<div class="absolute top-[165px] left-[190px] z-10 flex items-center gap-1 bg-white border border-slate-300 rounded-full px-2 py-0.5 shadow-sm text-[11px] font-medium text-slate-800"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Dispositivo 14</span></div>
+ MAIN GEOCACHE CENTER PIN: Colegio Demo 
+<div class="absolute top-[310px] left-[410px] -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center">
+<div class="bg-primary text-white p-2 rounded-full shadow-lg border-2 border-white animate-bounce">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div class="bg-slate-900/90 text-white font-semibold text-xs px-2.5 py-0.5 rounded shadow mt-1 whitespace-nowrap">Perímetro Colegio Demo (R: 350 m)</div>
+</div>
+<!-- GPS BEACONS INSIDE MAIN PERIMETER -->
+<!-- Beacon 1 -->
+<div class="absolute top-[260px] left-[320px] z-10 group cursor-pointer">
+<div class="flex items-center gap-1.5 bg-white/95 border border-slate-300 hover:border-primary rounded-full px-2.5 py-1 shadow-sm transition-transform hover:scale-105">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="text-xs font-semibold text-slate-900">KV-08 Mateo Silva</span>
+<span class="text-[10px] text-slate-400 font-mono">Batería 92%</span>
+</div>
+</div>
+<!-- Beacon 2 -->
+<div class="absolute top-[350px] left-[260px] z-10 group cursor-pointer">
+<div class="flex items-center gap-1.5 bg-white/95 border border-slate-300 hover:border-primary rounded-full px-2.5 py-1 shadow-sm transition-transform hover:scale-105">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="text-xs font-semibold text-slate-900">KV-02 Tomás Rivas</span>
+<span class="text-[10px] text-slate-400 font-mono">Patio Central</span>
+</div>
+</div>
+<!-- Beacon 3 -->
+<div class="absolute top-[280px] left-[490px] z-10 group cursor-pointer">
+<div class="flex items-center gap-1.5 bg-white/95 border border-slate-300 hover:border-primary rounded-full px-2.5 py-1 shadow-sm transition-transform hover:scale-105">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="text-xs font-semibold text-slate-900">KV-03 Valentina Gómez</span>
+</div>
+</div>
+<!-- Beacon 4 -->
+<div class="absolute top-[410px] left-[390px] z-10 group cursor-pointer">
+<div class="flex items-center gap-1.5 bg-white/95 border border-slate-300 hover:border-primary rounded-full px-2 py-0.5 shadow-sm text-xs font-medium text-slate-800">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>KV-05 Agustín P.</span>
+</div>
+</div>
+<!-- Beacon 5 -->
+<div class="absolute top-[390px] left-[520px] z-10 group cursor-pointer">
+<div class="flex items-center gap-1.5 bg-white/95 border border-slate-300 hover:border-primary rounded-full px-2 py-0.5 shadow-sm text-xs font-medium text-slate-800">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>KV-09 Catalina H.</span>
+</div>
+</div>
+<!-- Beacon 6 & 7 Cluster -->
+<div class="absolute top-[220px] left-[420px] z-10 flex items-center gap-1 bg-white border border-slate-300 rounded-full px-2 py-0.5 shadow-sm text-xs text-slate-800">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>KV-01 / KV-06 Aulas 3°</span>
+</div>
+<!-- BEACON ON EDGE (En borde de zona as requested) -->
+<div class="absolute top-[470px] left-[570px] z-20 group cursor-pointer">
+<div class="flex items-center gap-1.5 bg-amber-50 border-2 border-amber-400 rounded-full px-2.5 py-1 shadow-md animate-pulse">
+<span class="material-symbols-outlined text-amber-600 text-sm">warning</span>
+<span class="text-xs font-bold text-amber-900">KV-11 Martín Vera</span>
+<span class="text-[10px] font-semibold text-amber-700 bg-amber-200/60 px-1.5 py-0.2 rounded">En borde de zona</span>
+</div>
+</div>
+<!-- Other subtle background beacons -->
+<div class="absolute top-[330px] left-[580px] z-10 bg-white/80 border border-slate-200 rounded-full px-2 py-0.5 text-[11px] text-slate-600">
+                KV-07 Matías L.
+              </div>
+<div class="absolute top-[430px] left-[320px] z-10 bg-white/80 border border-slate-200 rounded-full px-2 py-0.5 text-[11px] text-slate-600">
+                KV-04 Isidora F.
+              </div>
+<!-- MAP FOOTER CONTROLS & SCALE BAR (Bottom Left) -->
+<div class="absolute bottom-4 left-4 z-20 flex items-center gap-3">
+<div class="bg-white/90 backdrop-blur-sm border border-slate-300 px-3 py-1.5 rounded text-xs text-slate-700 flex items-center gap-2 shadow-sm">
+<div class="w-12 h-1.5 bg-slate-800 border-r border-l border-slate-800"></div>
+<span class="font-mono text-[11px] font-semibold">100 m</span>
+</div>
+<div class="bg-white/90 backdrop-blur-sm border border-slate-300 px-3 py-1.5 rounded text-xs text-slate-600 shadow-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-slate-500">lock</span>
+<span>Geometría restringida a radio radial</span>
+</div>
+</div>
+<!-- FLOATING SUMMARY PANEL (Bottom Right as requested) -->
+<div class="absolute bottom-4 right-4 z-20 bg-white/95 backdrop-blur-sm border border-slate-300 rounded-xl p-3.5 shadow-lg max-w-sm"><div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100"><span class="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-primary"></span>Estado de Perímetros</span><span class="text-[10px] text-slate-400 font-mono">Demostración</span></div><div class="text-body-sm font-semibold text-slate-900 flex items-center gap-2"><span class="material-symbols-outlined text-emerald-600 text-lg">check_circle</span><span>2 Geocercas configuradas</span></div><p class="text-xs text-slate-500 mt-0.5">• Perímetro Colegio Demo: radio 350 m<br/>• Zona Deportiva Ficticia: radio 180 m</p></div>
+</div>
+<!-- Map Metadata Footer / Legend -->
+<div class="px-space-md py-3 bg-surface-container-lowest border-t border-outline-variant flex flex-wrap items-center justify-between gap-4 text-xs text-secondary"><div class="flex items-center gap-4"><span class="font-semibold text-slate-700">Leyenda:</span><span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full border border-primary bg-blue-100 inline-block"></span>Perímetro Principal (350 m)</span><span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full border border-amber-500 bg-amber-100 inline-block"></span>Zona Ficticia (180 m)</span><span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>Ubicación Simulada</span></div><div class="text-right font-mono text-[11px] text-slate-400">DATOS DE PRUEBA FICTICIOS</div></div>
+</div>
+</div>
+</div>
+<!-- 6. PIE DE PÁGINA INSTITUCIONAL -->
+<footer class="mt-auto bg-surface-container-lowest border-t border-outline-variant px-gutter py-4 text-xs text-secondary flex flex-wrap items-center justify-between gap-4 shrink-0"><div class="flex items-center gap-3"><span class="font-semibold text-slate-700">© 2025 Kivo</span><span class="text-slate-300">|</span><span>Supervisión Escolar — Colegio Demo</span></div><div class="flex items-center gap-4 text-slate-600"><span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-mono text-[10px] border border-slate-200">PROPUESTA VISUAL DE DEMOSTRACIÓN</span></div></footer>
+</main>
+</div>
+<!-- Interactive script for demo parameter changes -->
+<script>
+    const radioInput = document.getElementById('radioInput');
+    if (radioInput) {
+      radioInput.addEventListener('input', (e) => {
+        const val = Math.min(Math.max(e.target.value, 50), 1000);
+        // visual indicator feedback
+        const thumb = document.querySelector('.p-slider-thumb');
+        const fill = document.querySelector('.p-slider-fill');
+        const pct = ((val - 50) / 950) * 100;
+        if (thumb && fill) {
+          thumb.style.left = pct + '%';
+          fill.style.width = pct + '%';
+        }
+      });
+    }
+  </script>
+</body></html>

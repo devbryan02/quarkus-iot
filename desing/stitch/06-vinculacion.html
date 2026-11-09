@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kivo Móvil — Vinculación y Permisos</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface": "#0b1c30",
+            "surface-tint": "#0053db",
+            "surface": "#f8f9ff",
+            "primary-fixed": "#dbe1ff",
+            "on-primary-fixed": "#00174b",
+            "secondary-fixed": "#dae2fd",
+            "inverse-surface": "#213145",
+            "tertiary": "#006243",
+            "primary-container": "#2563eb",
+            "tertiary-fixed-dim": "#68dba9",
+            "surface-dim": "#cbdbf5",
+            "surface-bright": "#f8f9ff",
+            "secondary": "#565e74",
+            "on-secondary-fixed": "#131b2e",
+            "on-primary-fixed-variant": "#003ea8",
+            "inverse-primary": "#b4c5ff",
+            "on-tertiary-container": "#bdffdc",
+            "on-error-container": "#93000a",
+            "on-background": "#0b1c30",
+            "surface-container-highest": "#d3e4fe",
+            "primary": "#004ac6",
+            "on-tertiary": "#ffffff",
+            "on-secondary-container": "#5c647a",
+            "surface-variant": "#d3e4fe",
+            "on-secondary-fixed-variant": "#3f465c",
+            "on-tertiary-fixed": "#002114",
+            "inverse-on-surface": "#eaf1ff",
+            "surface-container-high": "#dce9ff",
+            "on-tertiary-fixed-variant": "#005137",
+            "outline": "#737686",
+            "error": "#ba1a1a",
+            "outline-variant": "#c3c6d7",
+            "on-primary": "#ffffff",
+            "primary-fixed-dim": "#b4c5ff",
+            "secondary-fixed-dim": "#bec6e0",
+            "surface-container-low": "#eff4ff",
+            "on-error": "#ffffff",
+            "on-secondary": "#ffffff",
+            "background": "#f8f9ff",
+            "tertiary-fixed": "#85f8c4",
+            "error-container": "#ffdad6",
+            "surface-container-lowest": "#ffffff",
+            "secondary-container": "#dae2fd",
+            "on-surface-variant": "#434655",
+            "tertiary-container": "#007d57",
+            "on-primary-container": "#eeefff",
+            "surface-container": "#e5eeff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "gutter-mobile": "0.75rem",
+            "space-md": "1rem",
+            "gutter": "1.25rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1rem",
+            "margin": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "label-md": ["Inter"],
+            "display-sm": ["Inter"],
+            "data-mono": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"]
+          },
+          "fontSize": {
+            "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "display-sm": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "data-mono": ["13px", {"lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+            "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "body-sm": ["13px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "headline-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600"}],
+            "headline-lg": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Estructura para simulación de dispositivo móvil centrado */
+    .mobile-frame-container {
+      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>body { overflow-x:hidden; } main, .mobile-frame-container { width:390px!important; max-width:100vw!important; min-width:0!important; flex-shrink:0!important; }</style></head>
+<body class="min-h-full bg-slate-900 flex flex-col items-center justify-start sm:py-8 font-body-md text-on-surface antialiased select-none">
+<!-- Marco de Dispositivo Móvil Android (390px) -->
+<div class="mobile-frame-container w-full max-w-[390px] min-h-screen sm:min-h-[844px] bg-background sm:rounded-[36px] overflow-hidden flex flex-col relative border border-slate-700 shadow-2xl">
+<!-- BANNER PERSISTENTE: MODO DEMOSTRACIÓN -->
+<div class="h-8 bg-inverse-surface text-slate-100 px-3 flex items-center justify-between text-[11px] font-label-sm tracking-tight border-b border-slate-800 shrink-0 z-30"><div class="flex items-center gap-1.5 overflow-hidden"><span class="w-2 h-2 rounded-full bg-amber-400 shrink-0 animate-pulse"></span><span class="truncate font-medium">Datos ficticios de demostración</span></div><span class="text-[10px] text-slate-400 font-label-sm shrink-0 pl-1">Entorno de prueba</span></div>
+<!-- BARRA DE ESTADO ANDROID (08:30, WiFi, Red Celular, Batería) -->
+<div class="h-6 bg-background px-4 flex items-center justify-between text-on-surface text-xs font-label-md shrink-0 select-none">
+<span class="font-semibold tracking-tight text-on-surface">08:30</span>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">wifi</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">signal_cellular_4_bar</span>
+<div class="flex items-center">
+<span class="text-[11px] font-semibold mr-0.5">84%</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">battery_full</span>
+</div>
+</div>
+</div>
+<!-- CABECERA INSTITUCIONAL: Kivo Escolar & Colegio San Gabriel -->
+<header class="px-space-md pt-space-sm pb-space-sm bg-surface border-b border-outline-variant/40 shrink-0"><div class="flex items-center justify-between mb-1"><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">shield</span></div><div><div class="flex items-center gap-1.5"><h1 class="text-headline-md font-headline-md text-on-surface leading-tight">Kivo</h1><span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-label-sm bg-primary-fixed text-on-primary-fixed border border-primary-fixed-dim">Móvil</span></div><p class="text-[11px] font-label-sm text-secondary truncate">Colegio Demo — Vinculación del Dispositivo</p></div></div><button class="w-8 h-8 rounded-full flex items-center justify-center text-secondary hover:bg-surface-container-high transition-colors" onclick="showFaqModal()" title="Ayuda"><span class="material-symbols-outlined text-[20px]">help_outline</span></button></div></header>
+<!-- SELECTOR DE SIMULACIÓN (Interactividad demostrativa en vivo) -->
+<div class="px-space-md py-2 bg-surface-container-low border-b border-outline-variant/30 flex items-center justify-between shrink-0">
+<span class="text-[11px] font-label-sm text-secondary uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+        Simular permiso:
+      </span>
+<div class="inline-flex bg-surface-container-highest p-0.5 rounded-lg border border-outline-variant/40 text-xs">
+<button class="px-2.5 py-1 rounded text-label-sm font-label-sm transition-all duration-150 bg-surface-container-lowest text-primary shadow-sm font-semibold" id="tab-pendiente" onclick="setPermissionState('pendiente')">
+          Pendiente
+        </button>
+<button class="px-2.5 py-1 rounded text-label-sm font-label-sm transition-all duration-150 text-secondary hover:text-on-surface" id="tab-denegado" onclick="setPermissionState('denegado')">
+          Denegado
+        </button>
+<button class="px-2.5 py-1 rounded text-label-sm font-label-sm transition-all duration-150 text-secondary hover:text-on-surface" id="tab-concedido" onclick="setPermissionState('concedido')">
+          Concedido
+        </button>
+</div>
+</div>
+<!-- CONTENEDOR DE SCROLL PRINCIPAL -->
+<main class="flex-1 overflow-y-auto px-space-md py-space-md space-y-space-md">
+<!-- TARJETA 1: ESTADO DE VINCULACIÓN INSTITUCIONAL -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant/60 p-space-md shadow-sm"><div class="flex items-start justify-between mb-3"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">devices</span><h2 class="text-headline-md font-headline-md text-on-surface">Estado de Vinculación</h2></div><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-amber-50 text-amber-800 border border-amber-200"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 mr-1.5"></span>Pendiente</span></div><div class="bg-surface-container-low rounded-lg p-3 border border-outline-variant/30"><div class="flex items-start gap-2.5"><span class="material-symbols-outlined text-amber-700 text-[18px] shrink-0 mt-0.5">info</span><p class="text-body-sm font-body-sm text-on-surface leading-relaxed">Vinculación pendiente. Solicita ayuda al administrador escolar.</p></div></div></section>
+<!-- TARJETA 2: ESTADO DEL PERMISO DE UBICACIÓN (Componente Dinámico Interactivo) -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant/60 p-space-md shadow-sm"><div class="flex items-center justify-between mb-3"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">near_me</span><h2 class="text-headline-md font-headline-md text-on-surface">Permiso de Ubicación</h2></div><div class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-amber-50 text-amber-800 border border-amber-200" id="status-badge"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 mr-1.5"></span><span id="status-badge-text">Permiso Pendiente</span></div></div><div class="space-y-3" id="view-pendiente"><div class="p-3 bg-amber-50/70 border border-amber-200 rounded-lg flex items-start gap-2.5"><span class="material-symbols-outlined text-amber-700 text-[20px] shrink-0 mt-0.5">warning</span><div><p class="text-body-sm font-semibold text-amber-950">Acceso a ubicación requerido</p><p class="text-[12px] font-body-sm text-amber-900 mt-1 leading-snug">El acceso a la ubicación es necesario para registrar los recorridos durante una sesión autorizada.</p></div></div><button class="w-full h-11 bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md rounded-lg flex items-center justify-center gap-2 transition-all duration-150 active:scale-[0.99] shadow-sm" onclick="setPermissionState('concedido')"><span class="material-symbols-outlined text-[18px]">location_on</span>Solicitar permiso</button></div><div class="space-y-3 hidden" id="view-denegado"><div class="p-3 bg-red-50 border border-red-200 rounded-lg flex items-start gap-2.5"><span class="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">error</span><div><p class="text-body-sm font-semibold text-error">Permiso denegado por el sistema</p><p class="text-[12px] font-body-sm text-red-900 mt-1 leading-snug">El acceso a la ubicación está bloqueado. Para continuar, habilita el permiso de ubicación desde los ajustes de Android.</p></div></div><button class="w-full h-11 bg-error hover:bg-red-700 text-on-error font-label-md text-label-md rounded-lg flex items-center justify-center gap-2 transition-all duration-150 active:scale-[0.99] shadow-sm" onclick="simulateSettingsAction()"><span class="material-symbols-outlined text-[18px]">settings</span>Abrir ajustes del sistema</button></div><div class="space-y-3 hidden" id="view-concedido"><div class="p-3 bg-emerald-50 border border-emerald-200 rounded-lg flex items-start gap-2.5"><span class="material-symbols-outlined text-emerald-600 text-[20px] shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span><div><p class="text-body-sm font-semibold text-emerald-950">Permiso concedido</p><p class="text-[12px] font-body-sm text-emerald-900 mt-1 leading-snug">El dispositivo cuenta con los permisos necesarios para operar durante una sesión escolar activa.</p></div></div></div></section>
+<!-- TARJETA 3: PRIVACIDAD Y SESIÓN AUTORIZADA -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant/60 p-space-md shadow-sm space-y-3"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">verified_user</span><h2 class="text-headline-md font-headline-md text-on-surface">Privacidad y Sesión</h2></div><div class="bg-surface-container-low p-3 rounded-lg border border-outline-variant/20 flex items-start gap-2.5"><span class="material-symbols-outlined text-tertiary text-[18px] shrink-0 mt-0.5">shield</span><p class="text-body-sm font-body-sm text-on-surface leading-relaxed">El seguimiento de ubicación únicamente se ejecuta mientras exista una sesión activa autorizada en el dispositivo.</p></div></section>
+<!-- TARJETA 4: AVISO DE TRANSPARENCIA DEL SISTEMA ANDROID -->
+<section class="bg-surface-container-low/70 rounded-xl border border-outline-variant/40 p-3 space-y-2"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">android</span><h3 class="text-label-md font-label-md text-on-surface">Notificación del Sistema Android</h3></div><div class="bg-surface-container-lowest rounded-lg border border-outline-variant/40 p-2.5 shadow-xs flex items-center gap-3"><div class="w-7 h-7 rounded-full bg-slate-800 text-slate-100 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[15px]">my_location</span></div><div class="flex-1 min-w-0"><div class="flex items-center justify-between"><p class="text-[11px] font-semibold text-on-surface truncate">Kivo • Sesión Activa</p><span class="text-[10px] text-secondary font-data-mono">En ejecución</span></div><p class="text-[11px] text-secondary truncate">Seguimiento de sesión escolar en primer plano</p></div></div><p class="text-[11px] text-secondary leading-snug">Android muestra una notificación permanente en segundo plano mientras la sesión esté activa.</p></section>
+</main>
+<!-- FOOTER CON ACCIONES FIJAS (Ergonomía Táctil / Flutter BottomBar) -->
+<footer class="p-space-md bg-surface-container-lowest border-t border-outline-variant/40 space-y-2 shrink-0"><button class="w-full h-12 bg-slate-300 text-slate-500 font-label-md text-label-md rounded-xl flex items-center justify-center gap-2 cursor-not-allowed transition-all duration-150" disabled="" id="btn-continuar"><span class="material-symbols-outlined text-[18px]">lock</span><span>Concede el permiso para continuar</span></button><div class="grid grid-cols-2 gap-2 pt-1"><button class="h-9 px-2 bg-surface hover:bg-surface-container-high border border-outline-variant/60 rounded-lg text-secondary hover:text-on-surface text-[12px] font-label-md flex items-center justify-center gap-1 transition-colors" onclick="showFaqModal()"><span class="material-symbols-outlined text-[15px]">help_outline</span><span>Ayuda y Soporte</span></button><button class="h-9 px-2 bg-surface hover:bg-surface-container-high border border-outline-variant/60 rounded-lg text-secondary hover:text-on-surface text-[12px] font-label-md flex items-center justify-center gap-1 transition-colors" onclick="showPrivacyModal()"><span class="material-symbols-outlined text-[15px]">verified_user</span><span>Privacidad</span></button></div><div class="pt-2 flex justify-center"><div class="w-32 h-1 bg-slate-400/50 rounded-full"></div></div></footer>
+<!-- MODAL SIMPLE PARA SOPORTE / FAQ (Para completar fidelidad sin recargar) -->
+<div class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4" id="info-modal">
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/60 p-5 max-w-[340px] w-full shadow-2xl space-y-3"><div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[22px]" id="modal-icon">help_outline</span><h4 class="text-headline-md font-headline-md text-on-surface" id="modal-title">Ayuda y Soporte</h4></div><button class="text-secondary hover:text-on-surface" onclick="closeModal()"><span class="material-symbols-outlined text-[20px]">close</span></button></div><p class="text-body-sm font-body-sm text-secondary leading-relaxed" id="modal-body">Vinculación pendiente. Solicita ayuda al administrador escolar de Colegio Demo.</p><button class="w-full h-10 bg-primary-container text-on-primary text-label-md font-label-md rounded-lg" onclick="closeModal()">Entendido</button></div>
+</div>
+</div>
+<!-- SCRIPT PARA GESTIÓN DE ESTADOS INTERACTIVOS DEMOSTRATIVOS -->
+<script>
+    let currentState = 'pendiente';
+
+    function setPermissionState(state) {
+      currentState = state;
+
+      // Actualizar Tabs de simulación superior
+      const tabs = {
+        pendiente: document.getElementById('tab-pendiente'),
+        denegado: document.getElementById('tab-denegado'),
+        concedido: document.getElementById('tab-concedido')
+      };
+
+      Object.keys(tabs).forEach(key => {
+        if (key === state) {
+          tabs[key].className = "px-2.5 py-1 rounded text-label-sm font-label-sm transition-all duration-150 bg-surface-container-lowest text-primary shadow-sm font-semibold";
+        } else {
+          tabs[key].className = "px-2.5 py-1 rounded text-label-sm font-label-sm transition-all duration-150 text-secondary hover:text-on-surface";
+        }
+      });
+
+      // Alternar Vistas dentro de la tarjeta de Permisos
+      const viewPendiente = document.getElementById('view-pendiente');
+      const viewDenegado = document.getElementById('view-denegado');
+      const viewConcedido = document.getElementById('view-concedido');
+
+      const statusBadge = document.getElementById('status-badge');
+      const statusBadgeText = document.getElementById('status-badge-text');
+      const btnContinuar = document.getElementById('btn-continuar');
+
+      viewPendiente.classList.add('hidden');
+      viewDenegado.classList.add('hidden');
+      viewConcedido.classList.add('hidden');
+
+      if (state === 'pendiente') {
+        viewPendiente.classList.remove('hidden');
+        statusBadge.className = "inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-amber-50 text-amber-800 border border-amber-200";
+        statusBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-amber-500 mr-1.5"></span><span>Permiso Pendiente</span>';
+        
+        btnContinuar.disabled = true;
+        btnContinuar.className = "w-full h-12 bg-slate-200 text-slate-400 font-label-md text-label-md rounded-xl flex items-center justify-center gap-2 cursor-not-allowed transition-all duration-150";
+        btnContinuar.innerHTML = '<span class="material-symbols-outlined text-[18px]">lock</span><span>Concede el permiso para continuar</span>';
+      } 
+      else if (state === 'denegado') {
+        viewDenegado.classList.remove('hidden');
+        statusBadge.className = "inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-red-50 text-red-800 border border-red-200";
+        statusBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-red-500 mr-1.5"></span><span>Permiso Denegado</span>';
+        
+        btnContinuar.disabled = true;
+        btnContinuar.className = "w-full h-12 bg-slate-200 text-slate-400 font-label-md text-label-md rounded-xl flex items-center justify-center gap-2 cursor-not-allowed transition-all duration-150";
+        btnContinuar.innerHTML = '<span class="material-symbols-outlined text-[18px]">error</span><span>Permiso Requerido para Iniciar</span>';
+      } 
+      else if (state === 'concedido') {
+        viewConcedido.classList.remove('hidden');
+        statusBadge.className = "inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-emerald-50 text-emerald-800 border border-emerald-200";
+        statusBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5"></span><span>Permiso Activo</span>';
+        
+        btnContinuar.disabled = false;
+        btnContinuar.className = "w-full h-12 bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md rounded-xl flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all duration-150 active:scale-[0.99] cursor-pointer";
+        btnContinuar.innerHTML = '<span class="material-symbols-outlined text-[18px]">arrow_forward</span><span>Continuar al Monitoreo Escolar</span>';
+      }
+    }
+
+    function simulateSettingsAction() {
+      alert("Simulación de Android: Redirigiendo a Ajustes > Aplicaciones > Kivo Escolar > Permisos > Ubicación...");
+      // Al volver de ajustes simulados, conceder el permiso
+      setTimeout(() => {
+        setPermissionState('concedido');
+      }, 700);
+    }
+
+    function showFaqModal() {
+      const modal = document.getElementById('info-modal');
+      document.getElementById('modal-title').textContent = 'Soporte Escolar';
+      document.getElementById('modal-icon').textContent = 'support_agent';
+      document.getElementById('modal-body').textContent = 'Mesa de Ayuda de Transporte: Coordinación Colegio San Gabriel. Horario de atención: 07:30 a 16:30 hrs. Teléfono institucional: +56 2 2980 4400.';
+      modal.classList.remove('hidden');
+    }
+
+    function showPrivacyModal() {
+      const modal = document.getElementById('info-modal');
+      document.getElementById('modal-title').textContent = 'Garantía de Privacidad';
+      document.getElementById('modal-icon').textContent = 'verified_user';
+      document.getElementById('modal-body').textContent = 'Kivo Escolar no almacena datos de fin de semana ni monitorea trayectos no autorizados. Solo transmite mientras el vehículo de transporte escolar asignado se encuentra en ruta oficial.';
+      modal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('info-modal').classList.add('hidden');
+    }
+
+    // Inicializar estado por defecto
+    window.addEventListener('DOMContentLoaded', () => {
+      setPermissionState('pendiente');
+    });
+  </script>
+</body></html>
