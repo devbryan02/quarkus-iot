@@ -4,6 +4,16 @@ Todo el código y la configuración de contenedores están en esta carpeta. Esta
 
 La documentación compartida está en [`knowledge/`](../knowledge/README.md). La [spec central aprobada](backend/docs/superpowers/specs/2026-11-08-kivo-mvp-design.md), ubicada en la documentación del backend, define el alcance del MVP completo. Consultar también las [reglas de Gitflow](../knowledge/rules/01-gitflow.md).
 
+## Planes de implementación del MVP
+
+Los planes se guardan por proyecto en `superpowers/specs/`, según la ubicación solicitada por el propietario. Describen trabajo futuro; no acreditan funcionalidades ni pruebas ejecutadas.
+
+- [Backend: contratos, autorización, sesiones, telemetría, geocercas, SOS y retención](backend/superpowers/specs/2026-11-08-kivo-backend-implementation-plan.md).
+- [Frontend: cinco pantallas, administración, mapa y alertas](frontend/superpowers/specs/2026-11-08-kivo-frontend-implementation-plan.md).
+- [Android Flutter: vinculación, seguimiento autorizado y SOS](mobile/superpowers/specs/2026-11-08-kivo-android-implementation-plan.md). `mobile/` contiene solo documentación hasta que se ejecute su plan.
+
+Primero se cierran los contratos y diseños técnicos de la tarea B1 del backend; después los clientes pueden usar fixtures del contrato y finalmente integrarse contra servicios reales. Los planes mantienen la especificación central como autoridad y distinguen decisiones adoptadas de mecanismos técnicos aún abiertos.
+
 ## Versiones y generación
 
 - Backend: Java **25 LTS**, Quarkus **3.40.1.1 LTS**, Maven Wrapper **3.9.16**. Generador oficial `io.quarkus.platform:quarkus-maven-plugin:3.40.1.1:create`, extensiones `rest-jackson,smallrye-health` y `javaVersion=25`.
