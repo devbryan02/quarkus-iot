@@ -12,7 +12,7 @@ La [especificación central aprobada](../docs/superpowers/specs/2026-11-08-kivo-
 - **Next.js + PrimeReact** para el dashboard web y **mapcn** para mapas.
 - **App Android instalada, desarrollada con Flutter y Dart**, con interfaz mínima y seguimiento durante sesiones autorizadas incluso con pantalla bloqueada o al usar otra aplicación.
 - **Google Stitch** para diseñar pantallas y flujos; PrimeReact como referencia visual y de componentes del dashboard.
-- **Quarkus + Java 21** como monolito modular REST.
+- **Quarkus LTS + Java 25 LTS** como monolito modular REST, por instrucción posterior del propietario al crear el esqueleto.
 - **Apache Kafka** como broker separado y **Kafka Streams embebido como librería en Quarkus**.
 - **PostgreSQL** como fuente de verdad, con **Flyway** para migraciones versionadas. **Redis** para la última posición (caché reconstruible).
 - **PostGIS** es opcional: en MVP las geocercas son círculos con distancia Haversine, con tolerancia por precisión GPS.

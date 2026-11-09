@@ -35,7 +35,7 @@ Esta especificación reúne los acuerdos del refinamiento y los requisitos verif
 
 ### Alcance acordado
 
-Un colegio, identidades y coordenadas ficticias, cinco pantallas web y dos Android. Dashboard Next.js + PrimeReact + mapcn; Android Flutter/Dart; Quarkus con Java 21, Kafka y Kafka Streams; PostgreSQL con Flyway y Redis como caché. Docker Compose en un VPS, sin alta disponibilidad.
+Un colegio, identidades y coordenadas ficticias, cinco pantallas web y dos Android. Dashboard Next.js + PrimeReact + mapcn; Android Flutter/Dart; Quarkus LTS con Java 25 LTS, Kafka y Kafka Streams; PostgreSQL con Flyway y Redis como caché. Docker Compose en un VPS, sin alta disponibilidad. Java 25 sustituye Java 21 por instrucción explícita posterior del propietario al crear los esqueletos; ver ADR-023 y [setup](../../../codebase/README.md).
 
 ### Fuera del MVP
 

@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This repository currently documents the Kivo MVP for one school; application code has not been added.
+This repository contains the Kivo MVP documentation for one school and backend/frontend skeletons. Business features have not been implemented.
 
 El nombre oficial del producto es **Kivo**. Usar este nombre en la documentación, las interfaces y las respuestas sobre el proyecto; mantener `kivo.` como prefijo de los tópicos Kafka.
 
@@ -12,13 +12,15 @@ Consultar la [especificación central](docs/superpowers/specs/2026-11-08-kivo-mv
 - `arquitecture/`: architecture overview, deployment topology, and architectural decisions.
 - `desing/`: product screens, data model, REST contracts, and Kafka topics.
 - `flows/`: Mermaid sequences for telemetry, geofences, SOS, and monitoring sessions.
-- `codebase/`: currently empty; no source modules, tests, or application assets exist yet.
+- `codebase/backend/`: Quarkus 3.40.1.1 LTS, Java 25 LTS, Maven Wrapper, generated REST example and tests.
+- `codebase/frontend/`: Next.js generated with create-next-app, TypeScript, App Router, ESLint and npm lockfile; Node 24 LTS.
+- `codebase/compose.yaml`: local application containers and optional `infra` profile for PostgreSQL, Redis and Kafka. All future application projects belong under `codebase/`.
 
 Preserve the existing directory spellings so links remain valid.
 
 ## Build, Test, and Development Commands
 
-There are no build manifests, package scripts, wrappers, or runnable services in this checkout. Maven, npm, and Docker Compose commands are not configured.
+See [codebase setup](codebase/README.md) for full commands. Backend: from `codebase/backend`, run `.\mvnw.cmd -B -ntp verify -DskipITs=false` on Windows or `./mvnw -B -ntp verify -DskipITs=false` on Linux/macOS, with Java 25 LTS. Frontend: from `codebase/frontend`, run `npm ci`, `npm run lint`, `npx tsc --noEmit` and `npm run build`, with Node 24 LTS. Compose: copy `codebase/.env.example` to `.env` in the same folder, set a local password, then run `docker compose up --build -d --wait` from `codebase/`.
 
 Useful inspection commands from the repository root:
 
@@ -35,7 +37,7 @@ Name numbered documents with the existing pattern, such as `04-topic-name.md`. K
 
 ## Validation Guidelines
 
-No automated test framework or coverage threshold exists. For documentation changes, check relative links, render affected Mermaid diagrams, validate JSON examples, and compare API paths, event fields, and persistence behavior across documents. Update related architecture decisions and flows together when a contract changes.
+Backend has generated Quarkus/JUnit and REST Assured example tests, including a packaged application integration test; no coverage threshold is configured. Frontend checks are ESLint, TypeScript and production build. Run `npm audit` for npm dependency findings; it does not scan Java or container images. For documentation changes, check relative links, render affected Mermaid diagrams, validate JSON examples, and compare API paths, event fields, and persistence behavior across documents. Update related architecture decisions and flows together when a contract changes.
 
 ## Commit & Pull Request Guidelines
 

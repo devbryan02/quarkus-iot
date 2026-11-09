@@ -24,6 +24,8 @@
 | ADR-020 | Última posición pendiente y SOS durante desconexión | Evitar acumular historial local de ubicaciones | Descartar posición al cerrar sesión; límites/reintentos SOS pendientes |
 | ADR-021 | Geocercas asignadas por dispositivo | Evitar aplicar todas las zonas a todos los teléfonos | Evaluación independiente por zona y asignación explícita |
 | ADR-022 | Demo ficticia y retención acotada | Limitar datos del MVP | Ubicaciones 7 días; alertas/auditoría 30; mecanismo de borrado pendiente |
+| ADR-023 | Java 25 LTS y Quarkus 3.40.1.1 LTS para el esqueleto | Instrucción del propietario y LTS vigente al generar | Sustituye Java 21; compilar y ejecutar contenedores con Java 25; [setup](../codebase/README.md) |
+| ADR-024 | Proyectos y Compose local dentro de `codebase/` | Mantener juntos los esqueletos y su configuración | Backend y frontend arrancan sin infraestructura; PostgreSQL/Redis/Kafka disponibles mediante perfil `infra`, aún sin integrar |
 
 ## Módulos lógicos de Quarkus
 

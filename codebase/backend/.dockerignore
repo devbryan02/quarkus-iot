@@ -1,0 +1,8 @@
+.git
+.idea
+target
+.env
+.env.*
+*.log
+# Se mantienen los Dockerfiles JVM del generador como alternativa de empaquetado.
+# Este contexto incluye el fuente y Maven Wrapper para el Dockerfile multietapa.
