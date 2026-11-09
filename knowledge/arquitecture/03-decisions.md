@@ -26,6 +26,7 @@
 | ADR-022 | Demo ficticia y retención acotada | Limitar datos del MVP | Ubicaciones 7 días; alertas/auditoría 30; mecanismo de borrado pendiente |
 | ADR-023 | Java 25 LTS y Quarkus 3.40.1.1 LTS para el esqueleto | Instrucción del propietario y LTS vigente al generar | Sustituye Java 21; compilar y ejecutar contenedores con Java 25; [setup](../../codebase/README.md) |
 | ADR-024 | Proyectos y Compose local dentro de `../../codebase` | Mantener juntos los esqueletos y su configuración | Backend y frontend arrancan sin infraestructura; PostgreSQL/Redis/Kafka disponibles mediante perfil `infra`, aún sin integrar |
+| ADR-025 | Arquitectura hexagonal simplificada, por instrucción del propietario | Aislar reglas y dependencias externas sin imponer capas o interfaces redundantes | Organizar por funcionalidad; extraer puertos cuando permitan sustituir infraestructura o probar reglas; ver [guía](04-hexagonal-simplificada.md) |
 
 ## Módulos lógicos de Quarkus
 

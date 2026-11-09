@@ -9,7 +9,7 @@ MVP para **un colegio**, utilizando teléfonos con GPS como dispositivos de prue
 - [`knowledge/arquitecture`](knowledge/arquitecture/): arquitectura, stack, despliegue y decisiones.
 - [`knowledge/flows`](knowledge/flows/): flujos de telemetría, geocercas, SOS y sesiones.
 - [`knowledge/desing`](knowledge/desing/): diseño funcional, pantallas, contratos y modelo de datos.
-- [`codebase/`](codebase/README.md): esqueletos Quarkus y Next.js, Dockerfiles, Compose local y comandos de desarrollo.
+- [`codebase/`](codebase/README.md): esqueletos Quarkus, Next.js y Flutter Android, Dockerfiles, Compose local y comandos de desarrollo.
 - [`knowledge/rules`](knowledge/rules/README.md): reglas persistentes de trabajo, Gitflow y revisión de cambios.
 
 Los diagramas están escritos en **Mermaid** dentro de Markdown, compatibles con GitHub y editores con soporte Mermaid.
@@ -26,7 +26,13 @@ knowledge/
 codebase/
   backend/
     docs/superpowers/specs/
+    docs/superpowers/plans/
   frontend/
+    docs/superpowers/specs/
+    docs/superpowers/plans/
+  mobile/
+    docs/superpowers/specs/
+    docs/superpowers/plans/
   compose.yaml
 ```
 
@@ -40,7 +46,7 @@ La documentación compartida vive en `knowledge/`, la spec central en `codebase/
 - **Datos:** PostgreSQL con migraciones Flyway; Redis como caché.
 - **Pantallas y flujos:** Google Stitch, con PrimeReact como referencia del dashboard.
 
-El repositorio contiene documentación de diseño y los esqueletos compilables de backend y frontend en `codebase/`. Las funcionalidades del MVP, las integraciones de datos y la app Android aún no están implementadas. El Compose disponible es local; no representa el despliegue de producción.
+El repositorio contiene documentación de diseño y esqueletos de backend, frontend y Flutter Android en `codebase/`. Las funcionalidades del MVP y las integraciones de datos aún no están implementadas. La app móvil solo muestra una pantalla de arranque; los requisitos de SDK y dispositivo están en su [setup](codebase/mobile/README.md). El Compose disponible es local; no representa el despliegue de producción.
 
 ## Flujo de Git
 
